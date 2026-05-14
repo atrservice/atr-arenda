@@ -1,10 +1,49 @@
 // ========================================
-// Файл: src/lib/data.ts
-// Описание: Загрузка данных из JSON файлов
-// Проект: АТР-СПЕЦАРЕНДА
+// File: src/lib/data.ts
+// Description: Data loading utilities with strict TypeScript types
+// Project: ООО «АТР-СЕРВИС»
 // ========================================
 
-// Типы данных
+// 🔹 Строгие типы для оборудования
+export type EquipmentType = 'avtovyshka' | 'kmu' | 'avtokran' | 'prikrytie';
+
+export interface Equipment {
+  id: string;
+  name: string;
+  type: EquipmentType; // ✅ Узкий тип вместо string
+  height?: number;
+  capacity?: number;
+  boom_length?: number;
+  pricePerShift: number;
+  specs: {
+    platform_size?: string;
+    rotation?: string;
+    chassis: string;
+    permit_moscow?: string;
+    max_load?: string;
+    boom_reach?: number;
+    with_driver?: string;
+    jib?: string;
+    standard?: string;
+    lights?: string;
+    signs?: string;
+    driver_experience?: string;
+  };
+  available: boolean;
+  imageUrl: string;
+}
+
+// 🔹 Строгие типы для FAQ
+export type FAQCategory = 'commercial' | 'informational';
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+  category: FAQCategory; // ✅ Узкий тип вместо string
+  aliceOptimized?: boolean;
+}
+
+// 🔹 Тип для услуги
 export interface Service {
   slug: string;
   title: string;
@@ -15,51 +54,28 @@ export interface Service {
   imageUrl: string;
 }
 
-export interface Equipment {
-  id: string;
-  name: string;
-  type: 'avtovyshka' | 'kmu' | 'avtokran' | 'prikrytie';
-  height?: number; // для автовышек
-  capacity?: number; // грузоподъемность
-  pricePerShift: number;
-  specs: Record<string, string>;
-  available: boolean;
-}
-
-export interface FAQItem {
-  question: string;
-  answer: string;
-  category: 'commercial' | 'informational';
-  aliceOptimized?: boolean; // первый абзац - прямой ответ
-}
-
-// Загрузка сервисов
+// 🔹 Загрузка услуг
 export async function getServices(): Promise<Service[]> {
-  // В продакшене: fetch('/data/services.json')
-  // Для разработки импортируем напрямую
   const data = await import('@/data/services.json');
   return data.default;
 }
 
-// Загрузка техники
-export async function getEquipment(type?: string): Promise<Equipment[]> {
+// 🔹 Загрузка техники с фильтрацией по типу
+export async function getEquipment(type?: EquipmentType): Promise<Equipment[]> {
   const data = await import('@/data/equipment.json');
-  const all = data.default;
-  return type ? all.filter((e: Equipment) => e.type === type) : all;
+  const all: Equipment[] = data.default;
+  return type ? all.filter((e) => e.type === type) : all;
 }
 
-// Загрузка FAQ
-export async function getFAQ(category?: 'commercial' | 'informational'): Promise<FAQItem[]> {
+// 🔹 Загрузка FAQ с фильтрацией по категории
+export async function getFAQ(category?: FAQCategory): Promise<FAQItem[]> {
   const data = await import('@/data/faq.json');
-  const all = data.default;
-  return category ? all.filter((f: FAQItem) => f.category === category) : all;
+  const all: FAQItem[] = data.default;
+  return category ? all.filter((f) => f.category === category) : all;
 }
 
-// Загрузка информации о компании
+// 🔹 Загрузка информации о компании
 export async function getCompanyInfo() {
   const data = await import('@/data/company.json');
   return data.default;
 }
-
-// Кэширование: в Next.js 14 fetch по умолчанию кэширует
-// Для динамических данных используйте: fetch(url, { cache: 'no-store' })
