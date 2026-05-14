@@ -10,7 +10,7 @@ export type EquipmentType = 'avtovyshka' | 'kmu' | 'avtokran' | 'prikrytie';
 export interface Equipment {
   id: string;
   name: string;
-  type: EquipmentType; // ✅ Узкий тип вместо string
+  type: EquipmentType;
   height?: number;
   capacity?: number;
   boom_length?: number;
@@ -39,7 +39,7 @@ export type FAQCategory = 'commercial' | 'informational';
 export interface FAQItem {
   question: string;
   answer: string;
-  category: FAQCategory; // ✅ Узкий тип вместо string
+  category: FAQCategory;
   aliceOptimized?: boolean;
 }
 
@@ -57,20 +57,20 @@ export interface Service {
 // 🔹 Загрузка услуг
 export async function getServices(): Promise<Service[]> {
   const data = await import('@/data/services.json');
-  return data.default;
+  return data.default as Service[]; // ✅ Явное приведение типа
 }
 
 // 🔹 Загрузка техники с фильтрацией по типу
 export async function getEquipment(type?: EquipmentType): Promise<Equipment[]> {
   const data = await import('@/data/equipment.json');
-  const all: Equipment[] = data.default;
+  const all = data.default as Equipment[]; // ✅ Явное приведение типа
   return type ? all.filter((e) => e.type === type) : all;
 }
 
 // 🔹 Загрузка FAQ с фильтрацией по категории
 export async function getFAQ(category?: FAQCategory): Promise<FAQItem[]> {
   const data = await import('@/data/faq.json');
-  const all: FAQItem[] = data.default;
+  const all = data.default as FAQItem[]; // ✅ Явное приведение типа
   return category ? all.filter((f) => f.category === category) : all;
 }
 
