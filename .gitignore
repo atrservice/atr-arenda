@@ -1,0 +1,46 @@
+# ========================================
+# File: .gitignore
+# Project: ООО «АТР-СЕРВИС»
+# Description: Исключаем лишнее из репозитория
+# ========================================
+
+# 🔹 Зависимости (самое важное!)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# 🔹 Next.js
+.next/
+out/
+.vercel/
+.next/cache/
+
+# 🔹 Переменные окружения (НИКОГДА не коммить!)
+.env*.local
+!.env.example
+
+# 🔹 IDE и редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 🔹 ОС
+.DS_Store
+Thumbs.db
+
+# 🔹 Логи и временные файлы
+*.log
+tmp/
+temp/
+
+# 🔹 TypeScript
+*.tsbuildinfo
+.next/types/
+
+# 🔹 Продакшен-сборка (если не нужна в репо)
+# dist/
+# build/

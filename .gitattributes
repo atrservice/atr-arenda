@@ -1,0 +1,29 @@
+# ========================================
+# File: .gitattributes
+# Description: Единый формат окончаний строк для всех ОС
+# Project: ООО «АТР-СЕРВИС»
+# ========================================
+
+# Текст: всегда LF в репозитории, авто-конвертация при checkout
+* text=auto
+
+# Исключения для бинарных файлов
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Скрипты: точно текст
+*.js text
+*.ts text
+*.tsx text
+*.jsx text
+*.json text
+*.md text
+*.css text
+*.html text
+*.txt text
+*.gitignore text
+*.gitattributes text

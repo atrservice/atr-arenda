@@ -1,0 +1,80 @@
+[
+  {
+    "id": "av-16m",
+    "name": "Автовышка 16 м",
+    "type": "avtovyshka",
+    "height": 16,
+    "capacity": 300,
+    "pricePerShift": 16000,
+    "specs": {
+      "platform_size": "1.2 x 0.7 м",
+      "rotation": "360°",
+      "chassis": "ГАЗ, КАМАЗ",
+      "permit_moscow": "Да"
+    },
+    "available": true,
+    "imageUrl": "/images/equipment/av-16m.jpg"
+  },
+  {
+    "id": "av-22m",
+    "name": "Автовышка 22 м",
+    "type": "avtovyshka",
+    "height": 22,
+    "capacity": 300,
+    "pricePerShift": 18000,
+    "specs": {
+      "platform_size": "1.2 x 0.7 м",
+      "rotation": "360°",
+      "chassis": "КАМАЗ, МАЗ",
+      "permit_moscow": "Да"
+    },
+    "available": true,
+    "imageUrl": "/images/equipment/av-22m.jpg"
+  },
+  {
+    "id": "kmu-7t",
+    "name": "КМУ 7 тонн",
+    "type": "kmu",
+    "capacity": 7000,
+    "boom_length": 8.5,
+    "pricePerShift": 20000,
+    "specs": {
+      "max_load": "7000 кг",
+      "boom_reach": "8.5 м",
+      "chassis": "КАМАЗ, УРАЛ",
+      "with_driver": "Да"
+    },
+    "available": true,
+    "imageUrl": "/images/equipment/kmu-7t.jpg"
+  },
+  {
+    "id": "ak-25t",
+    "name": "Автокран 25 тонн",
+    "type": "avtokran",
+    "capacity": 25000,
+    "boom_length": 31,
+    "pricePerShift": 22000,
+    "specs": {
+      "max_load": "25000 кг",
+      "boom_length": "31 м",
+      "jib": "Опционально +9 м",
+      "chassis": "КАМАЗ, МАЗ"
+    },
+    "available": true,
+    "imageUrl": "/images/equipment/ak-25t.jpg"
+  },
+  {
+    "id": "mp-gost",
+    "name": "Машина прикрытия ГОСТ",
+    "type": "prikrytie",
+    "pricePerShift": 18000,
+    "specs": {
+      "standard": "ГОСТ Р 50574-2018",
+      "lights": "Жёлтые проблесковые",
+      "signs": "Полный комплект",
+      "driver_experience": "от 5 лет"
+    },
+    "available": true,
+    "imageUrl": "/images/equipment/mp-gost.jpg"
+  }
+]
