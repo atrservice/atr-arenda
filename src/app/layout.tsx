@@ -14,7 +14,7 @@ import { CONTACTS } from '@/lib/contacts';
 
 const inter = Inter({ 
   subsets: ['cyrillic', 'latin'],
-  display: 'swap',
+  display: 'swap', // ✅ Критично для CLS и скорости
   variable: '--font-inter'
 });
 

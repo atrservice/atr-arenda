@@ -5,7 +5,15 @@
 // ========================================
 
 import Link from 'next/link';
-import type { Service } from '@/lib/data';
+
+interface Service {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  priceFrom: number;
+  features: string[];
+}
 
 interface ServiceCardProps {
   service: Service;
@@ -15,45 +23,50 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   return (
     <Link 
       href={`/uslugi/${service.slug}`}
-      className="group block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-blue-300 transition-all"
+      className="card card-hover block p-0 h-full group"
     >
-      {/* Иконка */}
-      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
+      {/* Иконка / превью */}
+      <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-5xl group-hover:from-primary-50 group-hover:to-accent-50 transition-colors">
         {service.icon}
       </div>
       
-      {/* Заголовок */}
-      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-        {service.title}
-      </h3>
-      
-      {/* Описание */}
-      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-        {service.description}
-      </p>
-      
-      {/* Характеристики */}
-      <ul className="space-y-1 mb-4">
-        {service.features.slice(0, 3).map((feature, idx) => (
-          <li key={idx} className="text-xs text-gray-500 flex items-center gap-1">
-            <span className="text-green-500">✓</span>
-            {feature}
-          </li>
-        ))}
-      </ul>
-      
-      {/* Цена и кнопка */}
-      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div>
-          <span className="text-xs text-gray-500">от</span>
-          <span className="text-lg font-bold text-blue-600">
-            {service.priceFrom.toLocaleString('ru-RU')} ₽
-          </span>
-          <span className="text-xs text-gray-500">/смена</span>
+      {/* Контент */}
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">
+          {service.title}
+        </h3>
+        
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
+          {service.description}
+        </p>
+        
+        {/* Теги */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {service.features.slice(0, 2).map((feature, idx) => (
+            <span 
+              key={idx}
+              className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 text-gray-700"
+            >
+              {feature}
+            </span>
+          ))}
         </div>
-        <span className="text-sm text-blue-600 font-medium group-hover:translate-x-1 transition">
-          Подробнее →
-        </span>
+
+        {/* Цена + стрелка */}
+        <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
+          <div>
+            <span className="text-xs text-gray-400 block mb-0.5">от</span>
+            <span className="text-2xl font-extrabold text-primary-600">
+              {service.priceFrom.toLocaleString('ru-RU')}
+            </span>
+            <span className="text-sm text-gray-500 ml-1">₽</span>
+          </div>
+          <span className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
       </div>
     </Link>
   );
