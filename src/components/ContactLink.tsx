@@ -87,7 +87,7 @@ export default function ContactLink({
       goal: METRIKA_GOALS.whatsapp,
     },
     max: {
-      href: 'https://vk.com/atr_service',
+      href: CONTACTS.max?.link || 'https://vk.com/atr_service',
       text: children || LABELS.max,
       icon: ICONS.max,
       label: LABELS.max,
@@ -102,8 +102,10 @@ export default function ContactLink({
   return (
     <a
       href={config.href}
-      onClick={(e) => {
-        handleClick(e);
+      onClick={() => {
+        // ✅ Вызываем без аргументов — handleClick не принимает event
+        handleClick();
+        
         // 🔹 Дополнительная отправка цели в Метрику (дублирующая страховка)
         if (typeof window !== 'undefined' && (window as any).ym) {
           (window as any).ym(process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID, 'reachGoal', config.goal);
@@ -122,7 +124,6 @@ export default function ContactLink({
             width={iconSize}
             height={iconSize}
             className="object-contain"
-            sizes="(max-width: 768px) 32px, 64px"
           />
         </span>
       )}
