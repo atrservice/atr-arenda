@@ -2,7 +2,6 @@
    Файл: src/app/globals.css
    Проект: ООО «АТР-СЕРВИС»
    Tailwind: v3.4.17 (стабильная версия)
-   Подход: только стандартные классы, без arbitrary values в @apply
    ======================================== */
 
 /* 🔹 Tailwind v3: эти три строки ОБЯЗАТЕЛЬНЫ в начале */
@@ -31,32 +30,35 @@
   h3 { @apply text-2xl md:text-3xl; }
   
   a {
-    @apply text-primary-600 hover:text-primary-800 transition-colors;
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
   }
 }
 
 /* 🔹 @layer components: переиспользуемые компоненты */
 @layer components {
-  /* ===== КНОПКИ ===== */
+  /* ===== КНОПКИ С ГРАДИЕНТАМИ ===== */
   .btn {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 
-           font-semibold rounded-xl transition-all duration-200 
-           shadow-sm hover:shadow-md active:scale-[0.98] cursor-pointer;
+           font-semibold rounded-xl transition-all duration-300 
+           shadow-soft hover:shadow-card-hover active:scale-[0.98]
+           cursor-pointer;
   }
   
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    @apply btn bg-gradient-to-r from-primary-500 to-primary-600 text-white 
+           hover:from-primary-600 hover:to-primary-700
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
   }
   
   .btn-accent {
-    @apply btn bg-accent-500 text-white hover:bg-accent-600 
+    @apply btn bg-gradient-to-r from-orange-500 to-orange-600 text-white 
+           hover:from-orange-600 hover:to-orange-700
            focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2;
   }
   
   .btn-outline {
-    @apply btn border-2 border-primary-600 text-primary-600 
-           hover:bg-primary-50 hover:text-primary-700;
+    @apply btn border-2 border-primary-500 text-primary-600 
+           hover:bg-primary-50 hover:border-primary-600;
   }
 
   /* ===== КОНТЕЙНЕР ===== */
@@ -64,29 +66,34 @@
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* ===== КАРТОЧКИ ===== */
+  /* ===== КАРТОЧКИ С ОБЪЁМОМ ===== */
   .card {
-    @apply bg-white rounded-2xl border border-gray-100 shadow-sm 
-           hover:shadow-md transition-all duration-300;
+    @apply bg-white rounded-2xl border border-gray-100 shadow-card 
+           hover:shadow-card-hover transition-all duration-300
+           hover:-translate-y-1;
   }
   
   .card-hover {
-    @apply hover:-translate-y-1;
+    @apply hover:-translate-y-2;
   }
 
-  /* ===== СЕКЦИИ ===== */
+  /* ===== СЕКЦИИ С ГРАДИЕНТАМИ ===== */
   .section {
     @apply py-16 md:py-24;
   }
   
   .section-alt {
-    @apply section bg-gray-50;
+    @apply section bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+  
+  .section-gradient {
+    @apply section bg-gradient-to-br from-primary-50 via-white to-orange-50;
   }
 
   /* ===== ФОРМЫ ===== */
   .input {
     @apply w-full px-4 py-3 rounded-xl border border-gray-200 
-           focus:border-primary-600 focus:ring-2 focus:ring-blue-200 
+           focus:border-primary-500 focus:ring-2 focus:ring-orange-200 
            outline-none transition-all bg-white text-gray-900 placeholder-gray-400;
   }
   
@@ -105,5 +112,14 @@
     text-wrap: balance;
   }
   
-  /* ✅ Используй готовый класс .sr-only из Tailwind — не переопределяй его! */
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Градиентный текст */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-orange-600;
+  }
+  
+  /* ✅ .sr-only — НЕ переопределяй! Используй готовый класс Tailwind */
 }

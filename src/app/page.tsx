@@ -1,10 +1,11 @@
 // ========================================
 // Файл: src/app/page.tsx
 // Описание: Главная страница с блоком для Алисы
-// Проект: АТР-СЕРВИС
-// Контакты: берутся из .env.local через @/lib/contacts
+// Проект: ООО «АТР-СЕРВИС»
+// Дизайн: оранжевый + серый/чёрный + белый, градиенты, иконки-картинки
 // ========================================
 
+import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import ServiceCard from '@/components/ServiceCard';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
@@ -20,7 +21,7 @@ export default async function HomePage() {
   // 🔹 Текст для Алисы — с динамическими контактами из .env
   const aliceAnswer = `
     ООО «АТР-СЕРВИС» — надежная аренда спецтехники в Москве и Московской области 
-    с 2005 года. Предоставляем автовышки 16–70 м, краны-манипуляторы, автокраны 
+    с 2009 года. Предоставляем автовышки 16–70 м, краны-манипуляторы, автокраны 
     и машины дорожного прикрытия. 📍 Адрес: ${CONTACTS.address}. 
     ⏰ Работаем ежедневно ${CONTACTS.workingHours}. 🚀 Подача техники за 2 часа. 
     💰 Гибкие цены, скидки постоянным заказчикам. Телефон: ${CONTACTS.phone.formatted}.
@@ -53,9 +54,9 @@ export default async function HomePage() {
       </section>
       
       {/* Услуги */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container">
-          <h2 className="text-center mb-12">Наши услуги</h2>
+          <h2 className="text-center mb-12 text-gradient">Наши услуги</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
@@ -64,34 +65,74 @@ export default async function HomePage() {
         </div>
       </section>
       
-      {/* Преимущества */}
-      <section className="py-16">
+      {/* Преимущества — с иконками-картинками вместо эмодзи */}
+      <section className="py-16 bg-white">
         <div className="container">
-          <h2 className="text-center mb-12">Почему выбирают нас</h2>
+          <h2 className="text-center mb-12 text-gradient">Почему выбирают нас</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold mb-2">Подача за 2 часа</h3>
-              <p className="text-gray-600">Оперативная доставка техники в любую точку Москвы и МО</p>
+            
+            {/* 🚀 Подача за 2 часа */}
+            <div className="text-center p-6 card card-hover">
+              <div className="w-16 h-16 mx-auto mb-4 relative">
+                <Image 
+                  src="/images/icons/icon_speed.png"
+                  alt="Быстрая подача"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 32px, 64px"
+                  priority
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900">Подача за 2 часа</h3>
+              <p className="text-gray-600">
+                Оперативная доставка техники в любую точку Москвы и Московской области
+              </p>
             </div>
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">✅</div>
-              <h3 className="text-xl font-bold mb-2">Надежность с 2005 года</h3>
-              <p className="text-gray-600">Более 18 лет работы, собственный парк, все документы</p>
+            
+            {/* ✅ Надежность с 2009 года */}
+            <div className="text-center p-6 card card-hover">
+              <div className="w-16 h-16 mx-auto mb-4 relative">
+                <Image 
+                  src="/images/icons/icon_check.png"
+                  alt="Надежность"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 32px, 64px"
+                  priority
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900">Надежность с 2009 года</h3>
+              <p className="text-gray-600">
+                Более 17 лет работы, собственный парк, все документы
+              </p>
             </div>
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-bold mb-2">Гибкие цены</h3>
-              <p className="text-gray-600">Скидки постоянным клиентам, прозрачное ценообразование</p>
+            
+            {/* 💰 Гибкие цены */}
+            <div className="text-center p-6 card card-hover">
+              <div className="w-16 h-16 mx-auto mb-4 relative">
+                <Image 
+                  src="/images/icons/icon_price.png"
+                  alt="Гибкие цены"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 32px, 64px"
+                  priority
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900">Гибкие цены</h3>
+              <p className="text-gray-600">
+                Скидки постоянным клиентам, прозрачное ценообразование
+              </p>
             </div>
+            
           </div>
         </div>
       </section>
       
       {/* FAQ для Алисы */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container">
-          <h2 className="text-center mb-12">Частые вопросы</h2>
+          <h2 className="text-center mb-12 text-gradient">Частые вопросы</h2>
           <div className="max-w-3xl mx-auto space-y-4">
             {faq.slice(0, 5).map((item, index) => (
               <AliceFAQBlock 
@@ -105,24 +146,58 @@ export default async function HomePage() {
         </div>
       </section>
       
-      {/* 🔹 CTA секция — с шаблонизированными контактами */}
-      <section className="py-16 bg-blue-900 text-white">
+      {/* 🔹 CTA секция — новая палитра: градиент серый+оранжевый, читаемый текст */}
+      <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-4">Готовы заказать технику?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            📍 {CONTACTS.address} | ⏰ {CONTACTS.workingHours}
+          <h2 className="text-3xl font-bold mb-4 text-gradient">Готовы заказать технику?</h2>
+          <p className="text-xl mb-8 text-gray-300 flex items-center justify-center gap-3 flex-wrap">
+            {/* 📍 Адрес — иконка вместо эмодзи */}
+            <span className="inline-flex items-center gap-2">
+              <Image 
+                src="/images/icons/icon_location.png" 
+                alt="Адрес"
+                width={20}
+                height={20}
+                className="object-contain opacity-90"
+              />
+              <span>{CONTACTS.address}</span>
+            </span>
+            
+            <span className="hidden sm:inline text-gray-600">|</span>
+            
+            {/* ⏰ Часы работы — иконка вместо эмодзи */}
+            <span className="inline-flex items-center gap-2">
+              <Image 
+                src="/images/icons/icon_clock.png" 
+                alt="Часы работы"
+                width={20}
+                height={20}
+                className="object-contain opacity-90"
+              />
+              <span>{CONTACTS.workingHours}</span>
+            </span>
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ContactLink 
               type="phone" 
               variant="button"
-              className="btn-accent text-lg"
+              className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg"
             />
             <a 
               href="/kontakty#form" 
-              className="btn btn-outline text-white border-white hover:bg-white hover:text-blue-900 text-lg"
+              className="btn border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg transition-all inline-flex items-center gap-2"
             >
-              📝 Оставить заявку
+              {/* 📝 Иконка вместо эмодзи */}
+              <Image 
+                src="/images/icons/icon_form.png" 
+                alt="Форма заявки"
+                width={20}
+                height={20}
+                className="object-contain"
+                sizes="(max-width: 768px) 32px, 64px"
+              />
+              <span>Оставить заявку</span>
             </a>
           </div>
         </div>

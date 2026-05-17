@@ -5,12 +5,14 @@
 // ========================================
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Service {
   slug: string;
   title: string;
   description: string;
   icon: string;
+  imageUrl?: string;
   priceFrom: number;
   features: string[];
 }
@@ -25,11 +27,24 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       href={`/uslugi/${service.slug}`}
       className="card card-hover block p-0 h-full group"
     >
-      {/* Иконка / превью */}
-      <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center text-5xl group-hover:from-primary-50 group-hover:to-accent-50 transition-colors">
-        {service.icon}
+      {/* Иконка / превью — с поддержкой картинки и фолбэком на эмодзи */}
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden rounded-t-2xl group-hover:from-primary-50 group-hover:to-accent-50 transition-colors">
+        <div className="aspect-video flex items-center justify-center p-6">
+          {service.imageUrl ? (
+            <img 
+              src={service.imageUrl} 
+              alt={service.title}
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          ) : (
+            <div className="text-6xl text-gray-400">
+              {service.icon}
+            </div>
+          )}
+        </div>
       </div>
-      
+            
       {/* Контент */}
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">

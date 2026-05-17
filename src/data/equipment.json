@@ -9,7 +9,7 @@
     "specs": {
       "platform_size": "1.2 x 0.7 м",
       "rotation": "360°",
-      "chassis": "ГАЗ, КАМАЗ",
+      "chassis": "Шоссейное, Вездеход",
       "permit_moscow": "Да"
     },
     "available": true,
@@ -25,7 +25,7 @@
     "specs": {
       "platform_size": "1.2 x 0.7 м",
       "rotation": "360°",
-      "chassis": "КАМАЗ, МАЗ",
+      "chassis": "Шоссейное, Вездеход",
       "permit_moscow": "Да"
     },
     "available": true,
@@ -33,15 +33,15 @@
   },
   {
     "id": "kmu-7t",
-    "name": "КМУ 7 тонн",
+    "name": "КМУ стрела 7 тонн, борт 10 тонн",
     "type": "kmu",
     "capacity": 7000,
-    "boom_length": 8.5,
+    "boom_length": 19.5,
     "pricePerShift": 20000,
     "specs": {
       "max_load": "7000 кг",
-      "boom_reach": "8.5 м",
-      "chassis": "КАМАЗ, УРАЛ",
+      "boom_reach": "19.5 м",
+      "chassis": "Шоссейное, Вездеход",
       "with_driver": "Да"
     },
     "available": true,
@@ -67,10 +67,10 @@
     "id": "mp-gost",
     "name": "Машина прикрытия ГОСТ",
     "type": "prikrytie",
-    "pricePerShift": 18000,
+    "pricePerShift": 12000,
     "specs": {
-      "standard": "ГОСТ Р 50574-2018",
-      "lights": "Жёлтые проблесковые",
+      "standard": "ГОСТ Р 50574-2019",
+      "lights": "Проблесковые огни",
       "signs": "Полный комплект",
       "driver_experience": "от 5 лет"
     },

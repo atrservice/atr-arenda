@@ -1,69 +1,56 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // ✅ Сканирует все файлы на использование классов
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // ✅ Тема с бренд-цветами
   theme: {
     extend: {
       colors: {
-        // 🔵 Синий: доверие, профессионализм
+        // 🟠 Основной акцент: оранжевый
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',    // Основной
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',    // Тёмный для фона
-          950: '#172554',
-        },
-        // 🟠 Оранжевый: энергия, внимание, техника
-        accent: {
           50: '#fff7ed',
           100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
           400: '#fb923c',
-          500: '#f97316',    // Основной
+          500: '#f97316',    // Основной оранжевый
           600: '#ea580c',    // Hover
           700: '#c2410c',
+          800: '#9a3412',
           900: '#7c2d12',
         },
-        // ⚪ Нейтральные
+        // ⚫ Нейтральные: серый/чёрный
         gray: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
         },
+        // 🤍 Белый
+        white: '#ffffff',
       },
       fontFamily: {
-        sans: [
-          'Inter',
-          'system-ui',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'sans-serif',
-        ],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        'soft': '0 2px 20px -2px rgba(0, 0, 0, 0.08)',
+        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 20px 40px -5px rgba(0, 0, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.1)',
+        'glow': '0 0 30px rgba(249, 115, 22, 0.3)',
+        'glow-lg': '0 0 50px rgba(249, 115, 22, 0.4)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.3s ease-out',
-        'slide-up': 'slideUp 0.4s ease-out',
+        'fade-in': 'fadeIn 0.4s ease-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'gradient': 'gradient 8s ease infinite',
       },
       keyframes: {
         fadeIn: {
@@ -71,13 +58,19 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        gradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-animated': 'linear-gradient(-45deg, #f97316, #ea580c, #c2410c, #f97316)',
       },
     },
   },
-  // ✅ Плагины (можно добавить позже)
   plugins: [],
-  // ✅ Оптимизация: не отключаем preflight (базовый сброс стилей)
 }

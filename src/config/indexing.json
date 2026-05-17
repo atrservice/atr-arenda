@@ -1,0 +1,26 @@
+{
+  "description": "Управление индексацией страниц. index=false = не показывать в sitemap + noindex meta",
+  "defaultIndex": true,
+  "rules": [
+    {
+      "path": "/uslugi",
+      "index": false,
+      "reason": "Страница-заглушка, дорабатывается"
+    },
+    {
+      "path": "/policy",
+      "index": false,
+      "reason": "Юридическая страница ещё не готова"
+    },
+    {
+      "path": "/terms",
+      "index": false,
+      "reason": "Юридическая страница ещё не готова"
+    },
+    {
+      "path": "/rekvizity",
+      "index": false,
+      "reason": "Страница в разработке"
+    }
+  ]
+}
