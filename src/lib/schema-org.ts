@@ -1,7 +1,7 @@
 // ========================================
 // File: src/lib/schema-org.ts
 // Description: Schema.org JSON-LD generators for Yandex/Alice SEO
-// Project: ATR-SPECARENDA
+// Project: АТР-СЕРВИС
 // Контакты: берутся из .env.local через @/lib/contacts
 // ========================================
 

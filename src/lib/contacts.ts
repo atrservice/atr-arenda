@@ -1,7 +1,7 @@
 // ========================================
 // File: src/lib/contacts.ts
 // Description: Centralized contacts + Yandex.Metrika helper
-// Project: ATR-SPECARENDA
+// Project: АТР-СЕРВИС
 // ========================================
 
 // 🔹 Типы для TypeScript
@@ -16,7 +16,7 @@ export const CONTACTS = {
     link: process.env.NEXT_PUBLIC_PHONE_LINK || 'tel:+79262097373',
   },
   email: {
-    address: process.env.NEXT_PUBLIC_EMAIL || 'info@atr-specarenda.ru',
+    address: process.env.NEXT_PUBLIC_EMAIL || 'info@фavtovishki-arenda.ru',
     link: process.env.NEXT_PUBLIC_EMAIL_LINK || 'mailto:info@avtovishki-arenda.ru',
   },
   telegram: {

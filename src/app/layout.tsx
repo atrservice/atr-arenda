@@ -1,6 +1,6 @@
 // ========================================
 // File: src/app/layout.tsx
-// Project: ATR-SPECARENDA
+// Project: АТР-СЕРВИС
 // Note: Metadata in ASCII for Turbopack compatibility
 // ========================================
 
@@ -19,48 +19,78 @@ const inter = Inter({
 });
 
 // 🔹 METADATA IN ASCII (temporary for debugging)
+// 🔹 Глобальные метаданные для всего сайта (ТОЛЬКО РУССКИЙ + ОДИН БЛОК)
+// 🔹 Глобальные метаданные для всего сайта (ТОЛЬКО РУССКИЙ + ОДИН БЛОК)
 export const metadata: Metadata = {
+  // 🔹 Заголовок: автоматическое добавление "| АТР-СЕРВИС" к title страниц
   title: {
-    default: 'ATR-SPECARENDA | Special equipment rental in Moscow',
-    template: '%s | ATR-SPECARENDA'
+    default: 'Аренда спецтехники в Москве и МО | АТР-СЕРВИС от 12 000₽',
+    template: '%s | АТР-СЕРВИС', // ✅ Запятая обязательна!
   },
-  description: `✅ Надежная аренда спецтехники в Москве и МО. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}. 📞 ${CONTACTS.phone.formatted}`,
+  
+  // 🔹 Описание: чистый текст без эмодзи (метаданные не поддерживают иконки)
+  description: `Надежная аренда спецтехники в Москве и МО. Адрес: ${CONTACTS.address}. Режим работы: ${CONTACTS.workingHours}. Телефон: ${CONTACTS.phone.formatted}`,
+  
+  // 🔹 Ключевые слова: только русские, релевантные запросы
   keywords: [
-    'aerial lift rental moscow',
-    'kmu rental',
-    'crane rental',
-    'road safety vehicle',
-    'special equipment',
-    'ATR-SPECARENDA'
+    'аренда спецтехники москва',
+    'аренда автовышки',
+    'аренда КМУ',
+    'аренда автокрана',
+    'машины прикрытия ГОСТ',
+    'аренда спецтехники недорого',
+    'автовышка почасовая москва',
+    'АТР-СЕРВИС',
   ],
-  authors: [{ name: 'OOO ATR-SERVICE' }],
-  creator: 'OOO ATR-SERVICE',
-  publisher: 'OOO ATR-SERVICE',
+  
+  // 🔹 Авторы (опционально, но полезно для Яндекс)
+  authors: [{ name: 'ООО «АТР-СЕРВИС»' }],
+  creator: 'ООО «АТР-СЕРВИС»',
+  publisher: 'ООО «АТР-СЕРВИС»',
+  
+  // 🔹 Распознавание контактов браузером
   formatDetection: {
     telephone: true,
     email: false,
-    address: true
+    address: true,
   },
+  
+  // 🔹 Favicon
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/favicon.png',
+  },
+  
+  // 🔹 Open Graph (превью в Telegram, WhatsApp, VK, Яндекс)
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
     url: 'https://avtovishki-arenda.ru',
-    siteName: 'ATR-SPECARENDA',
-    title: 'Special equipment rental in Moscow | ATR-SPECARENDA',
-    description: 'Aerial lifts, cranes, manipulators for rent. Delivery in 2 hours.',
-    images: [{
-      url: 'https://avtovishki-arenda.ru/images/og-image.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'ATR-SPECARENDA equipment rental'
-    }]
+    siteName: 'АТР-СЕРВИС',
+    title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+    description: 'Автовышки, КМУ, автокраны, машины прикрытия. Собственный парк. Подача за 2 часа.',
+    images: [
+      {
+        url: 'https://avtovishki-arenda.ru/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+      },
+    ],
   },
+  
+  // 🔹 Twitter Cards (опционально, но полезно для единообразия)
   twitter: {
     card: 'summary_large_image',
-    title: 'ATR-SPECARENDA | Equipment rental',
-    description: 'Aerial lifts, cranes in Moscow',
-    images: ['https://avtovishki-arenda.ru/images/og-image.jpg']
+    title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+    description: 'Автовышки, КМУ, автокраны. Подача за 2 часа.',
+    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'],
   },
+  
+  // 🔹 Индексация: разрешаем всем поисковикам
   robots: {
     index: true,
     follow: true,
@@ -72,9 +102,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  
+  // 🔹 Верификация для Яндекс.Вебмастера
   verification: {
-  yandex: 'c6b99895f256d350',
+    yandex: 'c6b99895f256d350',
   },
+  
+  // 🔹 Канонический URL (защита от дублей)
   alternates: {
     canonical: 'https://avtovishki-arenda.ru',
   },
