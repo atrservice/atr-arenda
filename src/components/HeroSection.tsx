@@ -110,6 +110,7 @@ export default function HeroSection() {
                           height={40}
                           className="object-contain"
                           sizes="(max-width: 768px) 32px, 64px"
+                          loading="lazy"  // ✅ Загружается только когда виден на экране
                         />
                       </div>
                       <div>

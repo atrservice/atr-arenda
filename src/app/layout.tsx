@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     'автовышка почасовая москва',
     'АТР-СЕРВИС',
   ],
+
+    // 🔹 Viewport для мобильных (ОБЯЗАТЕЛЬНО!)
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   
   // 🔹 Авторы (опционально, но полезно для Яндекс)
   authors: [{ name: 'ООО «АТР-СЕРВИС»' }],
