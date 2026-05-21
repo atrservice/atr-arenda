@@ -86,6 +86,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+        type: 'image/jpeg', // ✅ Явно указываем тип
       },
     ],
   },
@@ -95,7 +96,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
     description: 'Автовышки, КМУ, автокраны. Подача за 2 часа.',
-    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'],
+    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'], // ✅ Абсолютный URL!
   },
   
   // 🔹 Индексация: разрешаем всем поисковикам
@@ -142,6 +143,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+
+                {/* 🔹 ДОБАВЬ ЭТИ ТЕГИ (фолбэк для мессенджеров): */}
+        <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="АТР-СЕРВИС — Аренда спецтехники в Москве" />
+        <meta name="twitter:description" content="Автовышки, КМУ, автокраны. Подача за 2 часа." />
+        
       </head>
       <body className="flex flex-col min-h-screen">
         <Header />
