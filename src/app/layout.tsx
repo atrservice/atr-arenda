@@ -11,6 +11,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateOrganizationSchema } from '@/lib/schema-org';
 import { CONTACTS } from '@/lib/contacts';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import DebugLogger from '@/components/DebugLogger';
 
 const inter = Inter({ 
   subsets: ['cyrillic', 'latin'],
@@ -162,35 +164,40 @@ export default function RootLayout({
         
       </head>
       <body className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        
-        {/* Yandex.Metrika - replace XXXXXXX with your ID */}
-        {process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID && process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID !== '00000000' && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(m,e,t,r,i,k,a){
-                  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                  m[i].l=1*new Date();
-                  for(var j=0;j<r.length;j++){
-                    try{
-                      var g=t.createElement("script"),z=r[j];
-                      g.async=1;g.src=z;e.body.appendChild(g);
-                    }catch(e){}
-                  }
-                })(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-                ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || 0},"init",{
-                  clickmap:true,
-                  trackLinks:true,
-                  accurateTrackBounce:true,
-                  webvisor:true
-                });
-              `
-            }}
-          />
-        )}
+        {/* ✅ Оберни всё содержимое в ErrorBoundary */}
+        <ErrorBoundary>
+          {/* ✅ Добавь отладчик здесь */}
+          {process.env.NODE_ENV === 'development' && <DebugLogger />}
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          
+          {/* Yandex.Metrika - replace XXXXXXX with your ID */}
+          {process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID && process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID !== '00000000' && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function(m,e,t,r,i,k,a){
+                    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                    m[i].l=1*new Date();
+                    for(var j=0;j<r.length;j++){
+                      try{
+                        var g=t.createElement("script"),z=r[j];
+                        g.async=1;g.src=z;e.body.appendChild(g);
+                      }catch(e){}
+                    }
+                  })(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+                  ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || 0},"init",{
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                  });
+                `
+              }}
+            />
+          )}
+        </ErrorBoundary>
       </body>
     </html>
   );
