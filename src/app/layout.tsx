@@ -146,6 +146,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
+        {/* 🔹 Цвет адресной строки в мобильных браузерах */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
                 {/* 🔹 ДОБАВЬ ЭТИ ТЕГИ (фолбэк для мессенджеров): */}
         <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
