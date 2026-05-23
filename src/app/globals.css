@@ -11,6 +11,12 @@
 
 /* 🔹 @layer base: базовые стили */
 @layer base {
+
+  * {
+    touch-action: manipulation; /* Убирает 300ms задержку на мобильных */
+    -webkit-tap-highlight-color: transparent; /* Убирает синий фон при тапе */
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;

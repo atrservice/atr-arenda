@@ -50,6 +50,8 @@ export const metadata: Metadata = {
     maximumScale: 1,
     userScalable: false,
   },
+
+  generator: 'Next.js',
   
   // 🔹 Авторы (опционально, но полезно для Яндекс)
   authors: [{ name: 'ООО «АТР-СЕРВИС»' }],
