@@ -98,6 +98,7 @@ export default async function PrikrytiePage() {
                       fill
                       className="object-contain"
                       sizes="64px"
+                      loading="eager" 
                     />
                   ) : (
                     // Фолбэк на эмодзи, если картинки нет

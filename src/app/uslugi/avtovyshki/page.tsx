@@ -107,6 +107,7 @@ export default async function AvtovyshkiPage() {
                       fill
                       className="object-contain"
                       sizes="64px"
+                      loading="eager" 
                     />
                   ) : (
                     // Фолбэк на эмодзи, если картинки нет
