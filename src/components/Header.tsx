@@ -67,12 +67,11 @@ export default function Header() {
               alt="АТР-СЕРВИС логотип"
               width={40}
               height={40}
-              className="object-contain"
-              style={{ width: 'auto', height: 'auto' }}
+              className="object-contain flex-shrink-0"
               priority
             />
-            <div className="flex flex-col">
-              <span className="text-lg font-extrabold text-gray-900 leading-none">
+            <div className="flex flex-col min-w-0">  // ✅ min-w-0 предотвращает переполнение
+              <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
                 АТР-СЕРВИС
               </span>
               <span className="text-[10px] font-semibold text-primary-500 tracking-wider uppercase">

@@ -32,17 +32,16 @@ export default function Footer() {
                 alt="АТР-СЕРВИС логотип"
                 width={40}
                 height={40}
-                className="object-contain"
-                style={{ width: 'auto', height: 'auto' }}
+                className="object-contain flex-shrink-0"
               />
-              <div>
-                <span className="text-lg font-extrabold text-white leading-none block">
-                  АТР-СЕРВИС
-                </span>
-                <span className="text-[10px] font-semibold text-primary-400 tracking-wider uppercase">
-                  Спецтехника
-                </span>
-              </div>
+            <div className="flex flex-col min-w-0">  // ✅ min-w-0 предотвращает переполнение
+              <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
+                АТР-СЕРВИС
+              </span>
+              <span className="text-[10px] font-semibold text-primary-500 tracking-wider uppercase">
+                Спецтехника
+              </span>
+            </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Надежная аренда спецтехники в Москве и Московской области с 2009 года. 
