@@ -70,7 +70,7 @@ export default function Header() {
               className="object-contain flex-shrink-0"
               priority
             />
-            <div className="flex flex-col min-w-0">  // ✅ min-w-0 предотвращает переполнение
+            <div className="flex flex-col min-w-0">
               <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
                 АТР-СЕРВИС
               </span>
