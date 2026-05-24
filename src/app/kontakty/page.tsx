@@ -132,8 +132,7 @@ export default function ContactsPage() {
                       alt="Телефон"
                       width={24}
                       height={24}
-                      className="object-contain flex-shrink-0"
-                      loading="eager" 
+                      className="object-contain flex-shrink-0"      
                     />
                     <span className="text-gray-900">Телефон</span>
                   </h3>
@@ -154,7 +153,6 @@ export default function ContactsPage() {
                       width={24}
                       height={24}
                       className="object-contain flex-shrink-0"
-                      loading="eager" 
                     />
                     <span className="text-gray-900">Часы работы</span>
                   </h3>
@@ -173,7 +171,6 @@ export default function ContactsPage() {
                       width={24}
                       height={24}
                       className="object-contain flex-shrink-0"
-                      loading="eager" 
                     />
                     <span className="text-gray-900">Свяжитесь с нами</span>
                   </h3>
@@ -207,7 +204,6 @@ export default function ContactsPage() {
                       width={20}
                       height={20}
                       className="object-contain flex-shrink-0"
-                      loading="eager" 
                     />
                     Реквизиты компании
                   </span>
@@ -237,7 +233,6 @@ export default function ContactsPage() {
                         fill
                         className="object-contain opacity-70"
                         sizes="64px"
-                        loading="eager" 
                       />
                     </div>
                     <p className="font-medium text-gray-700 mb-2">Интерактивная карта</p>

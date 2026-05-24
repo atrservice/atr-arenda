@@ -96,7 +96,6 @@ export default async function KmuPage() {
                       fill
                       className="object-contain"
                       sizes="64px"
-                      loading="eager" 
                     />
                   ) : (
                     // Фолбэк на эмодзи, если картинки нет
