@@ -1,32 +1,43 @@
 /** @type {import('next').NextConfig} */
+
+// 🔹 Импортируй плагин (ES Module синтаксис!)
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true', // ✅ Включается только при переменной
+});
+
 const nextConfig = {
-  // Оптимизация изображений
+  // 🔹 Оптимизация изображений
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'atr-specarenda.vercel.app' },
       { protocol: 'https', hostname: 'avatars.mds.yandex.net' },
     ],
-    // formats: ['image/avif', 'image/webp'], // ✅ Современные форматы
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60, // Кэш в секундах
+    // formats: ['image/avif', 'image/webp'], // ← Закомментировано для теста мобильных
+    deviceSizes: [640, 750, 828], // ← Уменьшено для теста
+    imageSizes: [16, 32, 48],
+    minimumCacheTTL: 60,
   },
-  // SEO: чистые URL
+  
+  // 🔹 SEO: чистые URL
   trailingSlash: false,
-  // Компрессия
+  
+  // 🔹 Компрессия бандлов
   compress: true,
-  // ❌ telemetry: false — УДАЛЕНО, больше не поддерживается
-
-    async redirects() {
+  
+  // 🔹 301 редирект www → non-www
+  async redirects() {
     return [
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.avtovishki-arenda.ru' }],
         destination: 'https://avtovishki-arenda.ru/:path*',
-        permanent: true, // 301 redirect
+        permanent: true, // ✅ 301 redirect
       },
     ];
   },
 };
 
-export default nextConfig;
+// 🔹 Экспорт (ES Module синтаксис!)
+export default withBundleAnalyzer(nextConfig);

@@ -4,7 +4,7 @@
 // Note: Metadata in ASCII for Turbopack compatibility
 // ========================================
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next'; 
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
@@ -19,6 +19,18 @@ const inter = Inter({
   display: 'swap', // ✅ Критично для CLS и скорости
   variable: '--font-inter'
 });
+
+// 🔹 ОТДЕЛЬНЫЙ ЭКСПОРТ: Viewport (ОБЯЗАТЕЛЬНО отдельно от metadata!)
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#111827' },
+  ],
+};
 
 // 🔹 METADATA IN ASCII (temporary for debugging)
 // 🔹 Глобальные метаданные для всего сайта (ТОЛЬКО РУССКИЙ + ОДИН БЛОК)
@@ -44,14 +56,6 @@ export const metadata: Metadata = {
     'автовышка почасовая москва',
     'АТР-СЕРВИС',
   ],
-
-    // 🔹 Viewport для мобильных (ОБЯЗАТЕЛЬНО!)
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
 
   generator: 'Next.js',
   
@@ -147,32 +151,26 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-
-        {/* 🔹 Цвет адресной строки в мобильных браузерах */}
-        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
-
-                {/* 🔹 ДОБАВЬ ЭТИ ТЕГИ (фолбэк для мессенджеров): */}
+        
+        {/* 🔹 Статические meta-теги для мессенджеров (фолбэк) */}
         <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="АТР-СЕРВИС — Аренда спецтехники в Москве" />
-        <meta name="twitter:description" content="Автовышки, КМУ, автокраны. Подача за 2 часа." />
-        
       </head>
+      
       <body className="flex flex-col min-h-screen">
-        {/* ✅ Оберни всё содержимое в ErrorBoundary */}
         <ErrorBoundary>
-          {/* ✅ Добавь отладчик здесь */}
+          {/* ✅ DebugLogger только в разработке */}
           {process.env.NODE_ENV === 'development' && <DebugLogger />}
+          
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
           
-          {/* Yandex.Metrika - replace XXXXXXX with your ID */}
+          {/* Yandex.Metrika */}
           {process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID && process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID !== '00000000' && (
             <script
               dangerouslySetInnerHTML={{

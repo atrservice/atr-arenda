@@ -29,7 +29,13 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Логируем ошибку в консоль (для отладки)
-    console.error('🔴 Uncaught error:', error, errorInfo);
+    console.error('🔴 Uncaught error:', {
+    message: error.message,
+    stack: error.stack,
+    componentStack: errorInfo.componentStack,
+    url: typeof window !== 'undefined' ? window.location.href : 'SSR',
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'unknown',
+    });
     
     // Опционально: отправь ошибку в сервис мониторинга (Sentry, и т.д.)
     // if (process.env.NODE_ENV === 'production') {

@@ -1,27 +1,34 @@
-// ========================================
-// File: src/components/DebugLogger.tsx
-// Description: Клиентский компонент для отладки загрузки на мобильных
-// Project: ООО «АТР-СЕРВИС»
-// ========================================
-
-'use client'; // ✅ Обязательно: используем useEffect
+'use client';
 
 import { useEffect } from 'react';
 
 export default function DebugLogger() {
   useEffect(() => {
-    console.log('✅ Page loaded:', window.location.href);
-    console.log('📱 User agent:', navigator.userAgent);
+    const startTime = performance.now();
+    
+    console.log('🚀 Page start:', window.location.href);
     
     window.addEventListener('load', () => {
-      console.log('🎉 Window load event fired');
+      const loadTime = performance.now() - startTime;
+      console.log(`🎉 Page loaded in ${loadTime.toFixed(0)}ms`);
+      console.log('📱 User agent:', navigator.userAgent);
+      console.log('📡 Connection:', (navigator as any).connection?.effectiveType || 'unknown');
     });
     
-    // Ловим ошибки для отладки
+    // Глобальный перехват ошибок
     window.addEventListener('error', (e) => {
-      console.error('❌ Global error:', e.message, e.filename, e.lineno);
+      console.error('❌ Global error:', {
+        message: e.message,
+        source: e.filename,
+        lineno: e.lineno,
+        colno: e.colno,
+      });
+    });
+    
+    window.addEventListener('unhandledrejection', (e) => {
+      console.error('❌ Unhandled promise rejection:', e.reason);
     });
   }, []);
   
-  return null; // Не рендерит ничего в DOM
+  return null;
 }
