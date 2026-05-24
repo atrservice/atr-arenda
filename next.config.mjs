@@ -14,7 +14,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'atr-specarenda.vercel.app' },
       { protocol: 'https', hostname: 'avatars.mds.yandex.net' },
     ],
-    // formats: ['image/avif', 'image/webp'], // ← Закомментировано для теста мобильных
+    formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828], // ← Уменьшено для теста
     imageSizes: [16, 32, 48],
     minimumCacheTTL: 60,

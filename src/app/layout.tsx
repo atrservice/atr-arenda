@@ -34,7 +34,6 @@ export const viewport: Viewport = {
 
 // 🔹 METADATA IN ASCII (temporary for debugging)
 // 🔹 Глобальные метаданные для всего сайта (ТОЛЬКО РУССКИЙ + ОДИН БЛОК)
-// 🔹 Глобальные метаданные для всего сайта (ТОЛЬКО РУССКИЙ + ОДИН БЛОК)
 export const metadata: Metadata = {
   // 🔹 Заголовок: автоматическое добавление "| АТР-СЕРВИС" к title страниц
   title: {
