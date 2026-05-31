@@ -103,7 +103,6 @@ export default function ContactsPage() {
                     width={24}
                     height={24}
                     className="object-contain flex-shrink-0"
-                    loading="eager"
                   />
                   <span className="text-gray-900">Адрес</span>
                 </h3>

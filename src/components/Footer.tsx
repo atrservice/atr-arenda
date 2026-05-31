@@ -27,21 +27,23 @@ export default function Footer() {
           {/* Компания */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <Image 
-                src="/images/logo.png" 
-                alt="АТР-СЕРВИС логотип"
-                width={40}
-                height={40}
-                className="object-contain flex-shrink-0"
-              />
-            <div className="flex flex-col min-w-0">
-              <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
-                АТР-СЕРВИС
-              </span>
-              <span className="text-[10px] font-semibold text-primary-500 tracking-wider uppercase">
-                Спецтехника
-              </span>
-            </div>
+              <div className="w-10 h-10 relative flex-shrink-0">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="АТР-СЕРВИС логотип"
+                  fill
+                  className="object-contain"
+                  sizes="40px"
+                />
+              </div>
+              <div>
+                <span className="text-lg font-extrabold text-white leading-none block">
+                  АТР-СЕРВИС
+                </span>
+                <span className="text-[10px] font-semibold text-primary-400 tracking-wider uppercase">
+                  Спецтехника
+                </span>
+              </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Надежная аренда спецтехники в Москве и Московской области с 2009 года. 

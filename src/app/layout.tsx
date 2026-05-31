@@ -70,13 +70,29 @@ export const metadata: Metadata = {
     address: true,
   },
   
-  // 🔹 Favicon
+  // 🔹 НАСТРОЙКА FAVICON (добавь этот блок)
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
-    apple: '/favicon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/favicon.svg', color: '#f97316' },
+    ],
+  },
+
+  // 🔹 PWA Manifest
+  manifest: '/site.webmanifest',
+
+  // 🔹 Для iOS-веб-приложения
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'АТР-СЕРВИС',
   },
   
   // 🔹 Open Graph (превью в Telegram, WhatsApp, VK, Яндекс)
@@ -138,14 +154,8 @@ export default function RootLayout({
   const organizationSchema = generateOrganizationSchema();
   
   return (
-    <html lang="ru" className={inter.variable}>
+    <html lang="ru" className={inter.variable} data-scroll-behavior="smooth">
       <head>
-        <link 
-          rel="preload" 
-          href="/images/logo.png" 
-          as="image" 
-          type="image/png"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

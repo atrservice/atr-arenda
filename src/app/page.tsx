@@ -80,7 +80,6 @@ export default async function HomePage() {
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 32px, 64px"
-                  priority
                 />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Подача за 2 часа</h3>
@@ -98,7 +97,6 @@ export default async function HomePage() {
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 32px, 64px"
-                  priority
                 />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Надежность с 2009 года</h3>
@@ -116,7 +114,6 @@ export default async function HomePage() {
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 32px, 64px"
-                  priority
                 />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900">Гибкие цены</h3>

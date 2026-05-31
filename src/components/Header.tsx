@@ -62,14 +62,16 @@ export default function Header() {
           
           {/* Логотип */}
           <Link href="/" className="flex items-center gap-3 group">
-            <Image 
-              src="/images/logo.png" 
-              alt="АТР-СЕРВИС логотип"
-              width={40}
-              height={40}
-              className="object-contain flex-shrink-0"
-              priority
-            />
+            <div className="w-10 h-10 relative flex-shrink-0">
+              <Image 
+                src="/images/logo.png" 
+                alt="АТР-СЕРВИС логотип"
+                fill
+                className="object-contain"
+                sizes="40px"
+                priority
+              />
+            </div>
             <div className="flex flex-col min-w-0">
               <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
                 АТР-СЕРВИС
@@ -306,7 +308,12 @@ export default function Header() {
               <div className="mt-8 pt-8 border-t border-gray-200 space-y-4">
                 <div className="text-sm text-gray-500">
                   <div className="font-semibold text-gray-900 mb-1 flex items-center gap-2">
-                    <Image src="/images/icons/icon_location.svg" alt="Адрес" width={16} height={16} className="object-contain" />
+                    <Image 
+                      src="/images/icons/icon_location.svg" 
+                      alt="Адрес" 
+                      width={16} 
+                      height={16} 
+                      className="object-contain" />
                     Адрес
                   </div>
                   <div className="ml-6">{process.env.NEXT_PUBLIC_ADDRESS || 'Москва, Ижорская ул., д. 8, стр. 2'}</div>
@@ -314,7 +321,12 @@ export default function Header() {
                 
                 <div className="text-sm text-gray-500">
                   <div className="font-semibold text-gray-900 mb-1 flex items-center gap-2">
-                    <Image src="/images/icons/icon_clock.svg" alt="Часы" width={16} height={16} className="object-contain" />
+                    <Image 
+                      src="/images/icons/icon_clock.svg" 
+                      alt="Часы" 
+                      width={16} 
+                      height={16} 
+                      className="object-contain" />
                     Режим работы
                   </div>
                   <div className="ml-6">{process.env.NEXT_PUBLIC_WORKING_HOURS || 'Пн–Вс: 08:00–22:00'}</div>
@@ -338,7 +350,12 @@ export default function Header() {
                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary-100 flex items-center justify-center transition-colors"
                     aria-label="Telegram"
                   >
-                    <Image src="/images/icons/icon_telegram.svg" alt="Telegram" width={20} height={20} className="object-contain" />
+                    <Image 
+                      src="/images/icons/icon_telegram.svg" 
+                      alt="Telegram" 
+                      width={20} 
+                      height={20} 
+                      className="object-contain" />
                   </a>
                   <a 
                     href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_RAW || '79262097373'}`}
@@ -348,7 +365,12 @@ export default function Header() {
                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-green-100 flex items-center justify-center transition-colors"
                     aria-label="WhatsApp"
                   >
-                    <Image src="/images/icons/icon_whatsapp.svg" alt="WhatsApp" width={20} height={20} className="object-contain" />
+                    <Image 
+                      src="/images/icons/icon_whatsapp.svg" 
+                      alt="WhatsApp" 
+                      width={20} 
+                      height={20} 
+                      className="object-contain" />
                   </a>
                   <a 
                     href="https://max.ru/u/f9LHodD0cOKOvqrWxIGm54rpoVi3dKlmwiPOTc4gHYYjNmA3QkYeIPnuaJg"
@@ -358,7 +380,12 @@ export default function Header() {
                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-100 flex items-center justify-center transition-colors"
                     aria-label="ВКонтакте"
                   >
-                    <Image src="/images/icons/icon_vk.svg" alt="ВКонтакте" width={20} height={20} className="object-contain" />
+                    <Image 
+                      src="/images/icons/icon_vk.svg" 
+                      alt="ВКонтакте"
+                      width={20} 
+                      height={20} 
+                      className="object-contain" />
                   </a>
                 </div>
               </div>
