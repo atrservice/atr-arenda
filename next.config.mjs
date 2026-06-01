@@ -1,12 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-// 🔹 Импортируй плагин (ES Module синтаксис!)
-import bundleAnalyzer from '@next/bundle-analyzer';
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true', // ✅ Включается только при переменной
-});
-
 const nextConfig = {
   // 🔹 Оптимизация изображений
   images: {
@@ -15,8 +8,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'avatars.mds.yandex.net' },
     ],
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828], // ← Уменьшено для теста
-    imageSizes: [16, 32, 48],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
   
@@ -33,11 +26,10 @@ const nextConfig = {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.avtovishki-arenda.ru' }],
         destination: 'https://avtovishki-arenda.ru/:path*',
-        permanent: true, // ✅ 301 redirect
+        permanent: true,
       },
     ];
   },
 };
 
-// 🔹 Экспорт (ES Module синтаксис!)
-export default withBundleAnalyzer(nextConfig);
+export default nextConfig;
