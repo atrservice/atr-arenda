@@ -1,19 +1,48 @@
-name: Deploy to reg.cloud
+name: Deploy to reg.cloud (optimized)
 
 on:
   push:
     branches:
-      - main  # Запускать только при пуше в ветку main
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Deploy to server via SSH
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://avtovishki-arenda.ru
+          NEXT_PUBLIC_PHONE_RAW: 79262097373
+          NEXT_PUBLIC_PHONE_FORMATTED: +7 (926) 209-73-73
+          NEXT_PUBLIC_ADDRESS: г. Москва, Ижорская ул., д. 8, стр. 2
+          NEXT_PUBLIC_WORKING_HOURS: 'Пн–Вс: 08:00–22:00'
+      
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          source: ".next,public,package.json,package-lock.json"
+          target: "/var/www/atr-arenda"
+          strip_components: 0
+      
+      - name: Restart PM2
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -21,22 +50,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            # Перейди в папку проекта
             cd /var/www/atr-arenda
-            
-            # Получи последние изменения из Git
-            git pull origin main
-            
-            # Установи зависимости (включая dev для сборки)
-            npm install
-            
-            # Собери проект
-            npm run build
-            
-            # Перезапусти приложение через PM2
+            npm ci --omit=dev
             pm2 restart atr-arenda
-            
-            # Покажи статус
             pm2 status
-            
-            echo "✅ Деплой завершён успешно!"
+            echo "✅ Деплой завершён!"
