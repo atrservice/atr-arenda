@@ -10,39 +10,50 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      # 🔹 1. Получаем код из репозитория
       - name: Checkout code
         uses: actions/checkout@v4
       
+      # 🔹 2. Устанавливаем Node.js 20 с кэшированием
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
       
+      # 🔹 3. Устанавливаем ВСЕ зависимости (включая dev для сборки)
       - name: Install dependencies
         run: npm ci
       
+      # 🔹 4. Собираем проект с правильными переменными окружения
       - name: Build project
         run: npm run build
         env:
+          NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: https://avtovishki-arenda.ru
-          NEXT_PUBLIC_PHONE_RAW: 79262097373
-          NEXT_PUBLIC_PHONE_FORMATTED: +7 (926) 209-73-73
-          NEXT_PUBLIC_ADDRESS: г. Москва, Ижорская ул., д. 8, стр. 2
+          NEXT_PUBLIC_PHONE_RAW: '79262097373'
+          NEXT_PUBLIC_PHONE_FORMATTED: '+7 (926) 209-73-73'
+          NEXT_PUBLIC_ADDRESS: 'г. Москва, Ижорская ул., д. 8, стр. 2'
           NEXT_PUBLIC_WORKING_HOURS: 'Пн–Вс: 08:00–22:00'
+          NEXT_PUBLIC_TELEGRAM_LINK: 'https://t.me/ATR7373'
+          NEXT_PUBLIC_VK_LINK: 'https://max.ru/u/f9LHodD0cOKOvqrWxIGm54rpoVi3dKlmwiPOTc4gHYYjNmA3QkYeIPnuaJg'
+          NEXT_PUBLIC_YANDEX_METRIKA_ID: '109204899'
       
-      - name: Deploy to server
+      # 🔹 5. Копируем нужные файлы на сервер
+      - name: Deploy files to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          source: ".next,public,package.json,package-lock.json"
+          source: ".next,public,package.json,package-lock.json,next.config.mjs"
           target: "/var/www/atr-arenda"
           strip_components: 0
+          overwrite: true
       
-      - name: Restart PM2
+      # 🔹 6. Устанавливаем production-зависимости и перезапускаем PM2
+      - name: Install production deps and restart PM2
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -51,7 +62,40 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd /var/www/atr-arenda
-            npm ci --omit=dev
-            pm2 restart atr-arenda
+            
+            # Устанавливаем только production-зависимости
+            npm install --production
+            
+            # Перезапускаем PM2 с обновлением переменных окружения
+            pm2 reload atr-arenda --update-env
+            
+            # Сохраняем состояние PM2
+            pm2 save
+            
+            # Показываем статус
             pm2 status
-            echo "✅ Деплой завершён!"
+            
+            echo "✅ Деплой завершён успешно!"
+      
+      # 🔹 7. Проверяем, что сайт работает (health check)
+      - name: Health check
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            # Ждём 5 секунд, пока PM2 запустит приложение
+            sleep 5
+            
+            # Проверяем, что сайт отвечает
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+            
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✅ Сайт работает (HTTP $HTTP_CODE)"
+            else
+              echo "❌ Сайт не работает (HTTP $HTTP_CODE)"
+              pm2 logs atr-arenda --lines 20
+              exit 1
+            fi
