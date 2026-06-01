@@ -108,7 +108,7 @@ export default function ContactsPage() {
                 </h3>
                 <p className="text-gray-700">
                   <strong>{CONTACTS.address}</strong><br />
-                  <span className="text-sm text-gray-500">Индекс: 125445</span>
+                  <span className="text-sm text-gray-500">Индекс: 125599</span>
                 </p>
                 <a 
                   href={`https://yandex.ru/maps/?text=${encodeURIComponent(CONTACTS.address)}`}
