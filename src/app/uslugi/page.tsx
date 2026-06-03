@@ -58,10 +58,10 @@ export default async function ServicesPage() {
               >
                 {/* 🔹 Иконка услуги — картинка вместо эмодзи */}
                 <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden rounded-t-2xl flex items-center justify-center p-6">
-                  {service.iconImage ? (
+                  {service.imageUrl ? (
                     // ✅ Картинка: fill + sizes для оптимизации
                     <Image 
-                      src={service.iconImage}
+                      src={service.imageUrl}
                       alt={service.title}
                       fill
                       className="object-contain group-hover:scale-110 transition-transform duration-300"
