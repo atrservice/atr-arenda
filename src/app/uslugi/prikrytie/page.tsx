@@ -17,7 +17,7 @@ import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } fr
 import { getRobotsMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
-  title: `Аренда машин прикрытия в Москве от 18 000₽/смена | ООО «АТР-СЕРВИС»`,
+  title: `Аренда машин прикрытия в Москве от 18 000₽/смена`,
   description: `🚨 Автомобили дорожного прикрытия ГОСТ Р 50574-2019. ✅ Подача за 2 часа. 📍 ${CONTACTS.address}.`,
   robots: getRobotsMetadata('/uslugi/prikrytie'),
 };
@@ -26,7 +26,7 @@ export default async function PrikrytiePage() {
   const equipment = await getEquipment('prikrytie');
   const faq = await getFAQ('informational', 'prikrytie');
   
-  const aliceAnswer = `Аренда машин дорожного прикрытия (заграждения) в Москве от ООО «АТР-СЕРВИС»: техника ГОСТ Р 50574-2019, подача за 2 часа. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}. 💰 от 18 000 ₽/смена.`;
+  const aliceAnswer = `Аренда машин дорожного прикрытия (заграждения) в Москве от ООО «АТР-СЕРВИС»: техника ГОСТ Р 50574-2019, подача за 2 часа. ${CONTACTS.address}. ${CONTACTS.workingHours}. от 18 000 ₽/смена.`;
 
   const productSchema = generateProductSchema({
     name: 'Аренда машины прикрытия',

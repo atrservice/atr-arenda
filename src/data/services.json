@@ -4,6 +4,7 @@
     "title": "Аренда автовышек",
     "description": "Автовышки 8–75 метров для фасадных работ, монтажа рекламы, электромонтажа",
     "icon": "🪜",
+    "iconImage": "/images/icons/icon_avtovyshka.svg",
     "priceFrom": 16000,
     "features": [
       "Высота от 8 до 75 метров",
@@ -18,6 +19,7 @@
     "title": "Аренда КМУ",
     "description": "Краны-манипуляторы 1–20 тонн для погрузки и монтажа",
     "icon": "🏗️",
+    "iconImage": "/images/icons/icon_kmu.svg",
     "priceFrom": 20000,
     "features": [
       "Грузоподъемность до 20 тонн",
@@ -32,6 +34,7 @@
     "title": "Аренда автокранов",
     "description": "Автокраны 16–500 тонн для строительства и монтажа",
     "icon": "🔧",
+    "iconImage": "/images/icons/icon_avtokran.svg",
     "priceFrom": 22000,
     "features": [
       "Грузоподъемность до 500 тонн",
@@ -46,6 +49,7 @@
     "title": "Аренда прикрытия",
     "description": "Автомобили дорожного заграждения со знаками",
     "icon": "🚨",
+    "iconImage": "/images/icons/icon_prikrytie.svg",
     "priceFrom": 12000,
     "features": [
       "Соответствие ГОСТ Р 50574-2019",

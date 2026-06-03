@@ -17,8 +17,8 @@ import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } fr
 import { getRobotsMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
-  title: `Аренда автокранов в Москве от 22 000₽/смена | ООО «АТР-СЕРВИС»`,
-  description: `🔧 Автокраны 16–500 тонн для строительства и монтажа. ✅ Подача за 2 часа. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}.`,
+  title: `Аренда автокранов в Москве от 22 000₽/смена`,
+  description: `Автокраны 16–500 тонн для строительства и монтажа. Подача за 2 часа. ${CONTACTS.address}. ${CONTACTS.workingHours}.`,
   robots: getRobotsMetadata('/uslugi/avtokrany'),
 };
 

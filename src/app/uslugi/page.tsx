@@ -15,8 +15,8 @@ import { CONTACTS } from '@/lib/contacts';
 import { getRobotsMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
-  title: `Все услуги аренды спецтехники | ООО «АТР-СЕРВИС»`,
-  description: `📋 Полный каталог услуг: автовышки, КМУ, автокраны, машины прикрытия. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}.`,
+  title: `Все услуги аренды спецтехники в Москве и области`,
+  description: `📋 Полный каталог услуг: автовышки, КМУ, автокраны, аватомобили прикрытия. ${CONTACTS.address}. ${CONTACTS.workingHours}.`,
   robots: getRobotsMetadata('/uslugi'),
 };
 
@@ -59,7 +59,7 @@ export default async function ServicesPage() {
                 {/* 🔹 Иконка услуги — картинка вместо эмодзи */}
                 <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden rounded-t-2xl flex items-center justify-center p-6">
                   {service.imageUrl ? (
-                    // ✅ Картинка: fill + sizes для оптимизации
+                    // ✅ Большая картинка услуги
                     <Image 
                       src={service.imageUrl}
                       alt={service.title}
@@ -67,8 +67,17 @@ export default async function ServicesPage() {
                       className="object-contain group-hover:scale-110 transition-transform duration-300"
                       sizes="(max-width: 768px) 80px, 120px"
                     />
+                  ) : service.iconImage ? (
+                    // ✅ SVG-иконка как запасной вариант
+                    <Image 
+                      src={service.iconImage}
+                      alt={service.title}
+                      width={80}
+                      height={80}
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
                   ) : (
-                    // 🔹 Фолбэк: если картинки нет — показываем эмодзи (на случай, если иконка не загружена)
+                    // ✅ Эмодзи как последний фолбэк
                     <div className="text-6xl text-gray-400">
                       {service.icon}
                     </div>

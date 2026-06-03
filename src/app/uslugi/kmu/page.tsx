@@ -17,8 +17,8 @@ import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } fr
 import { getRobotsMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
-  title: `Аренда КМУ в Москве от 20 000₽/смена | ООО «АТР-СЕРВИС»`,
-  description: `🏗️ Краны-манипуляторы 2–20 тонн для погрузки и монтажа, троссовые и гидравлические. ✅ Подача за 2 часа. 📍 ${CONTACTS.address}.`,
+  title: `Аренда КМУ в Москве от 20 000₽/смена`,
+  description: `Краны-манипуляторы 2–20 тонн для погрузки и монтажа, троссовые и гидравлические. Подача за 2 часа. ${CONTACTS.address}.`,
   robots: getRobotsMetadata('/uslugi/kmu'),
 };
 

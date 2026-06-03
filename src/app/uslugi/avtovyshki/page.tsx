@@ -18,13 +18,13 @@ import { getRobotsMetadata } from '@/lib/indexing';
 
 // 🔹 SEO-метаданные с динамическими контактами
 export const metadata: Metadata = {
-  title: `Аренда автовышек в Москве от 16 000₽/смена | ООО «АТР-СЕРВИС»`,
+  title: `Аренда автовышек в Москве от 16 000₽/смена`,
   description: `🪜 Автовышки 8–75м для фасадных работ. ✅ Подача за 2 часа. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}.`,
   robots: getRobotsMetadata('/uslugi/avtovyshki'),
   keywords: ['аренда автовышки москва', 'автовышка 16м', 'АТР-СЕРВИС'],
   openGraph: {
     title: 'Аренда автовышек в Москве | ООО «АТР-СЕРВИС»',
-    description: `Собственный парк автовышек 8–75м. 📍 ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}.`,
+    description: `Собственный парк автовышек 8–75м. Подача в течение 2 часов. ${CONTACTS.address}. ${CONTACTS.workingHours}.`,
     type: 'website',
     locale: 'ru_RU',
     url: 'https://avtovishki-arenda.ru/uslugi/avtovyshki',

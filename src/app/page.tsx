@@ -13,6 +13,57 @@ import ContactLink from '@/components/ContactLink';
 import { getServices, getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import { generateSpeakableSchema } from '@/lib/schema-org';
+import { Metadata } from 'next';
+import { getRobotsMetadata } from '@/lib/indexing';
+
+// 🔹 SEO-метаданные для главной страницы
+export const metadata: Metadata = {
+  title: 'Аренда спецтехники в Москве и МО от 12 000₽ | АТР-СЕРВИС',
+  description: 'Аренда автовышек, КМУ, автокранов в Москве и Московской области. Собственный парк техники. Подача за 2 часа. Работаем с 2009 года. Звоните: +7 (926) 209-73-73',
+  keywords: [
+    'аренда спецтехники москва',
+    'аренда автовышки москва',
+    'услуги автовышки москва',
+    'услуги кму москва',
+    'аренда кму москва',
+    'аренда автокрана москва',
+    'услуги автокрана москва',
+    'аренда машины прикрытия москва',
+    'услуги машины прикрытия москва',
+    'спецтехника в аренду москва',
+    'аренда спецтехники московская область',
+    'АТР-СЕРВИС',
+    'аренда спецтехники недорого',
+    'автовышка почасовая москва',
+    'кран манипулятор аренда москва',
+  ],
+  robots: getRobotsMetadata('/'),
+  openGraph: {
+    title: 'АТР-СЕРВИС — Аренда спецтехники в Москве от 12 000₽',
+    description: 'Автовышки 16–70м, КМУ 1–20т, автокраны 16–500т. Собственный парк. Подача за 2 часа. Работаем с 2009 года.',
+    type: 'website',
+    locale: 'ru_RU',
+    url: 'https://avtovishki-arenda.ru',
+    siteName: 'АТР-СЕРВИС',
+    images: [
+      {
+        url: 'https://avtovishki-arenda.ru/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
+    description: 'Автовышки, КМУ, автокраны. Подача за 2 часа. От 12 000₽/смена.',
+    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'],
+  },
+  alternates: {
+    canonical: 'https://avtovishki-arenda.ru',
+  },
+};
 
 export default async function HomePage() {
   const services = await getServices();

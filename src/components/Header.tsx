@@ -10,9 +10,16 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import ContactLink from './ContactLink';
+import { useIsPWA } from '@/hooks/useIsPWA';
+import { useCanGoBack } from '@/hooks/useCanGoBack';
 
 export default function Header() {
+  const router = useRouter();
+  const isPWA = useIsPWA();
+  const canGoBack = useCanGoBack();
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -49,6 +56,11 @@ export default function Header() {
     }
   };
 
+    // 🔹 ОБРАТИ ВНИМАНИЕ: ЭТА ФУНКЦИЯ ДОЛЖНА БЫТЬ ЗДЕСЬ!
+  const handleGoBack = () => {
+    router.back();
+  };
+
   return (
     <>
       <header 
@@ -57,8 +69,24 @@ export default function Header() {
             ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
             : 'bg-white py-4'
         }`}
+        style={{ 
+          paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined // ← ДОБАВЛЕНО: учёт safe-area для PWA
+        }}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
+
+                    {/* 🔹 КНОПКА "НАЗАД" — только для PWA и если есть история */}
+          {isPWA && canGoBack && (
+            <button
+              onClick={handleGoBack}
+              className="lg:hidden p-2 -ml-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all"
+              aria-label="Вернуться назад"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
           
           {/* Логотип */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -264,6 +292,9 @@ export default function Header() {
             className={`fixed top-0 right-0 z-50 h-full w-80 bg-white shadow-2xl overflow-y-auto lg:hidden transition-all duration-300 ease-in-out ${
               mobileMenuOpen ? 'right-0 opacity-100' : 'right-[-320px] opacity-0'
             }`}
+            style={{ 
+              paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined // ← ДОБАВЛЕНО
+            }}
           >
             <div className="p-6">
               {/* Кнопка закрытия */}

@@ -20,7 +20,7 @@ import { getRobotsMetadata } from '@/lib/indexing';
 // 🔹 SEO-метаданные — работают только в серверных компонентах
 export const metadata: Metadata = {
   title: `Контакты АТР-СЕРВИС | ${CONTACTS.address}`,
-  description: `📍 ООО «АТР-СЕРВИС»: ${CONTACTS.address}. ⏰ ${CONTACTS.workingHours}. 📞 ${CONTACTS.phone.formatted}. Закажите аренду спецтехники!`,
+  description: `ООО «АТР-СЕРВИС»: ${CONTACTS.address}. Режим работы: ${CONTACTS.workingHours}. Телефон: ${CONTACTS.phone.formatted}. Закажите аренду спецтехники!`,
   robots: getRobotsMetadata('/kontakty'),
   keywords: [
     'АТР-СЕРВИС контакты',
