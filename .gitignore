@@ -54,3 +54,4 @@ ssh_atr
 ssh_atr.pub
 *.pem
 *.key
+docs/
