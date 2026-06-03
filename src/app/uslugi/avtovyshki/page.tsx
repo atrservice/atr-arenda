@@ -13,7 +13,7 @@ import { getEquipment, getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
-import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
+import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
 import { getRobotsMetadata } from '@/lib/indexing';
 
 // 🔹 SEO-метаданные с динамическими контактами
@@ -44,6 +44,8 @@ export default async function AvtovyshkiPage() {
     price: 16000,
     currency: 'RUB',
     unit: 'смена',
+    image: 'https://avtovishki-arenda.ru/images/services/avtovyshka.jpg', // ← ДОБАВЛЕНО
+    url: 'https://avtovishki-arenda.ru/uslugi/avtovyshki', // ← ДОБАВЛЕНО
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -52,10 +54,14 @@ export default async function AvtovyshkiPage() {
     { name: 'Аренда автовышек', url: 'https://avtovishki-arenda.ru/uslugi/avtovyshki' },
   ]);
 
+  // ← ДОБАВЛЕНО: FAQPage микроразметка
+  const faqSchema = generateFAQSchema(faq);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       {/* Блок для Алисы */}
       <section id="alice-answer" className="sr-only" aria-hidden="true">

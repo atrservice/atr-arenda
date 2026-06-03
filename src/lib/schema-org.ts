@@ -43,10 +43,13 @@ export const generateOrganizationSchema = () => ({
 });
 
 // 🔹 Product / Service (для страниц услуг)
+// 🔹 Product / Service (для страниц услуг) — ИСПРАВЛЕННАЯ ВЕРСИЯ
 export const generateProductSchema = ({
   name,
   description,
   price,
+  image, // ← ДОБАВЛЕНО
+  url,   // ← ДОБАВЛЕНО
   currency = 'RUB',
   unit = 'смена',
   availability = 'https://schema.org/InStock',
@@ -55,6 +58,8 @@ export const generateProductSchema = ({
   name: string;
   description: string;
   price: number;
+  image: string; // ← ДОБАВЛЕНО
+  url: string;   // ← ДОБАВЛЕНО
   currency?: string;
   unit?: string;
   availability?: string;
@@ -64,13 +69,15 @@ export const generateProductSchema = ({
   "@type": "Product",
   "name": name,
   "description": description,
+  "image": image, // ← ДОБАВЛЕНО
+  "url": url,     // ← ДОБАВЛЕНО
   "brand": {
     "@type": "Brand",
     "name": brand
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://avtovishki-arenda.ru",
+    "url": url, // ← ИСПРАВЛЕНО: было "https://avtovishki-arenda.ru"
     "priceCurrency": currency,
     "price": price,
     "priceSpecification": {
@@ -82,6 +89,7 @@ export const generateProductSchema = ({
     "availability": availability,
     "seller": {
       "@type": "Organization",
+      "@id": "https://avtovishki-arenda.ru/#organization", // ← ИСПРАВЛЕНО: ссылка на основной Organization
       "name": "ООО «АТР-СЕРВИС»"
     }
   }
