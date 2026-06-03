@@ -13,7 +13,7 @@ import { getEquipment, getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
-import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
+import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
 import { getRobotsMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
@@ -34,6 +34,8 @@ export default async function PrikrytiePage() {
     price: 18000,
     currency: 'RUB',
     unit: 'смена',
+    image: 'https://avtovishki-arenda.ru/images/services/prikrytie.jpg',
+    url: 'https://avtovishki-arenda.ru/uslugi/prikrytie',
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -42,10 +44,14 @@ export default async function PrikrytiePage() {
     { name: 'Машины прикрытия', url: 'https://avtovishki-arenda.ru/uslugi/prikrytie' },
   ]);
 
+    // ← ДОБАВЛЕНО: FAQPage микроразметка
+  const faqSchema = generateFAQSchema(faq);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       <section id="alice-answer" className="sr-only" aria-hidden="true">
         <h1>Машины прикрытия ООО «АТР-СЕРВИС»</h1>
