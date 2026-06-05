@@ -6,15 +6,27 @@
 // ========================================
 
 import Image from 'next/image';
-import HeroSection from '@/components/HeroSection';
-import ServiceCard from '@/components/ServiceCard';
-import AliceFAQBlock from '@/components/AliceFAQBlock';
 import ContactLink from '@/components/ContactLink';
 import { getServices, getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import { generateSpeakableSchema } from '@/lib/schema-org';
 import { Metadata } from 'next';
 import { getRobotsMetadata } from '@/lib/indexing';
+import dynamic from 'next/dynamic';
+
+const HeroSection = dynamic(() => import('@/components/HeroSection'), {
+  ssr: true, // SSR для LCP
+});
+
+const ServiceCard = dynamic(() => import('@/components/ServiceCard'), {
+  ssr: false, // Клиентский рендеринг
+  loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-xl" />,
+});
+
+const AliceFAQBlock = dynamic(() => import('@/components/AliceFAQBlock'), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-200 h-24 rounded-xl" />,
+});
 
 // 🔹 SEO-метаданные для главной страницы
 export const metadata: Metadata = {

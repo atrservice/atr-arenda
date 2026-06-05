@@ -39,7 +39,7 @@ export const viewport: Viewport = {
 // 🔹 Глобальные метаданные
 export const metadata: Metadata = {
   metadataBase: new URL('https://avtovishki-arenda.ru'),
-  
+
   title: {
     default: 'Аренда спецтехники в Москве и МО | АТР-СЕРВИС от 12 000₽',
     template: '%s | ООО "АТР-СЕРВИС"',
@@ -140,6 +140,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+
+          {/* 🔹 РУЧНОЙ PRELOAD для LCP-изображения */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-bg.webp"
+          fetchPriority="high"
         />
         <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.webp" />
         <meta property="og:image:width" content="1200" />
