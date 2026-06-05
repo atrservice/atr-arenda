@@ -1,8 +1,3 @@
-// ========================================
-// File: src/components/YandexMetrika.tsx
-// Description: Оптимизированная Яндекс.Метрика с lazyOnload
-// ========================================
-
 'use client';
 
 import { useEffect } from 'react';
@@ -14,13 +9,12 @@ export default function YandexMetrika() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // 🔹 Инициализация счётчика с задержкой (lazyOnload)
   useEffect(() => {
     if (!METRIKA_ID || METRIKA_ID === 0) return;
 
-    // Ждём, пока браузер освободится от критических задач
+    // ✅ Загружаем Метрику только после того, как страница станет интерактивной
     const initMetrika = () => {
-      if ((window as any).ym) return; // Уже инициализирована
+      if ((window as any).ym) return;
 
       (function(m, e, t, r, i, k, a) {
         m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
@@ -31,10 +25,8 @@ export default function YandexMetrika() {
         k = e.createElement(t), a = e.getElementsByTagName(t)[0], 
         k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
       })(
-        window, 
-        document, 
-        'script', 
-        `https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}`, 
+        window, document, 'script',
+        `https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}`,
         'ym'
       );
 
@@ -48,22 +40,18 @@ export default function YandexMetrika() {
         accurateTrackBounce: true,
         trackLinks: true,
       });
-
-      console.log(`✅ Яндекс.Метрика инициализирована (ID: ${METRIKA_ID})`);
     };
 
-    // 🔹 lazyOnload: загружаем после того, как страница станет интерактивной
+    // ✅ requestIdleCallback — загрузка в свободное время браузера
     if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(initMetrika, { timeout: 2000 });
+      (window as any).requestIdleCallback(initMetrika, { timeout: 3000 });
     } else {
-      setTimeout(initMetrika, 1000);
+      setTimeout(initMetrika, 2000);
     }
   }, []);
 
-  // 🔹 Отслеживание переходов
   useEffect(() => {
     if (!METRIKA_ID || !(window as any).ym) return;
-
     const fullUrl = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : '');
     (window as any).ym(METRIKA_ID, 'hit', fullUrl);
   }, [pathname, searchParams]);
