@@ -16,7 +16,7 @@ export const CONTACTS = {
     link: process.env.NEXT_PUBLIC_PHONE_LINK || 'tel:+79262097373',
   },
   email: {
-    address: process.env.NEXT_PUBLIC_EMAIL || 'info@фavtovishki-arenda.ru',
+    address: process.env.NEXT_PUBLIC_EMAIL || 'info@avtovishki-arenda.ru',
     link: process.env.NEXT_PUBLIC_EMAIL_LINK || 'mailto:info@avtovishki-arenda.ru',
   },
   telegram: {
@@ -28,7 +28,7 @@ export const CONTACTS = {
     link: `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_RAW || '79262097373'}`,
     icon: '/images/icons/icon_whatsapp.svg',
   },
-    max: {
+  max: {
     link: process.env.NEXT_PUBLIC_VK_LINK || 'https://max.ru/u/f9LHodD0cOKOvqrWxIGm54rpoVi3dKlmwiPOTc4gHYYjNmA3QkYeIPnuaJg',
     icon: '/images/icons/icon_vk.svg',
   },

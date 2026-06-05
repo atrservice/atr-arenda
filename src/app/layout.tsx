@@ -13,6 +13,7 @@ import { generateOrganizationSchema } from '@/lib/schema-org';
 import { CONTACTS } from '@/lib/contacts';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import DebugLogger from '@/components/DebugLogger';
+import YandexMetrika from '@/components/YandexMetrika';
 
 const inter = Inter({ 
   subsets: ['cyrillic', 'latin'],
@@ -20,12 +21,16 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
+// 🔹 Константа для ID Метрики (используется в noscript)
+const METRIKA_ID = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || '0';
+
 // 🔹 ОТДЕЛЬНЫЙ ЭКСПОРТ: Viewport (ОБЯЗАТЕЛЬНО отдельно от metadata!)
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  viewportFit: 'cover', // ✅ Критично для PWA на iPhone (safe-area)
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#111827' },
@@ -170,6 +175,10 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+        
+        {/* 🔹 Preconnect к внешним доменам для ускорения загрузки */}
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
       </head>
       
       <body className="flex flex-col min-h-screen">
@@ -181,30 +190,20 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
           
-          {/* Yandex.Metrika */}
-          {process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID && process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID !== '00000000' && (
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  (function(m,e,t,r,i,k,a){
-                    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                    m[i].l=1*new Date();
-                    for(var j=0;j<r.length;j++){
-                      try{
-                        var g=t.createElement("script"),z=r[j];
-                        g.async=1;g.src=z;e.body.appendChild(g);
-                      }catch(e){}
-                    }
-                  })(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-                  ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || 0},"init",{
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                  });
-                `
-              }}
-            />
+          {/* ✅ Яндекс.Метрика — новый компонент */}
+          <YandexMetrika />
+          
+          {/* ✅ Noscript fallback для Метрики */}
+          {METRIKA_ID && METRIKA_ID !== '00000000' && (
+            <noscript>
+              <div>
+                <img 
+                  src={`https://mc.yandex.ru/watch/${METRIKA_ID}`} 
+                  style={{ position: 'absolute', left: '-9999px' }} 
+                  alt="" 
+                />
+              </div>
+            </noscript>
           )}
         </ErrorBoundary>
       </body>

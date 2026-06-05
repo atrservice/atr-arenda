@@ -2,7 +2,7 @@
 // Файл: src/components/Header.tsx
 // Описание: Шапка сайта с логотипом, навигацией и соцсетями
 // Проект: ООО «АТР-СЕРВИС»
-// Исправление: мобильное меню не обрезается при скролле
+// Исправление: мобильное меню не обрезается при скролле + корректная Метрика
 // ========================================
 
 'use client';
@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation';
 import ContactLink from './ContactLink';
 import { useIsPWA } from '@/hooks/useIsPWA';
 import { useCanGoBack } from '@/hooks/useCanGoBack';
+import { trackMetricaGoal } from '@/lib/contacts'; // ← Импортируем готовый хелпер
 
 export default function Header() {
   const router = useRouter();
@@ -49,14 +50,12 @@ export default function Header() {
     { href: '/uslugi/prikrytie', label: 'Прикрытие' },
   ];
 
-  // 🔹 Хелпер для отправки цели в Метрику
-  const trackSocialClick = (goal: string) => {
-    if (typeof window !== 'undefined' && (window as any).ym) {
-      (window as any).ym(process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID, 'reachGoal', goal);
-    }
+  // 🔹 Хелпер для отправки цели в Метрику (используем готовую функцию)
+  const trackSocialClick = (goal: 'telegram_click' | 'whatsapp_click' | 'vk_click') => {
+    trackMetricaGoal(goal);
   };
 
-    // 🔹 ОБРАТИ ВНИМАНИЕ: ЭТА ФУНКЦИЯ ДОЛЖНА БЫТЬ ЗДЕСЬ!
+  // 🔹 Кнопка "Назад" для PWA
   const handleGoBack = () => {
     router.back();
   };
@@ -70,12 +69,12 @@ export default function Header() {
             : 'bg-white py-4'
         }`}
         style={{ 
-          paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined // ← ДОБАВЛЕНО: учёт safe-area для PWA
+          paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined
         }}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
 
-                    {/* 🔹 КНОПКА "НАЗАД" — только для PWA и если есть история */}
+          {/* 🔹 КНОПКА "НАЗАД" — только для PWA и если есть история */}
           {isPWA && canGoBack && (
             <button
               onClick={handleGoBack}
@@ -277,23 +276,23 @@ export default function Header() {
         </div>
       </header>
 
-      {/* 🔹 Мобильное меню — ИСПРАВЛЕНО: не обрезается при скролле */}
+      {/* 🔹 Мобильное меню */}
       {mobileMenuOpen && (
         <>
-          {/* Затемнение фона — фиксированное, на весь экран, ниже меню */}
+          {/* Затемнение фона */}
           <div 
             className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
           
-          {/* Панель меню — фиксированная справа, не зависит от скролла страницы */}
+          {/* Панель меню */}
           <div 
             className={`fixed top-0 right-0 z-50 h-full w-80 bg-white shadow-2xl overflow-y-auto lg:hidden transition-all duration-300 ease-in-out ${
               mobileMenuOpen ? 'right-0 opacity-100' : 'right-[-320px] opacity-0'
             }`}
             style={{ 
-              paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined // ← ДОБАВЛЕНО
+              paddingTop: isPWA ? 'env(safe-area-inset-top, 0px)' : undefined
             }}
           >
             <div className="p-6">

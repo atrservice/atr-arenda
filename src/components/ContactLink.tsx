@@ -44,7 +44,7 @@ const METRIKA_GOALS: Record<ContactType, string> = {
   email: 'email_click',
   telegram: 'telegram_click',
   whatsapp: 'whatsapp_click',
-  max: 'vk_click',
+  max: 'max_click',
 };
 
 export default function ContactLink({ 

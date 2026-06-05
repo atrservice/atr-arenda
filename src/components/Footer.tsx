@@ -2,21 +2,20 @@
 // Файл: src/components/Footer.tsx
 // Описание: Подвал сайта с контактами и ссылками
 // Проект: ООО «АТР-СЕРВИС»
+// Исправление: корректная отправка целей в Метрику
 // ========================================
 
-'use client'; // ✅ Обязательно: есть интерактивность (клики по соцсетям)
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactLink from '@/components/ContactLink';
-import { CONTACTS } from '@/lib/contacts';
+import { CONTACTS, trackMetricaGoal } from '@/lib/contacts';
 
 export default function Footer() {
-  // 🔹 Хелпер для отправки цели в Метрику
-  const trackSocialClick = (goal: string) => {
-    if (typeof window !== 'undefined' && (window as any).ym) {
-      (window as any).ym(process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID, 'reachGoal', goal);
-    }
+  // 🔹 Хелпер для отправки цели в Метрику (используем готовую функцию)
+  const trackSocialClick = (goal: 'telegram_click' | 'whatsapp_click' | 'vk_click') => {
+    trackMetricaGoal(goal);
   };
 
   return (
@@ -147,7 +146,7 @@ export default function Footer() {
               
               {/* VK (Max) */}
               <a 
-                href="https://max.ru/u/f9LHodD0cOKOvqrWxIGm54rpoVi3dKlmwiPOTc4gHYYjNmA3QkYeIPnuaJg"
+                href={CONTACTS.max?.link || 'https://max.ru/u/f9LHodD0cOKOvqrWxIGm54rpoVi3dKlmwiPOTc4gHYYjNmA3QkYeIPnuaJg'}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick('vk_click')}
