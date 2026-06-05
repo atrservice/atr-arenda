@@ -10,7 +10,7 @@ export default function HeroSection() {
         src="/images/hero-bg.webp"
         alt="Аренда спецтехники в Москве — автовышки, краны, манипуляторы"
         fill
-        priority                    // ← КРИТИЧНО для LCP!
+        priority
         quality={85}
         sizes="100vw"
         className="object-cover object-center"

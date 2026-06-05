@@ -13,6 +13,7 @@ interface Service {
   description: string;
   icon: string;
   imageUrl?: string;
+  imageUrlSmall?: string; // ← ДОБАВЛЕНО
   priceFrom: number;
   features: string[];
 }
@@ -29,12 +30,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
     >
       {/* Иконка / превью — с поддержкой картинки и фолбэком на эмодзи */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden rounded-t-2xl group-hover:from-primary-50 group-hover:to-accent-50 transition-colors">
-        <div className="aspect-video flex items-center justify-center p-6">
-          {service.imageUrl ? (
-            <img 
-              src={service.imageUrl} 
+        <div className="aspect-video flex items-center justify-center p-6 relative">
+          {service.imageUrl || service.imageUrlSmall ? (
+            <Image 
+              src={service.imageUrlSmall || service.imageUrl || ''}
               alt={service.title}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              className="object-contain group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           ) : (
