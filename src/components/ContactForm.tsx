@@ -10,6 +10,7 @@
 import { useState, FormEvent } from 'react';
 import ContactLink from '@/components/ContactLink';
 import { CONTACTS, trackMetricaGoal } from '@/lib/contacts';
+import Link from 'next/link';
 
 interface FormData {
   name: string;
@@ -218,7 +219,7 @@ export default function ContactForm() {
             required
           />
           <span className="text-sm text-gray-600">
-            Я согласен на <a href="/policy" className="text-blue-600 hover:underline">обработку персональных данных</a> *
+            Я согласен на <Link href="/policy" className="text-blue-600 hover:underline">обработку персональных данных</Link> *
           </span>
         </label>
         {errors.consent && <p className="mt-1 text-sm text-red-600">{errors.consent}</p>}

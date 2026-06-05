@@ -13,19 +13,21 @@ import { generateSpeakableSchema } from '@/lib/schema-org';
 import { Metadata } from 'next';
 import { getRobotsMetadata } from '@/lib/indexing';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import HeroSection from '@/components/HeroSection';
 
-const HeroSection = dynamic(() => import('@/components/HeroSection'), {
-  ssr: true, // SSR для LCP
-});
-
+// 🔹 Динамические импорты для тяжёлых компонентов (ОПТИМИЗАЦИЯ!)
+// ✅ ssr: true (по умолчанию) — рендерятся на сервере, но код загружается лениво
 const ServiceCard = dynamic(() => import('@/components/ServiceCard'), {
-  ssr: false, // Клиентский рендеринг
-  loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-xl" />,
+  loading: () => (
+    <div className="animate-pulse bg-gray-200 h-64 rounded-2xl" />
+  ),
 });
 
 const AliceFAQBlock = dynamic(() => import('@/components/AliceFAQBlock'), {
-  ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-200 h-24 rounded-xl" />,
+  loading: () => (
+    <div className="animate-pulse bg-gray-200 h-24 rounded-xl" />
+  ),
 });
 
 // 🔹 SEO-метаданные для главной страницы
@@ -244,7 +246,7 @@ export default async function HomePage() {
               variant="button"
               className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg"
             />
-            <a 
+            <Link 
               href="/kontakty#form" 
               className="btn border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg transition-all inline-flex items-center gap-2"
             >
@@ -258,7 +260,7 @@ export default async function HomePage() {
                 sizes="(max-width: 768px) 32px, 64px"
               />
               <span>Оставить заявку</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

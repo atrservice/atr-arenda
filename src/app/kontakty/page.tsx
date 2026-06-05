@@ -16,6 +16,7 @@ import SocialIcons from '@/components/SocialIcons'; // ✅ Новый клиен
 import { CONTACTS } from '@/lib/contacts';
 import { generateOrganizationSchema, generateSpeakableSchema } from '@/lib/schema-org';
 import { getRobotsMetadata } from '@/lib/indexing';
+import Link from 'next/link';
 
 // 🔹 SEO-метаданные — работают только в серверных компонентах
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function ContactsPage() {
       <nav className="bg-gray-50 py-3 border-b" aria-label="Breadcrumb">
         <div className="container mx-auto px-4">
           <ol className="flex items-center gap-2 text-sm text-gray-600">
-            <li><a href="/" className="hover:text-primary-600 transition-colors">Главная</a></li>
+            <li><Link href="/" className="hover:text-primary-600 transition-colors">Главная</Link></li>
             <li className="text-gray-400">/</li>
             <li className="text-gray-900 font-medium" aria-current="page">Контакты</li>
           </ol>
