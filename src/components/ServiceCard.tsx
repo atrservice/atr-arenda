@@ -36,7 +36,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               src={service.imageUrlSmall || service.imageUrl || ''}
               alt={service.title}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              sizes="(max-width: 768px) 295px, 400px"
               className="object-contain group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
@@ -73,7 +73,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         {/* Цена + стрелка */}
         <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
           <div>
-            <span className="text-xs text-gray-500 block mb-0.5">от</span>
+            <span className="text-xs text-gray-600 block mb-0.5">от</span>
             <span className="text-2xl font-extrabold text-primary-600">
               {service.priceFrom.toLocaleString('ru-RU')}
             </span>

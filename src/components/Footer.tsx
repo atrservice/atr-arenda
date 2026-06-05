@@ -28,7 +28,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-10 h-10 relative flex-shrink-0">
                 <Image 
-                  src="/images/logo.webp" 
+                  src="/images/logo-small.webp" 
                   alt="АТР-СЕРВИС логотип"
                   fill
                   className="object-contain"
@@ -39,7 +39,7 @@ export default function Footer() {
                 <span className="text-lg font-extrabold text-white leading-none block">
                   АТР-СЕРВИС
                 </span>
-                <span className="text-[10px] font-semibold text-primary-400 tracking-wider uppercase">
+                <span className="text-[10px] font-semibold text-primary-300 tracking-wider uppercase">
                   Спецтехника
                 </span>
               </div>
@@ -213,10 +213,10 @@ export default function Footer() {
         
         {/* Копирайт */}
         <div className="border-t border-gray-800 mt-12 pt-6 text-center">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-300 text-sm">
             © {new Date().getFullYear()} ООО «АТР-СЕРВИС». Все права защищены.
           </p>
-          <p className="text-gray-600 text-xs mt-1">
+          <p className="text-gray-300 text-xs mt-1">
             Копирование материалов сайта запрещено.
           </p>
         </div>
