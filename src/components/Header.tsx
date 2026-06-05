@@ -91,7 +91,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 relative flex-shrink-0">
               <Image 
-                src="/images/logo-small.webp" 
+                src="/images/logo.webp" 
                 alt="АТР-СЕРВИС логотип"
                 fill
                 className="object-contain"
@@ -103,7 +103,7 @@ export default function Header() {
               <span className="text-lg font-extrabold text-gray-900 leading-none truncate">
                 АТР-СЕРВИС
               </span>
-              <span className="text-[10px] font-semibold text-primary-700 tracking-wider uppercase">
+              <span className="text-[10px] font-semibold text-primary-800 tracking-wider uppercase">
                 Спецтехника
               </span>
             </div>

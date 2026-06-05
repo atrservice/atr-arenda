@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" style={{ minHeight: '600px' }}>
         {/* ✅ ГЛАВНОЕ ИЗОБРАЖЕНИЕ — LCP-элемент */}
       <Image
         src="/images/hero-bg.webp"
@@ -14,6 +14,7 @@ export default function HeroSection() {
         quality={85}
         sizes="100vw"
         className="object-cover object-center"
+        fetchPriority="high"
       />
 
       {/* Затемнение поверх картинки для читаемости текста */}

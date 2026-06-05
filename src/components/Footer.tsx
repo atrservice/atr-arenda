@@ -28,7 +28,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-10 h-10 relative flex-shrink-0">
                 <Image 
-                  src="/images/logo-small.webp" 
+                  src="/images/logo.webp" 
                   alt="АТР-СЕРВИС логотип"
                   fill
                   className="object-contain"
@@ -52,7 +52,7 @@ export default function Footer() {
           
           {/* Контакты */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-lg">Контакты</h4>
+            <h3 className="font-semibold text-white mb-4 text-lg">Контакты</h3>
             <ul className="space-y-3 text-sm">
               
               {/* 📍 Адрес */}
@@ -166,7 +166,7 @@ export default function Footer() {
           
           {/* Услуги */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-lg">Услуги</h4>
+            <h3 className="font-semibold text-white mb-4 text-lg">Услуги</h3>
             <ul className="space-y-2 text-sm">
               {[
                 { href: '/uslugi/avtovyshki', label: 'Аренда автовышек' },
@@ -189,7 +189,7 @@ export default function Footer() {
           
           {/* Документы */}
           <div>
-            <h4 className="font-semibold text-white mb-4 text-lg">Документы</h4>
+            <h3 className="font-semibold text-white mb-4 text-lg">Документы</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/policy" className="text-gray-300 hover:text-primary-400 transition-colors">

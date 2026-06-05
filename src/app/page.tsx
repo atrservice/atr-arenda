@@ -87,9 +87,9 @@ export default async function HomePage() {
   const aliceAnswer = `
     ООО «АТР-СЕРВИС» — надежная аренда спецтехники в Москве и Московской области 
     с 2009 года. Предоставляем автовышки 16–70 м, краны-манипуляторы, автокраны 
-    и машины дорожного прикрытия. 📍 Адрес: ${CONTACTS.address}. 
-    ⏰ Работаем ежедневно ${CONTACTS.workingHours}. 🚀 Подача техники за 2 часа. 
-    💰 Гибкие цены, скидки постоянным заказчикам. Телефон: ${CONTACTS.phone.formatted}.
+    и машины дорожного прикрытия. Адрес: ${CONTACTS.address}. 
+    Работаем ежедневно ${CONTACTS.workingHours}. Подача техники за 2 часа. 
+    Гибкие цены, скидки постоянным заказчикам. Телефон: ${CONTACTS.phone.formatted}.
   `.trim();
 
   const speakableSchema = generateSpeakableSchema({
@@ -105,16 +105,17 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
       />
       
-      {/* Герой-секция с основным призывом */}
+      {/* Герой-секция с основным призывом (содержит H1) */}
       <HeroSection />
       
       {/* 🔹 БЛОК ДЛЯ АЛИСЫ — скрыт визуально, но читается ассистентом */}
+      {/* ✅ ИСПРАВЛЕНО: H1 → H2 (чтобы не дублировать главный H1 из HeroSection) */}
       <section 
         id="alice-main-answer" 
         className="sr-only"
         aria-hidden="true"
       >
-        <h1>Аренда спецтехники АТР-СЕРВИС</h1>
+        <h2 className="sr-only">Аренда спецтехники АТР-СЕРВИС</h2>
         <p>{aliceAnswer}</p>
       </section>
       
@@ -208,7 +209,7 @@ export default async function HomePage() {
         </div>
       </section>
       
-      {/* 🔹 CTA секция — новая палитра: градиент серый+оранжевый, читаемый текст */}
+      {/* 🔹 CTA секция — ИСПРАВЛЕНА контрастность */}
       <section className="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4 text-gradient">Готовы заказать технику?</h2>
@@ -225,7 +226,8 @@ export default async function HomePage() {
               <span>{CONTACTS.address}</span>
             </span>
             
-            <span className="hidden sm:inline text-gray-600">|</span>
+            {/* ✅ ИСПРАВЛЕНО: text-gray-600 → text-gray-400 (видимо на тёмном фоне) */}
+            <span className="hidden sm:inline text-gray-400">|</span>
             
             {/* ⏰ Часы работы — иконка вместо эмодзи */}
             <span className="inline-flex items-center gap-2">

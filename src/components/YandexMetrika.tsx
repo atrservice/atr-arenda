@@ -12,7 +12,6 @@ export default function YandexMetrika() {
   useEffect(() => {
     if (!METRIKA_ID || METRIKA_ID === 0) return;
 
-    // ✅ Загружаем Метрику только после того, как страница станет интерактивной
     const initMetrika = () => {
       if ((window as any).ym) return;
 
@@ -42,7 +41,6 @@ export default function YandexMetrika() {
       });
     };
 
-    // ✅ requestIdleCallback — загрузка в свободное время браузера
     if ('requestIdleCallback' in window) {
       (window as any).requestIdleCallback(initMetrika, { timeout: 3000 });
     } else {

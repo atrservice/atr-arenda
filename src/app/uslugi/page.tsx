@@ -109,7 +109,7 @@ export default async function ServicesPage() {
                   {/* Цена + стрелка */}
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <div>
-                      <span className="text-xs text-gray-400 block mb-0.5">от</span>
+                      <span className="text-xs text-gray-500 block mb-0.5">от</span>
                       <span className="text-2xl font-extrabold text-primary-600">
                         {service.priceFrom.toLocaleString('ru-RU')}
                       </span>
