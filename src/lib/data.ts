@@ -54,6 +54,7 @@ export interface Service {
   priceFrom: number;
   features: string[];
   imageUrl?: string;
+  imageUrlSmall?: string;
 }
 
 // 🔹 Загрузка услуг

@@ -91,7 +91,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 relative flex-shrink-0">
               <Image 
-                src="/images/logo.webp" 
+                src="/images/logo-small.webp" 
                 alt="АТР-СЕРВИС логотип"
                 fill
                 className="object-contain"

@@ -61,7 +61,7 @@ export default async function ServicesPage() {
                   {service.imageUrl ? (
                     // ✅ Большая картинка услуги
                     <Image 
-                      src={service.imageUrl}
+                      src={service.imageUrlSmall || service.imageUrl}
                       alt={service.title}
                       fill
                       className="object-contain group-hover:scale-110 transition-transform duration-300"

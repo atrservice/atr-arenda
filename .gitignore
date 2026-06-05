@@ -42,6 +42,7 @@ Thumbs.db
 tmp/
 temp/
 public/images/optimized
+scripts/
 
 # 🔹 TypeScript
 *.tsbuildinfo

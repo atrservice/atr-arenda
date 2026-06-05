@@ -142,13 +142,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
-          {/* 🔹 РУЧНОЙ PRELOAD для LCP-изображения */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-bg.webp"
-          fetchPriority="high"
-        />
         <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -158,9 +151,14 @@ export default function RootLayout({
         {/* 🔹 Preconnect к Яндексу*/}
         <link rel="preconnect" href="https://mc.yandex.ru" />
         <link rel="dns-prefetch" href="https://mc.yandex.ru" />
-          {/* 🔹 Preconnect к Google Fonts для ускорения загрузки шрифтов */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+          {/* ✅ ДОБАВИТЬ PRELOAD ДЛЯ LCP: */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-bg.webp"
+          fetchPriority="high"
+        />
       </head>
       
       <body className="flex flex-col min-h-screen">

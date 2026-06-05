@@ -12,7 +12,8 @@
       "Машинист с допуском",
       "Работа в центре Москвы"
     ],
-    "imageUrl": "/images/services/avtovyshka.webp"
+    "imageUrl": "/images/services/avtovyshka.webp",
+    "imageUrlSmall": "/images/services/avtovyshka-small.webp"
   },
   {
     "slug": "kmu",
@@ -27,7 +28,8 @@
       "Работа с паллетами",
       "Доставка материалов"
     ],
-    "imageUrl": "/images/services/kmu.webp"
+    "imageUrl": "/images/services/kmu.webp",
+    "imageUrlSmall": "/images/services/kmu-small.webp"
   },
   {
     "slug": "avtokrany",
@@ -42,7 +44,8 @@
       "Работа в стесненных условиях",
       "Схема строповки в подарок"
     ],
-    "imageUrl": "/images/services/avtokran.webp"
+    "imageUrl": "/images/services/avtokran.webp",
+    "imageUrlSmall": "/images/services/avtokran-small.webp"
   },
   {
     "slug": "prikrytie",
@@ -57,6 +60,7 @@
       "Полный комплект дорожных знаков и демпферных огней",
       "Работа на трассах, скоростных магистралях и в городе"
     ],
-    "imageUrl": "/images/services/prikrytie.webp"
+    "imageUrl": "/images/services/prikrytie.webp",
+    "imageUrlSmall": "/images/services/prikrytie-small.webp"
   }
 ]
