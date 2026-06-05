@@ -14,7 +14,7 @@ export const generateOrganizationSchema = () => ({
   "@id": "https://avtovishki-arenda.ru/#organization",
   "name": "ООО «АТР-СЕРВИС»",
   "alternateName": "АТР-СЕРВИС",
-  "image": "https://avtovishki-arenda.ru/images/logo.png",
+  "image": "/images/logo.webp",
   "url": "https://avtovishki-arenda.ru",
   "telephone": CONTACTS.phone.raw, // Только цифры для schema.org
   "priceRange": "₽₽",

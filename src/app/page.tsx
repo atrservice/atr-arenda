@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'АТР-СЕРВИС',
     images: [
       {
-        url: 'https://avtovishki-arenda.ru/images/og-image.jpg',
+        url: '/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
     description: 'Автовышки, КМУ, автокраны. Подача за 2 часа. От 12 000₽/смена.',
-    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'],
+    images: ['/images/og-image.webp'],
   },
   alternates: {
     canonical: 'https://avtovishki-arenda.ru',
@@ -126,7 +126,7 @@ export default async function HomePage() {
             <div className="text-center p-6 card card-hover">
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <Image 
-                  src="/images/icons/icon_speed.png"
+                  src="/images/icons/icon_speed.svg"
                   alt="Быстрая подача"
                   fill
                   className="object-contain"
@@ -143,7 +143,7 @@ export default async function HomePage() {
             <div className="text-center p-6 card card-hover">
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <Image 
-                  src="/images/icons/icon_check.png"
+                  src="/images/icons/icon_check.svg"
                   alt="Надежность"
                   fill
                   className="object-contain"
@@ -160,7 +160,7 @@ export default async function HomePage() {
             <div className="text-center p-6 card card-hover">
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <Image 
-                  src="/images/icons/icon_price.png"
+                  src="/images/icons/icon_price.svg"
                   alt="Гибкие цены"
                   fill
                   className="object-contain"
@@ -202,7 +202,7 @@ export default async function HomePage() {
             {/* 📍 Адрес — иконка вместо эмодзи */}
             <span className="inline-flex items-center gap-2">
               <Image 
-                src="/images/icons/icon_location.png" 
+                src="/images/icons/icon_location.svg" 
                 alt="Адрес"
                 width={20}
                 height={20}
@@ -216,7 +216,7 @@ export default async function HomePage() {
             {/* ⏰ Часы работы — иконка вместо эмодзи */}
             <span className="inline-flex items-center gap-2">
               <Image 
-                src="/images/icons/icon_clock.png" 
+                src="/images/icons/icon_clock.svg" 
                 alt="Часы работы"
                 width={20}
                 height={20}
@@ -238,7 +238,7 @@ export default async function HomePage() {
             >
               {/* 📝 Иконка вместо эмодзи */}
               <Image 
-                src="/images/icons/icon_form.png" 
+                src="/images/icons/icon_form.svg" 
                 alt="Форма заявки"
                 width={20}
                 height={20}

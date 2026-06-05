@@ -22,11 +22,11 @@ interface ContactLinkProps {
 
 // 🔹 Пути к иконкам — поддерживают SVG/PNG/JPG/WebP
 const ICONS: Record<ContactType, string> = {
-  phone: '/images/icons/icon_phone.png',
-  email: '/images/icons/icon_email.png',
-  telegram: '/images/icons/icon_telegram.png',
-  whatsapp: '/images/icons/icon_whatsapp.png',
-  max: '/images/icons/icon_vk.png', // "max" = ВКонтакте
+  phone: '/images/icons/icon_phone.svg',
+  email: '/images/icons/icon_email.svg',
+  telegram: '/images/icons/icon_telegram.svg',
+  whatsapp: '/images/icons/icon_whatsapp.svg',
+  max: '/images/icons/icon_vk.svg',
 };
 
 // 🔹 Подписи для aria-label и метрики

@@ -34,7 +34,7 @@ export default async function AvtokranyPage() {
     price: 22000,
     currency: 'RUB',
     unit: 'смена',
-    image: 'https://avtovishki-arenda.ru/images/services/avtokran.jpg',
+    image: '/images/services/avtokran.webp',
     url: 'https://avtovishki-arenda.ru/uslugi/avtokrany',
   });
 

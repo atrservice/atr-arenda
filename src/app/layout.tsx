@@ -29,8 +29,6 @@ const METRIKA_ID = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || '0';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
@@ -40,6 +38,8 @@ export const viewport: Viewport = {
 
 // 🔹 Глобальные метаданные
 export const metadata: Metadata = {
+  metadataBase: new URL('https://avtovishki-arenda.ru'),
+  
   title: {
     default: 'Аренда спецтехники в Москве и МО | АТР-СЕРВИС от 12 000₽',
     template: '%s | ООО "АТР-СЕРВИС"',
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     description: 'Автовышки, КМУ, автокраны, машины прикрытия. Собственный парк. Подача за 2 часа.',
     images: [
       {
-        url: 'https://avtovishki-arenda.ru/images/og-image.jpg',
+        url: 'https://avtovishki-arenda.ru/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'АТР-СЕРВИС — Аренда спецтехники в Москве',
     description: 'Автовышки, КМУ, автокраны. Подача за 2 часа.',
-    images: ['https://avtovishki-arenda.ru/images/og-image.jpg'],
+    images: ['https://avtovishki-arenda.ru/images/og-image.webp'],
   },
   robots: {
     index: true,
@@ -141,14 +141,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
+        <meta property="og:image" content="https://avtovishki-arenda.ru/images/og-image.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta name="twitter:image" content="https://avtovishki-arenda.ru/images/og-image.jpg" />
+        <meta name="twitter:image" content="https://avtovishki-arenda.ru/images/og-image.webp" />
         <meta name="twitter:card" content="summary_large_image" />
+        {/* 🔹 Preconnect к Яндексу*/}
         <link rel="preconnect" href="https://mc.yandex.ru" />
         <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+          {/* 🔹 Preconnect к Google Fonts для ускорения загрузки шрифтов */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       
       <body className="flex flex-col min-h-screen">

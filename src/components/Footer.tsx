@@ -28,7 +28,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-10 h-10 relative flex-shrink-0">
                 <Image 
-                  src="/images/logo.png" 
+                  src="/images/logo.webp" 
                   alt="АТР-СЕРВИС логотип"
                   fill
                   className="object-contain"
@@ -58,7 +58,7 @@ export default function Footer() {
               {/* 📍 Адрес */}
               <li className="flex items-start gap-3 text-gray-300">
                 <Image 
-                  src="/images/icons/icon_location.png" 
+                  src="/images/icons/icon_location.svg" 
                   alt="Адрес"
                   width={20}
                   height={20}
@@ -70,7 +70,7 @@ export default function Footer() {
               {/* ⏰ Часы работы */}
               <li className="flex items-center gap-3 text-gray-300">
                 <Image 
-                  src="/images/icons/icon_clock.png" 
+                  src="/images/icons/icon_clock.svg" 
                   alt="Часы работы"
                   width={20}
                   height={20}
@@ -91,7 +91,7 @@ export default function Footer() {
               {/* ✉️ Email */}
               <li className="flex items-center gap-3">
                 <Image 
-                  src="/images/icons/icon_email.png" 
+                  src="/images/icons/icon_email.svg" 
                   alt="Email"
                   width={20}
                   height={20}
@@ -118,7 +118,7 @@ export default function Footer() {
                 aria-label="Telegram"
               >
                 <Image 
-                  src="/images/icons/icon_telegram.png" 
+                  src="/images/icons/icon_telegram.svg" 
                   alt="Telegram"
                   width={20}
                   height={20}
@@ -136,7 +136,7 @@ export default function Footer() {
                 aria-label="WhatsApp"
               >
                 <Image 
-                  src="/images/icons/icon_whatsapp.png" 
+                  src="/images/icons/icon_whatsapp.svg" 
                   alt="WhatsApp"
                   width={20}
                   height={20}
@@ -154,7 +154,7 @@ export default function Footer() {
                 aria-label="ВКонтакте"
               >
                 <Image 
-                  src="/images/icons/icon_vk.png" 
+                  src="/images/icons/icon_vk.svg" 
                   alt="ВКонтакте"
                   width={20}
                   height={20}

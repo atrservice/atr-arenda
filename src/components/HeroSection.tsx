@@ -5,12 +5,22 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        {/* ✅ ГЛАВНОЕ ИЗОБРАЖЕНИЕ — LCP-элемент */}
+      <Image
+        src="/images/hero-bg.webp"
+        alt="Аренда спецтехники в Москве — автовышки, краны, манипуляторы"
+        fill
+        priority                    // ← КРИТИЧНО для LCP!
+        quality={85}
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+
+      {/* Затемнение поверх картинки для читаемости текста */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-gray-900/90" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/30 via-transparent to-primary-600/30" />
       
-      {/* Сложный градиентный фон */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/20 via-transparent to-primary-600/20" />
-      
-      {/* Анимированные градиентные пятна */}
+      {/* Анимированные пятна — оставляем */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/30 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
       
@@ -74,21 +84,21 @@ export default function HeroSection() {
               <div className="space-y-4">
                 {[
                   { 
-                    icon: '/images/icons/icon_avtovyshka.jpg',  // ✅ Путь к картинке
+                    icon: '/images/icons/icon_avtovyshka.webp',  // ✅ Путь к картинке
                     iconAlt: 'Автовышка',                        // ✅ Альтернативный текст
                     title: 'Автовышки', 
                     price: 'от 16 000 ₽/смена', 
                     gradient: 'from-orange-500 to-orange-600' 
                   },
                   { 
-                    icon: '/images/icons/icon_kmu.jpg', 
+                    icon: '/images/icons/icon_kmu.webp', 
                     iconAlt: 'Кран-манипулятор',
                     title: 'Краны-манипуляторы', 
                     price: 'от 20 000 ₽/смена', 
                     gradient: 'from-primary-500 to-primary-600' 
                   },
                   { 
-                    icon: '/images/icons/icon_avtokran.jpg', 
+                    icon: '/images/icons/icon_avtokran.webp', 
                     iconAlt: 'Автокран',
                     title: 'Автокраны', 
                     price: 'от 22 000 ₽/смена', 

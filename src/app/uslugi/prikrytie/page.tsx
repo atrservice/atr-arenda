@@ -34,7 +34,7 @@ export default async function PrikrytiePage() {
     price: 18000,
     currency: 'RUB',
     unit: 'смена',
-    image: 'https://avtovishki-arenda.ru/images/services/prikrytie.jpg',
+    image: '/images/services/prikrytie.webp',
     url: 'https://avtovishki-arenda.ru/uslugi/prikrytie',
   });
 

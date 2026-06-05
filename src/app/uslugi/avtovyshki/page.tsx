@@ -44,8 +44,8 @@ export default async function AvtovyshkiPage() {
     price: 16000,
     currency: 'RUB',
     unit: 'смена',
-    image: 'https://avtovishki-arenda.ru/images/services/avtovyshka.jpg', // ← ДОБАВЛЕНО
-    url: 'https://avtovishki-arenda.ru/uslugi/avtovyshki', // ← ДОБАВЛЕНО
+    image: '/images/services/avtovyshka.webp',
+    url: 'https://avtovishki-arenda.ru/uslugi/avtovyshki',
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([

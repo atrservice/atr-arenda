@@ -34,7 +34,7 @@ export default async function KmuPage() {
     price: 20000,
     currency: 'RUB',
     unit: 'смена',
-    image: 'https://avtovishki-arenda.ru/images/services/kmu.jpg',
+    image: '/images/services/kmu.webp',
     url: 'https://avtovishki-arenda.ru/uslugi/kmu',
   });
 
