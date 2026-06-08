@@ -15,6 +15,7 @@ import { CONTACTS } from '@/lib/contacts';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import DebugLogger from '@/components/DebugLogger';
 import YandexMetrika from '@/components/YandexMetrika';
+import CookieBanner from '@/components/CookieBanner';
 
 const inter = Inter({ 
   subsets: ['cyrillic', 'latin'],
@@ -168,7 +169,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
-          
+          <CookieBanner />
           {/* ✅ Яндекс.Метрика — обёрнута в Suspense */}
           <Suspense fallback={null}>
             <YandexMetrika />
