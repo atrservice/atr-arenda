@@ -76,6 +76,7 @@ jobs:
             pm2 status
             
             echo "✅ Деплой завершён успешно!"
+            npm install --os=linux --cpu=x64 sharp
       
       # 🔹 7. Проверяем, что сайт работает (health check)
       - name: Health check
