@@ -1,11 +1,11 @@
+'use client';
+
 // ========================================
 // Файл: src/components/ContactForm.tsx
 // Описание: Форма заявки с валидацией и Яндекс.Метрикой
 // Проект: АТР-СЕРВИС
 // Контакты: берутся из .env.local через @/lib/contacts
 // ========================================
-
-'use client';
 
 import { useState, FormEvent } from 'react';
 import ContactLink from '@/components/ContactLink';
@@ -183,11 +183,11 @@ export default function ContactForm() {
           onChange={(e) => handleChange('equipment', e.target.value)}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         >
-          <option value="avtovyshka">🪜 Автовышка</option>
-          <option value="kmu">🏗️ Кран-манипулятор (КМУ)</option>
-          <option value="avtokran">🔧 Автокран</option>
-          <option value="prikrytie">🚨 Машина прикрытия</option>
-          <option value="other">❓ Другое / нужна консультация</option>
+          <option value="avtovyshka">Автовышка</option>
+          <option value="kmu">Кран-манипулятор (КМУ)</option>
+          <option value="avtokran">Автокран</option>
+          <option value="prikrytie">Машина прикрытия</option>
+          <option value="other">Другое / нужна консультация</option>
         </select>
       </div>
 

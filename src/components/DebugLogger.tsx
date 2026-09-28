@@ -1,3 +1,9 @@
+// ========================================
+// File: src/components/DebugLogger.tsx
+// Description: Обработка ошибок
+// Project: ООО «АТР-СЕРВИС»
+// ========================================
+
 'use client';
 
 import { useEffect } from 'react';

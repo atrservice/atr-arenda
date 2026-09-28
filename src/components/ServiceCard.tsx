@@ -1,3 +1,5 @@
+'use client';
+
 // ========================================
 // Файл: src/components/ServiceCard.tsx
 // Описание: Карточка услуги для сетки на главной
@@ -13,7 +15,6 @@ interface Service {
   description: string;
   icon: string;
   imageUrl?: string;
-  imageUrlSmall?: string; // ← ДОБАВЛЕНО
   priceFrom: number;
   features: string[];
 }
@@ -31,9 +32,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       {/* Иконка / превью — с поддержкой картинки и фолбэком на эмодзи */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden rounded-t-2xl group-hover:from-primary-50 group-hover:to-accent-50 transition-colors">
         <div className="aspect-video flex items-center justify-center p-6 relative">
-          {service.imageUrl || service.imageUrlSmall ? (
+          {service.imageUrl? (
             <Image 
-              src={service.imageUrlSmall || service.imageUrl || ''}
+              src={service.imageUrl || ''}
               alt={service.title}
               fill
               sizes="(max-width: 768px) 295px, 400px"

@@ -15,6 +15,7 @@ import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
 import { getRobotsMetadata } from '@/lib/indexing';
+import EquipmentCard from '@/components/EquipmentCard';
 
 export const metadata: Metadata = {
   title: `Аренда машин прикрытия в Москве от 18 000₽/смена`,
@@ -87,68 +88,30 @@ export default async function PrikrytiePage() {
         </div>
       </section>
 
-      {/* 🔹 Каталог техники — карточки с SVG-иконками */}
+      {/* 🔹 Каталог техники */}
       <section id="catalog" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-center text-gray-900">Доступная техника</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {equipment.map((item) => (
-              <article key={item.id} className="card card-hover p-6">
-                
-                {/* 🔹 Иконка техники — картинка вместо эмодзи */}
-                <div className="w-16 h-16 mb-4 relative">
-                  {item.imageUrl ? (
-                    <Image 
-                      src={item.imageUrl}
-                      alt={item.name}
-                      fill
-                      className="object-contain"
-                      sizes="64px"
-                    />
-                  ) : (
-                    // Фолбэк на эмодзи, если картинки нет
-                    <div className="text-4xl text-gray-400">🚨</div>
-                  )}
-                </div>
-                
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{item.name}</h3>
-                
-                <dl className="space-y-2 text-sm text-gray-600 mb-4">
-                  <div className="flex justify-between">
-                    <dt className="text-gray-500">Стандарт:</dt>
-                    <dd className="font-medium text-gray-900">{item.specs.standard}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="text-gray-500">Светосигнализация:</dt>
-                    <dd className="font-medium text-gray-900">{item.specs.lights}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="text-gray-500">Опыт водителя:</dt>
-                    <dd className="font-medium text-gray-900">{item.specs.driver_experience}</dd>
-                  </div>
-                </dl>
-                
-                <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                  <div>
-                    <span className="text-xs text-gray-400 block mb-0.5">от</span>
-                    <span className="text-2xl font-extrabold text-primary-600">
-                      {item.pricePerShift.toLocaleString('ru-RU')}
-                    </span>
-                    <span className="text-sm text-gray-500 ml-1">₽/смена</span>
-                  </div>
-                  <Link 
-                    href="#form" 
-                    className="inline-flex items-center gap-1 text-primary-600 font-medium hover:text-primary-700 transition-colors"
-                  >
-                    Заказать
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <h2 className="text-2xl font-bold mb-8 text-center text-gray-900">Доступные автомобили прикрытия</h2>
+
+          {equipment.length > 0 ? (
+            /* ✅ Есть техника — показываем ОДНУ сетку карточек */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {equipment.map((item) => (
+                <EquipmentCard key={item.slug} item={item} />
+              ))}
+            </div>
+          ) : (
+            /* ✅ Техники нет — заглушка на ВСЮ ширину контейнера */
+            <div className="text-center py-12 bg-gray-50 rounded-2xl">
+              <p className="text-gray-600 mb-2">Каталог техники по этому направлению пополняется.</p>
+              <p className="text-gray-500 text-sm">
+                Позвоните — подберём технику под вашу задачу:{' '}
+                <a href={`tel:${CONTACTS.phone.raw}`} className="text-primary-600 font-semibold">
+                  {CONTACTS.phone.formatted}
+                </a>
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

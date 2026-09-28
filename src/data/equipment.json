@@ -1,80 +1,223 @@
-[
-  {
-    "id": "av-16m",
-    "name": "Автовышка 16 м",
-    "type": "avtovyshka",
-    "height": 16,
-    "capacity": 300,
-    "pricePerShift": 16000,
-    "specs": {
-      "platform_size": "1.2 x 0.7 м",
-      "rotation": "360°",
-      "chassis": "Шоссейное, Вездеход",
-      "permit_moscow": "Да"
-    },
-    "available": true,
-    "imageUrl": "/images/equipment/av-16m.jpg"
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-06-20",
+    "note": "Парк техники АТР-СЕРВИС. Цены за смену 7+1 ч в пределах МКАД."
   },
-  {
-    "id": "av-22m",
-    "name": "Автовышка 22 м",
-    "type": "avtovyshka",
-    "height": 22,
-    "capacity": 300,
-    "pricePerShift": 18000,
-    "specs": {
-      "platform_size": "1.2 x 0.7 м",
-      "rotation": "360°",
-      "chassis": "Шоссейное, Вездеход",
-      "permit_moscow": "Да"
+  "items": [
+    {
+      "slug": "avtovyshka-16m",
+      "category": "avtovyshki",
+      "name": "Автовышка 16 метров",
+      "brand": "TADANO",
+      "model": "AT-141",
+      "height": 16,
+      "capacity": 250,
+      "chassis": "ISUZU Elf",
+      "chassisType": "shosse",
+      "basket": "standard",
+      "basketDescription": "Стандартная люлька 1.1×0.7×0.95 м",
+      "year": 2012,
+      "basePrice": 16000,
+      "pricePerHour": 2000,
+      "pricePerKmOutside": 70,
+      "description": "Компактная малогабаритная автовышка на шасси Исузу Эльф для работ на высоте до 16 метров. Идеальна для монтажа рекламы, электромонтажа, обрезки деревьев в стеснённых условиях.",
+      "specs": {
+        "maxHeight": 16,
+        "maxReach": 12,
+        "basketCapacity": 250,
+        "basketSize": "1.5×0.7 м",
+        "rotationAngle": 360,
+        "chassis": "ISUZU Elf",
+        "engine": "",
+        "weight": 7500
+      },
+      "features": [
+        "Высота подъёма 16 метров",
+        "Грузоподъёмность люльки 250 кг",
+        "Поворот платформы 360°",
+        "Шоссейное шасси Исузу",
+        "Аттестованный машинист",
+        "Все допуски Ростехнадзора"
+      ],
+      "useCases": [
+        "Монтаж рекламы и вывесок",
+        "Электромонтажные работы",
+        "Обрезка деревьев",
+        "Клининг фасадов",
+        "Ремонт кровли",
+        "Установка кондиционеров"
+      ],
+      "mainImage": "/images/equipment/avtovyshka-16m.webp",
+      "realPhotos": [
+        "/images/equipment/real/avtovyshka-16m-1.webp",
+        "/images/equipment/real/avtovyshka-16m-2.webp",
+        "/images/equipment/real/avtovyshka-16m-3.webp",
+        "/images/equipment/real/avtovyshka-16m-4.webp",
+        "/images/equipment/real/avtovyshka-16m-5.webp"
+      ],
+      "available": true
     },
-    "available": true,
-    "imageUrl": "/images/equipment/av-22m.jpg"
-  },
-  {
-    "id": "kmu-7t",
-    "name": "КМУ стрела 7 тонн, борт 10 тонн",
-    "type": "kmu",
-    "capacity": 7000,
-    "boom_length": 19.5,
-    "pricePerShift": 20000,
-    "specs": {
-      "max_load": "7000 кг",
-      "boom_reach": "19.5 м",
-      "chassis": "Шоссейное, Вездеход",
-      "with_driver": "Да"
+        {
+      "slug": "avtovyshka-18m",
+      "category": "avtovyshki",
+      "name": "Автовышка 18 метров",
+      "brand": "TADANO",
+      "model": "AT-185CG",
+      "height": 16,
+      "capacity": 250,
+      "chassis": "ISUZU Elf",
+      "chassisType": "shosse",
+      "basket": "standard",
+      "basketDescription": "Стандартная люлька 1.1×0.7×0.95 м",
+      "year": 2012,
+      "basePrice": 16000,
+      "pricePerHour": 2000,
+      "pricePerKmOutside": 70,
+      "description": "Компактная малогабаритная автовышка с гуськом на шасси Исузу Эльф для работ на высоте до 18 метров. Идеальна для монтажа рекламы, электромонтажа, обрезки деревьев в стеснённых условиях.",
+      "specs": {
+        "maxHeight": 18,
+        "maxReach": 14,
+        "basketCapacity": 250,
+        "basketSize": "1.5×0.7 м",
+        "rotationAngle": 360,
+        "chassis": "ISUZU Elf",
+        "engine": "",
+        "weight": 7500
+      },
+      "features": [
+        "Высота подъёма 18 метров",
+        "Грузоподъёмность люльки 250 кг",
+        "Поворот платформы 360°",
+        "Шоссейное шасси Исузу",
+        "Аттестованный машинист",
+        "Все допуски Ростехнадзора"
+      ],
+      "useCases": [
+        "Монтаж рекламы и вывесок",
+        "Электромонтажные работы",
+        "Обрезка деревьев",
+        "Клининг фасадов",
+        "Ремонт кровли",
+        "Установка кондиционеров"
+      ],
+      "mainImage": "/images/equipment/avtovyshka-18m.webp",
+      "realPhotos": [
+        "/images/equipment/real/avtovyshka-18m-1.webp",
+        "/images/equipment/real/avtovyshka-18m-2.webp",
+        "/images/equipment/real/avtovyshka-18m-3.webp",
+        "/images/equipment/real/avtovyshka-18m-4.webp",
+        "/images/equipment/real/avtovyshka-18m-5.webp"
+      ],
+      "available": true
     },
-    "available": true,
-    "imageUrl": "/images/equipment/kmu-7t.jpg"
-  },
-  {
-    "id": "ak-25t",
-    "name": "Автокран 25 тонн",
-    "type": "avtokran",
-    "capacity": 25000,
-    "boom_length": 31,
-    "pricePerShift": 22000,
-    "specs": {
-      "max_load": "25000 кг",
-      "boom_length": "31 м",
-      "jib": "Опционально +9 м",
-      "chassis": "КАМАЗ, МАЗ"
+        {
+      "slug": "avtovyshka-22m",
+      "category": "avtovyshki",
+      "name": "Автовышка 22 метра",
+      "brand": "AICHI",
+      "model": "SK-210",
+      "height": 16,
+      "capacity": 250,
+      "chassis": "ISUZU Forward",
+      "chassisType": "shosse",
+      "basket": "standard",
+      "basketDescription": "Стандартная люлька 1.1×0.7×0.95 м",
+      "year": 2009,
+      "basePrice": 18000,
+      "pricePerHour": 2250,
+      "pricePerKmOutside": 70,
+      "description": "Компактная малогабаритная автовышка на шасси Исузу Форвард для работ на высоте до 22 метров. Идеальна для монтажа рекламы, электромонтажа, обрезки деревьев в стеснённых условиях.",
+      "specs": {
+        "maxHeight": 22,
+        "maxReach": 15,
+        "basketCapacity": 250,
+        "basketSize": "1.5×0.7 м",
+        "rotationAngle": 360,
+        "chassis": "ISUZU Forward",
+        "engine": "",
+        "weight": 9500
+      },
+      "features": [
+        "Высота подъёма 16 метров",
+        "Грузоподъёмность люльки 250 кг",
+        "Поворот платформы 360°",
+        "Шоссейное шасси Исузу",
+        "Аттестованный машинист",
+        "Все допуски Ростехнадзора"
+      ],
+      "useCases": [
+        "Монтаж рекламы и вывесок",
+        "Электромонтажные работы",
+        "Обрезка деревьев",
+        "Клининг фасадов",
+        "Ремонт кровли",
+        "Установка кондиционеров"
+      ],
+      "mainImage": "/images/equipment/avtovyshka-22m.webp",
+      "realPhotos": [
+        "/images/equipment/real/avtovyshka-22m-1.webp",
+        "/images/equipment/real/avtovyshka-22m-2.webp",
+        "/images/equipment/real/avtovyshka-22m-3.webp",
+        "/images/equipment/real/avtovyshka-22m-4.webp",
+        "/images/equipment/real/avtovyshka-22m-5.webp",
+        "/images/equipment/real/avtovyshka-22m-6.webp"
+      ],
+      "available": true
     },
-    "available": true,
-    "imageUrl": "/images/equipment/ak-25t.jpg"
-  },
-  {
-    "id": "mp-gost",
-    "name": "Машина прикрытия ГОСТ",
-    "type": "prikrytie",
-    "pricePerShift": 12000,
-    "specs": {
-      "standard": "ГОСТ Р 50574-2019",
-      "lights": "Проблесковые огни",
-      "signs": "Полный комплект",
-      "driver_experience": "от 5 лет"
-    },
-    "available": true,
-    "imageUrl": "/images/equipment/mp-gost.jpg"
-  }
-]
+            {
+      "slug": "avtovyshka-27m",
+      "category": "avtovyshki",
+      "name": "Автовышка 27 метра",
+      "brand": "AICHI",
+      "model": "SK27A",
+      "height": 27,
+      "capacity": 250,
+      "chassis": "ISUZU Forward",
+      "chassisType": "shosse",
+      "basket": "standard",
+      "basketDescription": "Стандартная люлька 1.1×0.7×0.95 м",
+      "year": 2014,
+      "basePrice": 20000,
+      "pricePerHour": 2500,
+      "pricePerKmOutside": 80,
+      "description": "Компактная автовышка на шасси Исузу Форвард для работ на высоте до 27 метров. Идеальна для монтажа рекламы, электромонтажа, обрезки деревьев в стеснённых условиях.",
+      "specs": {
+        "maxHeight": 27,
+        "maxReach": 15,
+        "basketCapacity": 250,
+        "basketSize": "1.5×0.7 м",
+        "rotationAngle": 360,
+        "chassis": "ISUZU Forward",
+        "engine": "",
+        "weight": 9800
+      },
+      "features": [
+        "Высота подъёма 27 метров",
+        "Грузоподъёмность люльки 250 кг",
+        "Поворот платформы 360°",
+        "Шоссейное шасси Исузу",
+        "Аттестованный машинист",
+        "Все допуски Ростехнадзора"
+      ],
+      "useCases": [
+        "Монтаж рекламы и вывесок",
+        "Электромонтажные работы",
+        "Обрезка деревьев",
+        "Клининг фасадов",
+        "Ремонт кровли",
+        "Установка кондиционеров"
+      ],
+      "mainImage": "/images/equipment/avtovyshka-27m.webp",
+      "realPhotos": [
+        "/images/equipment/real/avtovyshka-27m-1.webp",
+        "/images/equipment/real/avtovyshka-27m-2.webp",
+        "/images/equipment/real/avtovyshka-27m-3.webp",
+        "/images/equipment/real/avtovyshka-27m-4.webp",
+        "/images/equipment/real/avtovyshka-27m-5.webp",
+        "/images/equipment/real/avtovyshka-27m-6.webp"
+      ],
+      "available": true
+    }
+  ]
+}

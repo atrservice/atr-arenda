@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import ContactLink from './ContactLink';
 import Image from 'next/image';

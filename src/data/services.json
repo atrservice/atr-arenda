@@ -21,7 +21,7 @@
     "description": "Краны-манипуляторы 1–20 тонн для погрузки и монтажа",
     "icon": "🏗️",
     "iconImage": "/images/icons/icon_kmu.svg",
-    "priceFrom": 20000,
+    "priceFrom": 16000,
     "features": [
       "Грузоподъемность до 20 тонн",
       "Вылет стрелы до 19 м",
@@ -37,7 +37,7 @@
     "description": "Автокраны 16–500 тонн для строительства и монтажа",
     "icon": "🔧",
     "iconImage": "/images/icons/icon_avtokran.svg",
-    "priceFrom": 22000,
+    "priceFrom": 18000,
     "features": [
       "Грузоподъемность до 500 тонн",
       "Вылет стрелы до 70 м",

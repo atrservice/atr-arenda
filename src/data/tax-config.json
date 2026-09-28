@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-06-10",
+    "note": "Налоговые настройки для расчёта цен"
+  },
+  "vat": {
+    "rate": 22,
+    "rate_decimal": 0.22,
+    "effective_date": "2026-06-09",
+    "description": "НДС 22% (действует с 09.06.2026)",
+    "formula_with_vat": "стоимость × 1.22 = Стоимость с НДС",
+    "formula_without_vat": "стоимость / 1.22 = Стоимость без НДС"
+  },
+  "ip_simplified": {
+    "rate": 8,
+    "rate_decimal": 0.08,
+    "description": "Упрощённая система налогообложения для ИП (8%)",
+    "formula": "стоимость / 0.92 = Стоимость без НДС при оплате на ИП"
+  },
+  "payment_types": {
+    "cash": {
+      "name": "Наличный расчёт",
+      "description": "Оплата наличными или картой физическим лицом",
+      "vat_applicable": false
+    },
+    "bank_with_vat": {
+      "name": "Безналичный расчёт с НДС",
+      "description": "Оплата по безналичному расчёту с НДС 22%",
+      "vat_applicable": true,
+      "vat_rate": 22
+    },
+    "bank_without_vat": {
+      "name": "Безналичный расчёт без НДС (ИП)",
+      "description": "Оплата по безналичному расчёту без НДС для ИП на УСН",
+      "vat_applicable": false,
+      "ip_simplified_rate": 8
+    }
+  },
+  "calculation_examples": {
+    "base_price_16000": {
+      "cash": 16000,
+      "bank_with_vat": 19520,
+      "bank_without_vat_ip": 17391
+    },
+    "base_price_20000": {
+      "cash": 20000,
+      "bank_with_vat": 24400,
+      "bank_without_vat_ip": 21739
+    },
+    "base_price_22000": {
+      "cash": 22000,
+      "bank_with_vat": 26840,
+      "bank_without_vat_ip": 23913
+    }
+  }
+}

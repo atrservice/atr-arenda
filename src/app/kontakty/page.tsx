@@ -211,8 +211,8 @@ export default function ContactsPage() {
                 </summary>
                 <div className="mt-4 text-sm text-gray-600 space-y-1 pt-4 border-t border-gray-100">
                   <p><strong>ООО «АТР-СЕРВИС»</strong></p>
-                  <p>ИНН: 7701234567</p>
-                  <p>ОГРН: 1234567890123</p>
+                  <p>ИНН: 7733700905</p>
+                  <p>ОГРН: 1097746299991</p>
                   <p>Юр. адрес: {CONTACTS.address}</p>
                 </div>
               </details>

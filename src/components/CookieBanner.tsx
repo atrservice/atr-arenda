@@ -1,9 +1,9 @@
+'use client';
+
 // ========================================
 // File: src/components/CookieBanner.tsx
 // Description: Уведомление о cookies (152-ФЗ)
 // ========================================
-
-'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';

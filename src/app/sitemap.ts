@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // Страницы техники (из equipment.json)
   for (const item of equipment) {
-    const path = `/tekhnika/${item.id}`;
+    const path = `/tekhnika/${item.slug}`;
     const entry = createEntry(path, 0.8);
     if (entry) entries.push(entry);
   }

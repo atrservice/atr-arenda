@@ -1,0 +1,25 @@
+{
+  "chassis": {
+    "shosse": { "name": "Шоссейное", "price_add": 0 },
+    "vezdehod": { "name": "Вездеход", "price_add": 3000 }
+  },
+  "basket": {
+    "standard": { "name": "Стандартная люлька", "price_add": 0 },
+    "raskladnaya": { "name": "Раскладная люлька", "price_add": 1500 },
+    "superdeck": { "name": "Балкон SuperDeck", "price_add": 4000 }
+  },
+  "kmu_options": {
+    "montazhnaya-korzina": { "name": "Монтажная корзина", "price_add": 3000 },
+    "katyusha": { "name": "Надстройка «Катюша»", "price_add": 2000 },
+    "bur": { "name": "Буровая установка", "price_add": 5000 },
+    "zadniy-sves": { "name": "Задний свес до 2 м", "price_add": 1500 }
+  },
+  "jib": {
+    "7": { "name": "Гусек 7 м", "price_add": 3000 },
+    "8": { "name": "Гусек 8 м", "price_add": 3500 },
+    "15": { "name": "Гусек 15 м", "price_add": 5000 },
+    "16": { "name": "Гусек 16 м", "price_add": 5500 },
+    "18": { "name": "Гусек 18 м", "price_add": 6000 },
+    "22": { "name": "Гусек 22 м", "price_add": 8000 }
+  }
+}

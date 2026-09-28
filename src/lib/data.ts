@@ -4,33 +4,47 @@
 // Project: ООО «АТР-СЕРВИС»
 // ========================================
 
-// 🔹 Строгие типы для оборудования
-export type EquipmentType = 'avtovyshka' | 'kmu' | 'avtokran' | 'prikrytie';
+// ========================================
+// File: src/lib/data.ts
+// ========================================
 
+// 🔹 Строгие типы для оборудования (ОБНОВЛЕНО под новую структуру equipment.json)
 export interface Equipment {
-  id: string;
+  slug: string;
+  category: string;          // <-- ДОБАВЛЕНО (вместо type)
   name: string;
-  type: EquipmentType;
+  brand?: string;
+  model?: string;
   height?: number;
   capacity?: number;
   boom_length?: number;
-  pricePerShift: number;
-  specs: {
-    platform_size?: string;
-    rotation?: string;
-    chassis: string;
-    permit_moscow?: string;
-    max_load?: string;
-    boom_reach?: number;
-    with_driver?: string;
-    jib?: string;
-    standard?: string;
-    lights?: string;
-    signs?: string;
-    driver_experience?: string;
-  };
-  available: boolean;
-  imageUrl: string;
+  basePrice?: number;
+  pricePerHour?: number;
+  pricePerKmOutside?: number;
+  description?: string;
+  specs?: any;
+  features?: string[];
+  useCases?: string[];
+  mainImage?: string;
+  realPhotos?: string[];
+  available?: boolean;
+  // Поля ниже оставлены для обратной совместимости, если где-то в старом коде они используются
+  type?: string;             
+  pricePerShift?: number;    
+  imageUrl?: string;         
+}
+
+// 🔹 Тип для услуги
+export interface Service {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  iconImage?: string;
+  priceFrom: number;
+  features: string[];
+  imageUrl?: string;
+  imageUrlSmall?: string;
 }
 
 // 🔹 Строгие типы для FAQ
@@ -41,54 +55,47 @@ export interface FAQItem {
   answer: string;
   category: FAQCategory;
   aliceOptimized?: boolean;
-  services?: string[];  // ✅ Привязка вопроса к услугам: ['avtovyshki', 'kmu', ...]
-}
-
-// 🔹 Тип для услуги
-export interface Service {
-  slug: string;
-  title: string;
-  description: string;
-  icon: string;
-  iconImage?: string;  // ✅ Путь к иконке-картинке
-  priceFrom: number;
-  features: string[];
-  imageUrl?: string;
-  imageUrlSmall?: string;
+  services?: string[];
 }
 
 // 🔹 Загрузка услуг
 export async function getServices(): Promise<Service[]> {
   const data = await import('@/data/services.json');
-  return data.default as Service[];  // ✅ Явное приведение типа
+  return data.default as Service[];
 }
 
-// 🔹 Загрузка техники с фильтрацией по типу
-export async function getEquipment(type?: EquipmentType): Promise<Equipment[]> {
+// 🔹 Загрузка техники с фильтрацией по категории (алиасы в обе стороны)
+export async function getEquipment(category?: string): Promise<Equipment[]> {
   const data = await import('@/data/equipment.json');
-  const all = data.default as Equipment[];  // ✅ Явное приведение типа
-  return type ? all.filter((e) => e.type === type) : all;
+  const all = ((data.default as any).items ?? []) as Equipment[];
+  if (!category) return all;
+
+  // Группы синонимов: единственное/множественное число и вариации
+  const groups: string[][] = [
+    ['avtovyshki', 'avtovyshka'],
+    ['kmu', 'manipulyator'],
+    ['avtokrany', 'avtokran'],
+    ['prikrytie', 'prikrytiya'],
+  ];
+
+  const group = groups.find((g) => g.includes(category));
+  const wanted = group ?? [category];
+  return all.filter((e) => wanted.includes(e.category));
 }
 
-// 🔹 Загрузка FAQ с фильтрацией по категории И/ИЛИ по услуге
+// 🔹 Загрузка FAQ с фильтрацией
 export async function getFAQ(category?: FAQCategory, serviceSlug?: string): Promise<FAQItem[]> {
   const data = await import('@/data/faq.json');
   const all = data.default as FAQItem[];
 
   return all.filter((item) => {
-    // 1. Фильтр по категории (informational / commercial)
     if (category && item.category !== category) return false;
-
-    // 2. Фильтр по услуге
     if (serviceSlug) {
-      // Если у вопроса явно указаны услуги → показываем только если наша услуга в списке
       if (item.services && item.services.length > 0) {
         return item.services.includes(serviceSlug);
       }
-      // Если services не указаны (пусто или нет поля) → считаем вопрос общим, показываем всегда
       return true;
     }
-
     return true;
   });
 }

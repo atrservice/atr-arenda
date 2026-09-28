@@ -1,11 +1,11 @@
+'use client';
+
 // ========================================
 // File: src/components/FAQAccordion.tsx
 // Description: Аккордеон с вопросами/ответами для FAQ
 // Project: ООО «АТР-СЕРВИС»
 // Особенности: плавная анимация, доступность (a11y)
 // ========================================
-
-'use client';
 
 import { useState } from 'react';
 

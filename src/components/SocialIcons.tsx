@@ -1,11 +1,11 @@
+'use client'; // ✅ Обязательно: есть интерактивность (onClick)
+
 // ========================================
 // File: src/components/SocialIcons.tsx
 // Description: Клиентский компонент для кликабельных иконок соцсетей
 // Project: ООО «АТР-СЕРВИС»
 // Usage: <SocialIcons /> — только иконки, без текста, крупные (32px)
 // ========================================
-
-'use client'; // ✅ Обязательно: есть интерактивность (onClick)
 
 import Image from 'next/image';
 import { CONTACTS } from '@/lib/contacts';
