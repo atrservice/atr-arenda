@@ -34,7 +34,7 @@ export default function EquipmentCard({ item }: EquipmentCardProps) {
   const rows = getSpecRows(item);
 
   return (
-    <article className="card card-hover p-6 flex flex-col">
+    <Link href={`/tekhnika/${item.slug}`} className="card card-hover p-6 flex flex-col group block">
       {/* 🔹 Изображение техники — во всю ширину карточки, отступы как у текста */}
       <div className="relative w-full aspect-video mb-4 rounded-xl overflow-hidden bg-gray-50">
         {item.mainImage ? (
@@ -75,16 +75,13 @@ export default function EquipmentCard({ item }: EquipmentCardProps) {
           </span>
           <span className="text-sm text-gray-500 ml-1">₽/смена</span>
         </div>
-        <Link
-          href={`/tekhnika/${item.slug}`}
-          className="inline-flex items-center gap-1 text-primary-600 font-medium hover:text-primary-700 transition-colors"
-        >
+        <span className="inline-flex items-center gap-1 text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
           Подробнее
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </Link>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }

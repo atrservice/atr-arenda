@@ -15,6 +15,7 @@ import { getRobotsMetadata } from '@/lib/indexing';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
+import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
 
 // 🔹 Динамические импорты для тяжёлых компонентов (ОПТИМИЗАЦИЯ!)
 // ✅ ssr: true (по умолчанию) — рендерятся на сервере, но код загружается лениво
@@ -123,11 +124,13 @@ export default async function HomePage() {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container">
           <h2 className="text-center mb-12 text-gradient">Наши услуги</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+          <InfiniteCardsCarousel perCopy={services.length} ariaLabel="Наши услуги">
+            {[...services, ...services, ...services].map((service, i) => (
+              <div key={`slot-${i}`} className="flex-shrink-0 w-[85%] sm:w-[46%] lg:w-[31%]">
+                <ServiceCard service={service} />
+              </div>
             ))}
-          </div>
+          </InfiniteCardsCarousel>
         </div>
       </section>
       

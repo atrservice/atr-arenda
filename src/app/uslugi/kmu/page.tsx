@@ -16,6 +16,7 @@ import AliceFAQBlock from '@/components/AliceFAQBlock';
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
 import { getRobotsMetadata } from '@/lib/indexing';
 import EquipmentCard from '@/components/EquipmentCard';
+import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
 
 export const metadata: Metadata = {
   title: `Аренда КМУ в Москве от 20 000₽/смена`,
@@ -80,7 +81,7 @@ export default async function KmuPage() {
           <ContactLink 
             type="phone" 
             variant="button"
-            className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg"
+            className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg w-full justify-center md:hidden"
             iconSize={24}
           />
         </div>
@@ -93,11 +94,13 @@ export default async function KmuPage() {
 
           {equipment.length > 0 ? (
             /* ✅ Есть техника — показываем ОДНУ сетку карточек */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {equipment.map((item) => (
-                <EquipmentCard key={item.slug} item={item} />
+            <InfiniteCardsCarousel perCopy={equipment.length} ariaLabel="Доступная техника">
+              {[...equipment, ...equipment, ...equipment].map((item, i) => (
+                <div key={`slot-${i}`} className="flex-shrink-0 w-[85%] sm:w-[46%] lg:w-[31%]">
+                  <EquipmentCard item={item} />
+                </div>
               ))}
-            </div>
+            </InfiniteCardsCarousel>
           ) : (
             /* ✅ Техники нет — заглушка на ВСЮ ширину контейнера */
             <div className="text-center py-12 bg-gray-50 rounded-2xl">

@@ -6,6 +6,8 @@
 // Project: ООО «АТР-СЕРВИС»
 // ========================================
 
+'use client';
+
 import { useState, useEffect, useMemo } from 'react';
 import { getCities, calculatePrice, formatPrice } from '@/lib/pricing';
 import pricingData from '@/data/pricing.json';
@@ -15,17 +17,19 @@ import SearchableSelect from './SearchableSelect';
 interface PriceCalculatorProps {
   defaultService?: string;
   defaultCity?: string;
+  defaultModel?: string;  // ✅ ДОБАВЛЕНО
 }
 
 export default function PriceCalculator({
   defaultService,
   defaultCity,
+  defaultModel,  // ✅ ДОБАВЛЕНО в деструктуризацию
 }: PriceCalculatorProps) {
   const cities = useMemo(() => getCities(), []);
   const services = pricingData.services;
 
   const [selectedService, setSelectedService] = useState(defaultService || services[0]?.slug || '');
-  const [selectedModel, setSelectedModel] = useState('');
+  const [selectedModel, setSelectedModel] = useState(defaultModel || ''); // ✅ ИСПОЛЬЗУЕМ defaultModel
   const [selectedCity, setSelectedCity] = useState(defaultCity || '');
   const [geoCity, setGeoCity] = useState<string | null>(null);
   const [geoLoading, setGeoLoading] = useState(false);
@@ -81,7 +85,7 @@ export default function PriceCalculator({
   const currentCity = cities.find((c) => c.slug === selectedCity);
   const currentModel = currentService?.models.find((m: any) => m.slug === selectedModel);
 
-  // 🔹 Автовыбор первой модели
+  // 🔹 Автовыбор первой модели (ИСПРАВЛЕНО: не трогает переданный defaultModel)
   useEffect(() => {
     if (currentService?.models?.length > 0 && !selectedModel) {
       setSelectedModel(currentService.models[0].slug);

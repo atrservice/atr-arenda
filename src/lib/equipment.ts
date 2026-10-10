@@ -10,6 +10,7 @@ export interface EquipmentItem {
   slug: string;
   category: string;
   name: string;
+  pricingModelSlug: string;
   brand: string;
   model: string;
   height: number;
