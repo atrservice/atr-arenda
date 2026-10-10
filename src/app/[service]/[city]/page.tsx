@@ -203,7 +203,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
               🧮 Калькулятор
             </a>
             <a
-              href={`tel:${CONTACTS.phone.raw}`}
+              href={CONTACTS.phone.link}
               className="btn btn-accent flex-1 justify-center text-base md:text-lg shadow-glow"
             >
               📞 Заказать

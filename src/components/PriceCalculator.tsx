@@ -13,6 +13,8 @@ import pricingData from '@/data/pricing.json';
 import { TAX_CONFIG, roundUpToHundreds } from '@/lib/constants';
 import SearchableSelect from './SearchableSelect';
 import InfoTip from './InfoTip';
+import { CONTACTS } from '@/lib/contacts';
+import { trackMetricaGoal } from '@/lib/contacts';
 
 // 🔹 ЕДИНЫЙ ТЕКСТ ТУЛТИПА — описывает все условия формирования цены
 // Размещается рядом с итоговой ценой, блоком доставки и блоком переработки.
@@ -325,10 +327,11 @@ export default function PriceCalculator({
               📞 Заказать со скидкой
             </a>
             <a
-              href={`tel:${process.env.NEXT_PUBLIC_PHONE_RAW || '79262097373'}`}
+              href={CONTACTS.phone.link}
+              onClick={() => trackMetricaGoal('phone_click')}
               className="btn border-2 border-gray-300 text-gray-700 hover:bg-gray-50 flex-1 justify-center"
             >
-              Позвонить
+              📞 {CONTACTS.phone.formatted}
             </a>
           </div>
 
