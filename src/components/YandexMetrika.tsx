@@ -12,8 +12,11 @@ export default function YandexMetrika() {
   useEffect(() => {
     if (!METRIKA_ID || METRIKA_ID === 0) return;
 
+    let initialized = false;
+
     const initMetrika = () => {
-      if ((window as any).ym) return;
+      if (initialized || (window as any).ym) return;
+      initialized = true;
 
       (function(m, e, t, r, i, k, a) {
         m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
@@ -41,11 +44,21 @@ export default function YandexMetrika() {
       });
     };
 
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(initMetrika, { timeout: 3000 });
-    } else {
-      setTimeout(initMetrika, 2000);
-    }
+    // Загрузка после первого взаимодействия (скролл/клик/тач)
+    const events = ['scroll', 'click', 'touchstart', 'keydown'];
+    const handleInteraction = () => {
+      initMetrika();
+      events.forEach(event => window.removeEventListener(event, handleInteraction));
+    };
+
+    events.forEach(event => window.addEventListener(event, handleInteraction, { once: true, passive: true }));
+
+    // Fallback: если пользователь не взаимодействует — загружаем через 5 секунд
+    setTimeout(initMetrika, 5000);
+
+    return () => {
+      events.forEach(event => window.removeEventListener(event, handleInteraction));
+    };
   }, []);
 
   useEffect(() => {

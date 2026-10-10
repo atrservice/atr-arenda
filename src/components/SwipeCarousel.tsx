@@ -18,6 +18,7 @@ const GAP = 12; // совпадает с gap-3
 
 export default function SwipeCarousel({ images, alt }: SwipeCarouselProps) {
   const n = images.length;
+  const loopable = n >= 2;
   // 🔹 Три копии для бесконечного кольца (при n > 1)
   const extended = n > 1 ? [...images, ...images, ...images] : images;
 
@@ -203,24 +204,35 @@ export default function SwipeCarousel({ images, alt }: SwipeCarouselProps) {
           className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 cursor-grab select-none scrollbar-hide"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
-          {extended.map((src, idx) => (
-            <button
-              key={`${idx}-${src}`}
-              type="button"
-              onClick={() => { if (drag.current.moved < 6) openLightbox(idx); }}
-              className="relative flex-shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[32%] aspect-[4/3] snap-center rounded-xl overflow-hidden bg-gray-100 border border-gray-200"
-              aria-label={`Открыть фото ${(idx % n) + 1}`}
-            >
-              <Image
-                src={src}
-                alt={`${alt} — фото ${(idx % n) + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 640px) 85vw, (max-width: 1024px) 60vw, 32vw"
-                draggable={false}
-              />
-            </button>
-          ))}
+          {extended.map((src, idx) => {
+            // Каноническая копия — средняя (или единственная)
+            const isCanonical = !loopable || (idx >= n && idx < 2 * n);
+            // LCP-кадр — первое фото канонической копии
+            const isLCP = isCanonical && (idx % n) === 0;
+
+            return (
+              <button
+                key={`${idx}-${src}`}
+                type="button"
+                onClick={() => { if (drag.current.moved < 6) openLightbox(idx); }}
+                tabIndex={isCanonical ? 0 : -1}
+                aria-hidden={!isCanonical}
+                className="relative flex-shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[32%] aspect-[4/3] snap-center rounded-xl overflow-hidden bg-gray-100 border border-gray-200"
+                aria-label={isCanonical ? `Открыть фото ${(idx % n) + 1}` : undefined}
+              >
+                <Image
+                  src={src}
+                  alt={isCanonical ? `${alt} — фото ${(idx % n) + 1}` : ''}
+                  fill
+                  priority={isLCP}
+                  loading={isLCP ? undefined : 'lazy'}
+                  className="object-contain"
+                  sizes="(max-width: 640px) 85vw, (max-width: 1024px) 60vw, 32vw"
+                  draggable={false}
+                />
+              </button>
+            );
+          })}
         </div>
 
         {/* Стрелки-оверлеи */}

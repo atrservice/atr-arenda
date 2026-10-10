@@ -68,3 +68,36 @@ export function getRobotsMetadata(pathname: string) {
     follow: shouldIndex,
   };
 }
+
+/**
+ * Генерирует canonical URL для страницы
+ * Использование: в page.tsx → return { ...getCanonicalMetadata('/path') }
+ * 
+ * @param pathname - путь страницы, например '/tekhnika/avtovyshka-16m'
+ * @returns объект для поля alternates в Metadata API
+ */
+export function getCanonicalMetadata(pathname: string) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://avtovishki-arenda.ru';
+  
+  // Нормализуем путь
+  const cleanPath = pathname.endsWith('/') && pathname !== '/' 
+    ? pathname.slice(0, -1) 
+    : pathname;
+  
+  return {
+    alternates: {
+      canonical: `${baseUrl}${cleanPath}`,
+    },
+  };
+}
+
+/**
+ * Объединяет robots и canonical в один объект (для удобства)
+ * Использование: в page.tsx → return { ...getPageMetadata('/path') }
+ */
+export function getPageMetadata(pathname: string) {
+  return {
+    robots: getRobotsMetadata(pathname),
+    ...getCanonicalMetadata(pathname),
+  };
+}

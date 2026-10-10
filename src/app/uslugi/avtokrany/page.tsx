@@ -14,14 +14,14 @@ import { CONTACTS } from '@/lib/contacts';
 import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
-import { getRobotsMetadata } from '@/lib/indexing';
 import EquipmentCard from '@/components/EquipmentCard';
 import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: `Аренда автокранов в Москве от 22 000₽/смена`,
   description: `Автокраны 16–500 тонн для строительства и монтажа. Подача за 2 часа. ${CONTACTS.address}. ${CONTACTS.workingHours}.`,
-  robots: getRobotsMetadata('/uslugi/avtokrany'),
+  ...getPageMetadata('/uslugi/avtokrany'),
 };
 
 export default async function AvtokranyPage() {

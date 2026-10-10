@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CONTACTS } from '@/lib/contacts';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: 'Политика конфиденциальности | АТР-СЕРВИС',
   description: 'Политика обработки персональных данных ООО «АТР-СЕРВИС». Сбор, хранение и защита информации клиентов.',
-  robots: { index: true, follow: true },
+  ...getPageMetadata('/policy'),
 };
 
 export default function PolicyPage() {

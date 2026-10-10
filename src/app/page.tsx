@@ -11,11 +11,11 @@ import { getServices, getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import { generateSpeakableSchema } from '@/lib/schema-org';
 import { Metadata } from 'next';
-import { getRobotsMetadata } from '@/lib/indexing';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
+import { getPageMetadata } from '@/lib/indexing';
 
 // 🔹 Динамические импорты для тяжёлых компонентов (ОПТИМИЗАЦИЯ!)
 // ✅ ssr: true (по умолчанию) — рендерятся на сервере, но код загружается лениво
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     'автовышка почасовая москва',
     'кран манипулятор аренда москва',
   ],
-  robots: getRobotsMetadata('/'),
+  ...getPageMetadata('/faq'),
   openGraph: {
     title: 'АТР-СЕРВИС — Аренда спецтехники в Москве от 12 000₽',
     description: 'Автовышки 16–70м, КМУ 1–20т, автокраны 16–500т. Собственный парк. Подача за 2 часа. Работаем с 2009 года.',

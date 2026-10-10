@@ -21,6 +21,7 @@ interface SearchableSelectProps {
   placeholder?: string;
   label?: string;
   id?: string;
+  ariaLabel?: string;
 }
 
 export default function SearchableSelect({
@@ -30,6 +31,7 @@ export default function SearchableSelect({
   placeholder = 'Начните вводить...',
   label,
   id,
+  ariaLabel,
 }: SearchableSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -97,6 +99,7 @@ export default function SearchableSelect({
         className="input w-full text-left flex items-center justify-between bg-white"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-label={ariaLabel}
       >
         <span className={selectedOption ? 'text-gray-900' : 'text-gray-400'}>
           {selectedOption ? selectedOption.label : placeholder}

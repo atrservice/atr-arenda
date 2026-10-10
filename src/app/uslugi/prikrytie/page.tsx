@@ -14,14 +14,14 @@ import { CONTACTS } from '@/lib/contacts';
 import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
-import { getRobotsMetadata } from '@/lib/indexing';
 import EquipmentCard from '@/components/EquipmentCard';
 import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: `Аренда машин прикрытия в Москве от 18 000₽/смена`,
   description: `🚨 Автомобили дорожного прикрытия ГОСТ Р 50574-2019. ✅ Подача за 2 часа. 📍 ${CONTACTS.address}.`,
-  robots: getRobotsMetadata('/uslugi/prikrytie'),
+  ...getPageMetadata('/uslugi/prikrytie'),
 };
 
 export default async function PrikrytiePage() {

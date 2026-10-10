@@ -15,14 +15,14 @@ import ContactLink from '@/components/ContactLink';
 import SocialIcons from '@/components/SocialIcons'; // ✅ Новый клиентский компонент
 import { CONTACTS } from '@/lib/contacts';
 import { generateOrganizationSchema, generateSpeakableSchema } from '@/lib/schema-org';
-import { getRobotsMetadata } from '@/lib/indexing';
 import Link from 'next/link';
+import { getPageMetadata } from '@/lib/indexing';
 
 // 🔹 SEO-метаданные — работают только в серверных компонентах
 export const metadata: Metadata = {
   title: `Контакты АТР-СЕРВИС | ${CONTACTS.address}`,
   description: `ООО «АТР-СЕРВИС»: ${CONTACTS.address}. Режим работы: ${CONTACTS.workingHours}. Телефон: ${CONTACTS.phone.formatted}. Закажите аренду спецтехники!`,
-  robots: getRobotsMetadata('/kontakty'),
+  ...getPageMetadata('/kontakty'),
   keywords: [
     'АТР-СЕРВИС контакты',
     'аренда спецтехники москва адрес',

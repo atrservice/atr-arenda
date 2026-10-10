@@ -12,12 +12,12 @@ import Link from 'next/link';
 import ContactLink from '@/components/ContactLink';
 import { getServices } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
-import { getRobotsMetadata } from '@/lib/indexing';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: `Все услуги аренды спецтехники в Москве и области`,
   description: `📋 Полный каталог услуг: автовышки, КМУ, автокраны, аватомобили прикрытия. ${CONTACTS.address}. ${CONTACTS.workingHours}.`,
-  robots: getRobotsMetadata('/uslugi'),
+  ...getPageMetadata('/uslugi'),
 };
 
 export default async function ServicesPage() {

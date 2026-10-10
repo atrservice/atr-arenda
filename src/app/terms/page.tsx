@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CONTACTS } from '@/lib/contacts';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: 'Условия использования (Оферта) | АТР-СЕРВИС',
   description: 'Публичная оферта на оказание услуг аренды спецтехники. Условия, порядок оплаты, ответственность сторон.',
+  ...getPageMetadata('/terms'),
 };
 
 export default function TermsPage() {

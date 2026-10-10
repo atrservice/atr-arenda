@@ -142,9 +142,10 @@ export default function PriceCalculator({
             1. Тип техники
           </label>
           <select
+            className="input w-full"
             value={selectedService}
             onChange={(e) => handleServiceChange(e.target.value)}
-            className="input w-full"
+            aria-label="Выберите тип техники"
           >
             {services.map((service: any) => (
               <option key={service.slug} value={service.slug}>
@@ -160,9 +161,10 @@ export default function PriceCalculator({
             2. Модель
           </label>
           <select
+            className="input w-full"
             value={selectedModel}
             onChange={(e) => setSelectedModel(e.target.value)}
-            className="input w-full"
+            aria-label="Выберите модель техники"
           >
             <option value="">— Выберите модель —</option>
             {currentService?.models.map((model: any) => (
@@ -181,6 +183,7 @@ export default function PriceCalculator({
           value={selectedCity}
           onChange={setSelectedCity}
           placeholder={geoLoading ? '🔍 Определяем город...' : '📍 Начните вводить город...'}
+          ariaLabel="Выберите город подачи"
         />
       </div>
 

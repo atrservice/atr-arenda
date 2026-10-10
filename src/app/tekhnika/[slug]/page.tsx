@@ -13,6 +13,7 @@ import SwipeCarousel from '@/components/SwipeCarousel';
 import Tabs from '@/components/Tabs';
 import PriceCalculator from '@/components/PriceCalculator';
 import InfoTip from '@/components/InfoTip';
+import { getPageMetadata } from '@/lib/indexing';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -27,9 +28,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const item = getEquipmentBySlug(slug);
   if (!item) return { title: 'Техника не найдена' };
+
+  const pathname = `/tekhnika/${slug}`;
+  
   return {
     title: `${item.name} | АТР-СЕРВИС`,
     description: item.description,
+    ...getPageMetadata(pathname),
   };
 }
 

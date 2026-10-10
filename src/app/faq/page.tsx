@@ -11,9 +11,9 @@ import Link from 'next/link';
 import { getFAQ } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
-import { getRobotsMetadata } from '@/lib/indexing';
 import FAQAccordion from '@/components/FAQAccordion';
 import ContactLink from '@/components/ContactLink';
+import { getPageMetadata } from '@/lib/indexing';
 
 // 🔹 SEO-метаданные
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'документы для аренды',
     'АТР-СЕРВИС FAQ',
   ],
-  robots: getRobotsMetadata('/faq'),
+  ...getPageMetadata('/faq'),
   openGraph: {
     title: 'Частые вопросы об аренде спецтехники | АТР-СЕРВИС',
     description: 'Ответы на популярные вопросы об аренде автовышек, КМУ, автокранов. Цены, сроки, документы.',

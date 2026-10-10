@@ -9,10 +9,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllEquipment } from '@/lib/equipment';
 import { formatPrice } from '@/lib/pricing';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: 'Парк техники | АТР-СЕРВИС',
   description: 'Автовышки, КМУ, автокраны, машины прикрытия. Собственный парк техники АТР-СЕРВИС.',
+  ...getPageMetadata('/tekhnika'),
 };
 
 export default function EquipmentPage() {

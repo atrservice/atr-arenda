@@ -14,14 +14,14 @@ import { CONTACTS } from '@/lib/contacts';
 import ContactLink from '@/components/ContactLink';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema-org';
-import { getRobotsMetadata } from '@/lib/indexing';
 import EquipmentCard from '@/components/EquipmentCard';
 import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: `Аренда КМУ в Москве от 20 000₽/смена`,
   description: `Краны-манипуляторы 2–20 тонн для погрузки и монтажа, троссовые и гидравлические. Подача за 2 часа. ${CONTACTS.address}.`,
-  robots: getRobotsMetadata('/uslugi/kmu'),
+  ...getPageMetadata('/uslugi/kmu'),
 };
 
 export default async function KmuPage() {

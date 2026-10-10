@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CONTACTS } from '@/lib/contacts';
+import { getPageMetadata } from '@/lib/indexing';
 
 export const metadata: Metadata = {
   title: 'Реквизиты компании | АТР-СЕРВИС',
   description: 'Реквизиты ООО «АТР-СЕРВИС» для заключения договоров и оплаты услуг аренды спецтехники.',
+  ...getPageMetadata('/rekvizity'),
 };
 
 export default function RekvizityPage() {
