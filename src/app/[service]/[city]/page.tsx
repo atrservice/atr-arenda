@@ -1,0 +1,296 @@
+// ========================================
+// File: src/app/[service]/[city]/page.tsx
+// Description: pSEO-страница «услуга × город» (SSG, волнами)
+// Project: ООО «АТР-СЕРВИС»
+// ========================================
+
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import pricingData from '@/data/pricing.json';
+import locationsData from '@/data/locations.json';
+import wavesData from '@/data/pseo-waves.json';
+import { calculatePrice, formatPrice } from '@/lib/pricing';
+import { roundUpToHundreds } from '@/lib/constants';
+import { getPageMetadata } from '@/lib/indexing';
+import { generateSeoContent, SeoService, SeoCity } from '@/lib/seo-generator';
+import { getDeterministic } from '@/lib/content-variations';
+import { getEquipment } from '@/lib/data';
+import { CONTACTS } from '@/lib/contacts';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
+import PriceCalculator from '@/components/PriceCalculator';
+import AliceFAQBlock from '@/components/AliceFAQBlock';
+import ContactLink from '@/components/ContactLink';
+
+interface PageProps {
+  params: Promise<{ service: string; city: string }>;
+}
+
+type AnyService = any;
+type AnyCity = any;
+
+const services = (pricingData as AnyService).services as AnyService[];
+const cities = (locationsData as AnyCity).cities as AnyCity[];
+const enabledCities = new Set<string>([((wavesData as AnyCity).wave1 ?? []) as string[]].flat());
+
+function findData(serviceSlug: string, citySlug: string) {
+  const service = services.find((s) => s.slug === serviceSlug) as SeoService | undefined;
+  const city = cities.find((c) => c.slug === citySlug) as SeoCity | undefined;
+  return { service, city };
+}
+
+function minCashPrice(service: AnyService, distanceKm: number): number | null {
+  const models: AnyService[] = service?.models ?? [];
+  if (models.length > 0) {
+    const prices = models.map((m) =>
+      roundUpToHundreds(calculatePrice(service.slug, m.slug, distanceKm).totalPrice)
+    );
+    return Math.min(...prices);
+  }
+  return typeof service?.priceFrom === 'number' ? service.priceFrom : null;
+}
+
+// 🔹 SSG: только разрешённая волна городов
+export async function generateStaticParams() {
+  const paths: Array<{ service: string; city: string }> = [];
+  for (const s of services) {
+    for (const c of cities) {
+      if (enabledCities.has(c.slug)) paths.push({ service: s.slug, city: c.slug });
+    }
+  }
+  return paths;
+}
+
+export const dynamicParams = false; // всё вне волны → 404
+
+// 🔹 Метаданные с вариациями title (детерминированно)
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { service: serviceSlug, city: citySlug } = await params;
+  const { service, city } = findData(serviceSlug, citySlug);
+  if (!service || !city || !enabledCities.has(citySlug)) {
+    return { title: 'Страница не найдена' };
+  }
+
+  const price = minCashPrice(service, city.distance_km);
+  const priceStr = price ? price.toLocaleString('ru-RU') : '';
+  const seed = `${serviceSlug}-${citySlug}`;
+  const pathname = `/${serviceSlug}/${citySlug}`;
+
+  const titles = [
+    `Аренда ${service.name_genitive} в ${city.name_prepositional} от ${priceStr}₽ | АТР-СЕРВИС`,
+    `${service.name_singular} в ${city.name_prepositional} — аренда от ${priceStr}₽/смена`,
+    `Заказать ${service.name_singular} в ${city.name}: подача за 2 часа | АТР-СЕРВИС`,
+  ];
+
+  const description = `Аренда ${service.name_genitive} в ${city.name_prepositional}: подача за 2 часа, ${city.distance_km} км от МКАД по ${city.highway}. Цена от ${priceStr} ₽/смена, расчёт с НДС и УСН. Телефон ${CONTACTS.phone.formatted}.`;
+
+  return {
+    title: getDeterministic(titles, seed),
+    description,
+    keywords: [
+      `аренда ${service.name_genitive} ${city.name}`,
+      `${service.name_singular} ${city.name} цена`,
+      `заказать ${service.name_singular} в ${city.name_prepositional}`,
+    ],
+    openGraph: {
+      title: getDeterministic(titles, seed),
+      description,
+      url: `https://avtovishki-arenda.ru${pathname}`,
+      locale: 'ru_RU',
+      type: 'website',
+    },
+    ...getPageMetadata(pathname),
+  };
+}
+
+// 🔹 Страница
+export default async function ServiceCityPage({ params }: PageProps) {
+  const { service: serviceSlug, city: citySlug } = await params;
+  const { service, city } = findData(serviceSlug, citySlug);
+  if (!service || !city || !enabledCities.has(citySlug)) notFound();
+
+  const minPrice = minCashPrice(service, city.distance_km);
+    // 🔹 Честное обещание по радиусу (задел на wave2)
+  const deliveryClaim =
+    city.distance_km <= 30 ? 'Подача за 2 часа'
+    : city.distance_km <= 80 ? 'Подача в день обращения'
+    : 'Подача по согласованному графику';
+  const deliveryMinutes = city.distance_km <= 120
+    ? Math.round((city.distance_km / 40) * 60)
+    : null;
+  const content = generateSeoContent({ service, city, minPrice, deliveryMinutes });
+  const equipment = await getEquipment(serviceSlug);
+
+  // Соседние города (только из волны)
+  const nearby = (city.nearby ?? [])
+    .map((slug: string) => cities.find((c) => c.slug === slug))
+    .filter((c: AnyCity) => c && enabledCities.has(c.slug));
+
+  const faqSchema = generateFAQSchema(content.faq);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Главная', url: 'https://avtovishki-arenda.ru' },
+    { name: 'Услуги', url: 'https://avtovishki-arenda.ru/uslugi' },
+    { name: service.name, url: `https://avtovishki-arenda.ru/uslugi/${serviceSlug}` },
+    { name: city.name, url: `https://avtovishki-arenda.ru/${serviceSlug}/${citySlug}` },
+  ]);
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      {/* Блок для Алисы */}
+      <section id="alice-answer" className="sr-only" aria-hidden="true">
+        <p>
+          {`Аренда ${service.name_genitive} в ${city.name_prepositional} от ООО «АТР-СЕРВИС»: цена от ${minPrice ? formatPrice(minPrice) : '—'} ₽ за смену, подача ${deliveryMinutes} минут. Телефон ${CONTACTS.phone.formatted}.`}
+        </p>
+      </section>
+
+      {/* Хлебные крошки */}
+      <nav className="bg-gray-50 py-3 border-b" aria-label="Breadcrumb">
+        <div className="container mx-auto px-4">
+          <ol className="flex gap-2 text-sm text-gray-600">
+            <li><Link href="/" className="hover:text-primary-600">Главная</Link></li>
+            <li className="text-gray-400">/</li>
+            <li><Link href="/uslugi" className="hover:text-primary-600">Услуги</Link></li>
+            <li className="text-gray-400">/</li>
+            <li><Link href={`/uslugi/${serviceSlug}`} className="hover:text-primary-600">{service.name}</Link></li>
+            <li className="text-gray-400">/</li>
+            <li className="font-medium text-gray-900">{city.name}</li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* H1 + инфо-карточки (LCP = текст, грузится мгновенно) */}
+      <section className="py-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+            Аренда {service.name_genitive} в {city.name_prepositional}
+          </h1>
+          <p className="text-lg text-gray-300 mb-6">
+            {deliveryClaim} • {city.distance_km} км от МКАД по {city.highway} • с 2009 года
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="bg-white/10 rounded-xl p-3">
+              <div className="text-xs opacity-80 mb-1">Цена от</div>
+              <div className="text-xl font-extrabold">{minPrice ? `${formatPrice(minPrice)} ₽` : '—'}</div>
+            </div>
+            <div className="bg-white/10 rounded-xl p-3">
+              <div className="text-xs opacity-80 mb-1">Подача</div>
+              <div className="text-xl font-extrabold">{deliveryMinutes ? `~${deliveryMinutes} мин` : 'от 1 дня'}</div>
+            </div>
+            <div className="bg-white/10 rounded-xl p-3">
+              <div className="text-xs opacity-80 mb-1">Расстояние</div>
+              <div className="text-xl font-extrabold">{city.distance_km} км</div>
+            </div>
+            <div className="bg-white/10 rounded-xl p-3">
+              <div className="text-xs opacity-80 mb-1">Режим</div>
+              <div className="text-xl font-extrabold">08:00–22:00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Уникальный SEO-текст */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">
+            {service.name} в {city.name_prepositional}: условия и цены
+          </h2>
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p>{content.intro}</p>
+            <p>{content.cityBlock}</p>
+            <p>{content.priceBlock}</p>
+          </div>
+
+          {/* Преимущества */}
+          <div className="grid md:grid-cols-2 gap-4 mt-8">
+            {content.advantages.map((adv) => (
+              <div key={adv.title} className="bg-gray-50 p-5 rounded-2xl">
+                <div className="text-2xl mb-2">{adv.icon}</div>
+                <h3 className="font-bold mb-1 text-gray-900">{adv.title}</h3>
+                <p className="text-sm text-gray-600">{adv.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Калькулятор с предустановленным городом */}
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="container mx-auto px-4">
+          <PriceCalculator defaultService={serviceSlug} defaultCity={citySlug} />
+        </div>
+      </section>
+
+      {/* Техника категории */}
+      {equipment.length > 0 && (
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">
+              Доступная техника для {city.name_genitive}
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {equipment.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/tekhnika/${item.slug}`}
+                  className="bg-gray-100 hover:bg-primary-50 hover:text-primary-700 text-gray-700 px-4 py-2 rounded-lg text-sm transition-colors"
+                >
+                  {item.name} — от {formatPrice(item.basePrice ?? 0)} ₽
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ */}
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">
+            Частые вопросы про аренду в {city.name_prepositional}
+          </h2>
+          <div className="space-y-4">
+            {content.faq.map((item, idx) => (
+              <AliceFAQBlock key={idx} question={item.question} answer={item.answer} isAliceOptimized={idx === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Перелинковка с соседними городами */}
+      {nearby.length > 0 && (
+        <section className="py-8 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-lg font-bold mb-3 text-gray-900">
+              Также работаем рядом с {city.name_prepositional}:
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {nearby.map((c: AnyCity) => (
+                <Link
+                  key={c.slug}
+                  href={`/${serviceSlug}/${c.slug}`}
+                  className="text-primary-600 hover:text-primary-700 text-sm underline underline-offset-4"
+                >
+                  {service.name} в {c.name_prepositional}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-gradient">{content.cta}</h2>
+          <p className="text-gray-300 mb-6">
+            Подберём {service.name_singular} под задачу и назовём цену до выезда
+          </p>
+          <ContactLink type="phone" variant="button" className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg" iconSize={24} />
+        </div>
+      </section>
+    </>
+  );
+}
