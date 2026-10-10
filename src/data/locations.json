@@ -16,9 +16,21 @@
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 258000,
-      "coordinates": { "lat": 55.897, "lng": 37.429 },
-      "nearby": ["dolgoprudny", "krasnogorsk"],
-      "districts": ["Старые Химки", "Новые Химки", "Подрезково", "Сходня", "Куркино"]
+      "coordinates": {
+        "lat": 55.897,
+        "lng": 37.429
+      },
+      "nearby": [
+        "dolgoprudny",
+        "krasnogorsk"
+      ],
+      "districts": [
+        "Старые Химки",
+        "Новые Химки",
+        "Подрезково",
+        "Сходня",
+        "Куркино"
+      ]
     },
     {
       "slug": "krasnogorsk",
@@ -29,9 +41,20 @@
       "direction": "запад",
       "highway": "Волоколамское шоссе",
       "population": 190000,
-      "coordinates": { "lat": 55.822, "lng": 37.328 },
-      "nearby": ["khimki", "odintsovo"],
-      "districts": ["Центральный", "Павшинская пойма", "Опалиха", "Митино"]
+      "coordinates": {
+        "lat": 55.822,
+        "lng": 37.328
+      },
+      "nearby": [
+        "khimki",
+        "odintsovo"
+      ],
+      "districts": [
+        "Центральный",
+        "Павшинская пойма",
+        "Опалиха",
+        "Митино"
+      ]
     },
     {
       "slug": "dolgoprudny",
@@ -42,9 +65,19 @@
       "direction": "север",
       "highway": "Дмитровское шоссе",
       "population": 126000,
-      "coordinates": { "lat": 55.938, "lng": 37.510 },
-      "nearby": ["khimki", "lobnya"],
-      "districts": ["Центральный", "Новые Водники", "Северный"]
+      "coordinates": {
+        "lat": 55.938,
+        "lng": 37.51
+      },
+      "nearby": [
+        "khimki",
+        "lobnya"
+      ],
+      "districts": [
+        "Центральный",
+        "Новые Водники",
+        "Северный"
+      ]
     },
     {
       "slug": "lobnya",
@@ -55,48 +88,90 @@
       "direction": "север",
       "highway": "Дмитровское шоссе",
       "population": 90000,
-      "coordinates": { "lat": 56.009, "lng": 37.478 },
-      "nearby": ["dolgoprudny", "khimki"],
-      "districts": ["Центральный", "Катюшки", "Луговая"]
+      "coordinates": {
+        "lat": 56.009,
+        "lng": 37.478
+      },
+      "nearby": [
+        "dolgoprudny",
+        "khimki"
+      ],
+      "districts": [
+        "Центральный",
+        "Катюшки",
+        "Луговая"
+      ]
     },
     {
       "slug": "mytischi",
       "name": "Мытищи",
       "name_prepositional": "Мытищах",
       "name_genitive": "Мытищ",
-      "distance_km": 10,
+      "distance_km": 2,
       "direction": "север",
       "highway": "Ярославское шоссе",
       "population": 259000,
-      "coordinates": { "lat": 55.911, "lng": 37.733 },
-      "nearby": ["korolyov", "pushkino"],
-      "districts": ["Центральный", "Перловский", "Вешки", "Челобитьево"]
+      "coordinates": {
+        "lat": 55.911,
+        "lng": 37.733
+      },
+      "nearby": [
+        "korolyov",
+        "pushkino"
+      ],
+      "districts": [
+        "Центральный",
+        "Перловский",
+        "Вешки",
+        "Челобитьево"
+      ]
     },
     {
       "slug": "korolyov",
       "name": "Королёв",
       "name_prepositional": "Королёве",
       "name_genitive": "Королёва",
-      "distance_km": 15,
+      "distance_km": 6,
       "direction": "север",
       "highway": "Ярославское шоссе",
       "population": 228000,
-      "coordinates": { "lat": 55.920, "lng": 37.848 },
-      "nearby": ["mytischi", "pushkino"],
-      "districts": ["Центральный", "Юбилейный", "Первомайский", "Костино"]
+      "coordinates": {
+        "lat": 55.92,
+        "lng": 37.848
+      },
+      "nearby": [
+        "mytischi",
+        "pushkino"
+      ],
+      "districts": [
+        "Центральный",
+        "Юбилейный",
+        "Первомайский",
+        "Костино"
+      ]
     },
     {
       "slug": "pushkino",
       "name": "Пушкино",
       "name_prepositional": "Пушкино",
       "name_genitive": "Пушкино",
-      "distance_km": 25,
+      "distance_km": 15,
       "direction": "север",
       "highway": "Ярославское шоссе",
       "population": 118000,
-      "coordinates": { "lat": 56.017, "lng": 37.850 },
-      "nearby": ["mytischi", "korolyov"],
-      "districts": ["Центральный", "Клязьма", "Серебрянка"]
+      "coordinates": {
+        "lat": 56.017,
+        "lng": 37.85
+      },
+      "nearby": [
+        "mytischi",
+        "korolyov"
+      ],
+      "districts": [
+        "Центральный",
+        "Клязьма",
+        "Серебрянка"
+      ]
     },
     {
       "slug": "ivanteyevka",
@@ -107,9 +182,18 @@
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 83000,
-      "coordinates": { "lat": 55.967, "lng": 37.917 },
-      "nearby": ["pushkino", "shchyolkovo"],
-      "districts": ["Центральный", "Фабричный"]
+      "coordinates": {
+        "lat": 55.967,
+        "lng": 37.917
+      },
+      "nearby": [
+        "pushkino",
+        "shchyolkovo"
+      ],
+      "districts": [
+        "Центральный",
+        "Фабричный"
+      ]
     },
     {
       "slug": "fryazino",
@@ -120,9 +204,17 @@
       "direction": "северо-восток",
       "highway": "Щёлковское шоссе",
       "population": 60000,
-      "coordinates": { "lat": 55.958, "lng": 38.050 },
-      "nearby": ["shchyolkovo", "ivanteyevka"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.958,
+        "lng": 38.05
+      },
+      "nearby": [
+        "shchyolkovo",
+        "ivanteyevka"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "shchyolkovo",
@@ -133,22 +225,43 @@
       "direction": "северо-восток",
       "highway": "Щёлковское шоссе",
       "population": 135000,
-      "coordinates": { "lat": 55.919, "lng": 38.000 },
-      "nearby": ["ivanteyevka", "fryazino"],
-      "districts": ["Центральный", "Богородск", "Гребнево"]
+      "coordinates": {
+        "lat": 55.919,
+        "lng": 38
+      },
+      "nearby": [
+        "ivanteyevka",
+        "fryazino"
+      ],
+      "districts": [
+        "Центральный",
+        "Богородск",
+        "Гребнево"
+      ]
     },
     {
       "slug": "balashiha",
       "name": "Балашиха",
       "name_prepositional": "Балашихе",
       "name_genitive": "Балашихи",
-      "distance_km": 15,
+      "distance_km": 4,
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 520000,
-      "coordinates": { "lat": 55.796, "lng": 37.955 },
-      "nearby": ["reutov", "zheleznodorozhny"],
-      "districts": ["Центральный", "Железнодорожный", "Салтыковка", "Никольско-Архангельское"]
+      "coordinates": {
+        "lat": 55.796,
+        "lng": 37.955
+      },
+      "nearby": [
+        "reutov",
+        "zheleznodorozhny"
+      ],
+      "districts": [
+        "Центральный",
+        "Железнодорожный",
+        "Салтыковка",
+        "Никольско-Архангельское"
+      ]
     },
     {
       "slug": "reutov",
@@ -159,22 +272,42 @@
       "direction": "восток",
       "highway": "Носовихинское шоссе",
       "population": 106000,
-      "coordinates": { "lat": 55.761, "lng": 37.858 },
-      "nearby": ["balashiha", "lyubertsy"],
-      "districts": ["Центральный", "Октябрьский", "Северный"]
+      "coordinates": {
+        "lat": 55.761,
+        "lng": 37.858
+      },
+      "nearby": [
+        "balashiha",
+        "lyubertsy"
+      ],
+      "districts": [
+        "Центральный",
+        "Октябрьский",
+        "Северный"
+      ]
     },
     {
       "slug": "zheleznodorozhny",
       "name": "Железнодорожный",
       "name_prepositional": "Железнодорожном",
       "name_genitive": "Железнодорожного",
-      "distance_km": 20,
+      "distance_km": 6,
       "direction": "восток",
       "highway": "Носовихинское шоссе",
       "population": 155000,
-      "coordinates": { "lat": 55.744, "lng": 37.992 },
-      "nearby": ["balashiha", "reutov"],
-      "districts": ["Центральный", "Саввино", "Кучино"]
+      "coordinates": {
+        "lat": 55.744,
+        "lng": 37.992
+      },
+      "nearby": [
+        "balashiha",
+        "reutov"
+      ],
+      "districts": [
+        "Центральный",
+        "Саввино",
+        "Кучино"
+      ]
     },
     {
       "slug": "elektrostal",
@@ -185,9 +318,19 @@
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 155000,
-      "coordinates": { "lat": 55.783, "lng": 38.450 },
-      "nearby": ["noginsk", "balashiha"],
-      "districts": ["Центральный", "Машиностроитель", "Северный"]
+      "coordinates": {
+        "lat": 55.783,
+        "lng": 38.45
+      },
+      "nearby": [
+        "noginsk",
+        "balashiha"
+      ],
+      "districts": [
+        "Центральный",
+        "Машиностроитель",
+        "Северный"
+      ]
     },
     {
       "slug": "noginsk",
@@ -198,48 +341,87 @@
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 103000,
-      "coordinates": { "lat": 55.858, "lng": 38.445 },
-      "nearby": ["elektrostal", "pavlovsky-posad"],
-      "districts": ["Центральный", "Кучино", "Обухово"]
+      "coordinates": {
+        "lat": 55.858,
+        "lng": 38.445
+      },
+      "nearby": [
+        "elektrostal",
+        "pavlovsky-posad"
+      ],
+      "districts": [
+        "Центральный",
+        "Кучино",
+        "Обухово"
+      ]
     },
     {
       "slug": "pavlovsky-posad",
       "name": "Павловский Посад",
       "name_prepositional": "Павловском Посаде",
       "name_genitive": "Павловского Посада",
-      "distance_km": 60,
+      "distance_km": 48,
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 65000,
-      "coordinates": { "lat": 55.833, "lng": 38.650 },
-      "nearby": ["noginsk", "orekhi-zuyevo"],
-      "districts": ["Центральный", "Большое Дуброво"]
+      "coordinates": {
+        "lat": 55.833,
+        "lng": 38.65
+      },
+      "nearby": [
+        "noginsk",
+        "orekhi-zuyevo"
+      ],
+      "districts": [
+        "Центральный",
+        "Большое Дуброво"
+      ]
     },
     {
       "slug": "orekhi-zuyevo",
       "name": "Орехово-Зуево",
       "name_prepositional": "Орехово-Зуево",
       "name_genitive": "Орехово-Зуева",
-      "distance_km": 80,
+      "distance_km": 67,
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 122000,
-      "coordinates": { "lat": 55.817, "lng": 38.967 },
-      "nearby": ["pavlovsky-posad", "noginsk"],
-      "districts": ["Центральный", "Зуево", "Никольское"]
+      "coordinates": {
+        "lat": 55.817,
+        "lng": 38.967
+      },
+      "nearby": [
+        "pavlovsky-posad",
+        "noginsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Зуево",
+        "Никольское"
+      ]
     },
     {
       "slug": "lyubertsy",
       "name": "Люберцы",
       "name_prepositional": "Люберцах",
       "name_genitive": "Люберцов",
-      "distance_km": 10,
+      "distance_km": 2,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 241000,
-      "coordinates": { "lat": 55.677, "lng": 37.894 },
-      "nearby": ["kotelniki", "dzherzhinsky"],
-      "districts": ["Центральный", "Октябрьский", "Красная Горка"]
+      "coordinates": {
+        "lat": 55.677,
+        "lng": 37.894
+      },
+      "nearby": [
+        "kotelniki",
+        "dzherzhinsky"
+      ],
+      "districts": [
+        "Центральный",
+        "Октябрьский",
+        "Красная Горка"
+      ]
     },
     {
       "slug": "kotelniki",
@@ -250,48 +432,85 @@
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 62000,
-      "coordinates": { "lat": 55.664, "lng": 37.861 },
-      "nearby": ["lyubertsy", "dzherzhinsky"],
-      "districts": ["Центральный", "Белая Дача"]
+      "coordinates": {
+        "lat": 55.664,
+        "lng": 37.861
+      },
+      "nearby": [
+        "lyubertsy",
+        "dzherzhinsky"
+      ],
+      "districts": [
+        "Центральный",
+        "Белая Дача"
+      ]
     },
     {
       "slug": "dzherzhinsky",
       "name": "Дзержинский",
       "name_prepositional": "Дзержинском",
       "name_genitive": "Дзержинского",
-      "distance_km": 15,
+      "distance_km": 3,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 54000,
-      "coordinates": { "lat": 55.629, "lng": 37.853 },
-      "nearby": ["lyubertsy", "kotelniki"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.629,
+        "lng": 37.853
+      },
+      "nearby": [
+        "lyubertsy",
+        "kotelniki"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zhukovsky",
       "name": "Жуковский",
       "name_prepositional": "Жуковском",
       "name_genitive": "Жуковского",
-      "distance_km": 35,
+      "distance_km": 19,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 109000,
-      "coordinates": { "lat": 55.596, "lng": 38.120 },
-      "nearby": ["ramenskoe", "bronitsy"],
-      "districts": ["Центральный", "Быково", "Выселки"]
+      "coordinates": {
+        "lat": 55.596,
+        "lng": 38.12
+      },
+      "nearby": [
+        "ramenskoe",
+        "bronitsy"
+      ],
+      "districts": [
+        "Центральный",
+        "Быково",
+        "Выселки"
+      ]
     },
     {
       "slug": "ramenskoe",
       "name": "Раменское",
       "name_prepositional": "Раменском",
       "name_genitive": "Раменского",
-      "distance_km": 40,
+      "distance_km": 26,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 112000,
-      "coordinates": { "lat": 55.567, "lng": 38.233 },
-      "nearby": ["zhukovsky", "bronitsy"],
-      "districts": ["Центральный", "Ильинский", "Кратово"]
+      "coordinates": {
+        "lat": 55.567,
+        "lng": 38.233
+      },
+      "nearby": [
+        "zhukovsky",
+        "bronitsy"
+      ],
+      "districts": [
+        "Центральный",
+        "Ильинский",
+        "Кратово"
+      ]
     },
     {
       "slug": "bronitsy",
@@ -302,48 +521,86 @@
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 21000,
-      "coordinates": { "lat": 55.423, "lng": 38.275 },
-      "nearby": ["ramenskoe", "voskresensk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.423,
+        "lng": 38.275
+      },
+      "nearby": [
+        "ramenskoe",
+        "voskresensk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "voskresensk",
       "name": "Воскресенск",
       "name_prepositional": "Воскресенске",
       "name_genitive": "Воскресенска",
-      "distance_km": 85,
+      "distance_km": 65,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 94000,
-      "coordinates": { "lat": 55.317, "lng": 38.683 },
-      "nearby": ["kolomna", "ramenskoe"],
-      "districts": ["Центральный", "Химик"]
+      "coordinates": {
+        "lat": 55.317,
+        "lng": 38.683
+      },
+      "nearby": [
+        "kolomna",
+        "ramenskoe"
+      ],
+      "districts": [
+        "Центральный",
+        "Химик"
+      ]
     },
     {
       "slug": "kolomna",
       "name": "Коломна",
       "name_prepositional": "Коломне",
       "name_genitive": "Коломны",
-      "distance_km": 115,
+      "distance_km": 87,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 181000,
-      "coordinates": { "lat": 55.079, "lng": 38.778 },
-      "nearby": ["voskresensk", "stupino"],
-      "districts": ["Центральный", "Старая Коломна", "Колычёво"]
+      "coordinates": {
+        "lat": 55.079,
+        "lng": 38.778
+      },
+      "nearby": [
+        "voskresensk",
+        "stupino"
+      ],
+      "districts": [
+        "Центральный",
+        "Старая Коломна",
+        "Колычёво"
+      ]
     },
     {
       "slug": "odintsovo",
       "name": "Одинцово",
       "name_prepositional": "Одинцово",
       "name_genitive": "Одинцово",
-      "distance_km": 15,
+      "distance_km": 6,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 181000,
-      "coordinates": { "lat": 55.677, "lng": 37.268 },
-      "nearby": ["krasnogorsk", "zvenigorod"],
-      "districts": ["Центральный", "Трёхгорка", "Баковка", "Немчиновка"]
+      "coordinates": {
+        "lat": 55.677,
+        "lng": 37.268
+      },
+      "nearby": [
+        "krasnogorsk",
+        "zvenigorod"
+      ],
+      "districts": [
+        "Центральный",
+        "Трёхгорка",
+        "Баковка",
+        "Немчиновка"
+      ]
     },
     {
       "slug": "zvenigorod",
@@ -354,9 +611,18 @@
       "direction": "запад",
       "highway": "Звенигородское шоссе",
       "population": 24000,
-      "coordinates": { "lat": 55.729, "lng": 36.858 },
-      "nearby": ["odintsovo", "istra"],
-      "districts": ["Центральный", "Супонево"]
+      "coordinates": {
+        "lat": 55.729,
+        "lng": 36.858
+      },
+      "nearby": [
+        "odintsovo",
+        "istra"
+      ],
+      "districts": [
+        "Центральный",
+        "Супонево"
+      ]
     },
     {
       "slug": "istra",
@@ -367,217 +633,370 @@
       "direction": "запад",
       "highway": "Волоколамское шоссе",
       "population": 37000,
-      "coordinates": { "lat": 55.920, "lng": 36.867 },
-      "nearby": ["zvenigorod", "volokolamsk"],
-      "districts": ["Центральный", "Новоиерусалимский"]
+      "coordinates": {
+        "lat": 55.92,
+        "lng": 36.867
+      },
+      "nearby": [
+        "zvenigorod",
+        "volokolamsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Новоиерусалимский"
+      ]
     },
     {
       "slug": "volokolamsk",
       "name": "Волоколамск",
       "name_prepositional": "Волоколамске",
       "name_genitive": "Волоколамска",
-      "distance_km": 100,
+      "distance_km": 91,
       "direction": "запад",
       "highway": "Волоколамское шоссе",
       "population": 26000,
-      "coordinates": { "lat": 56.033, "lng": 35.950 },
-      "nearby": ["istra", "klin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.033,
+        "lng": 35.95
+      },
+      "nearby": [
+        "istra",
+        "klin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "mozhaysk",
       "name": "Можайск",
       "name_prepositional": "Можайске",
       "name_genitive": "Можайска",
-      "distance_km": 100,
+      "distance_km": 87,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 32000,
-      "coordinates": { "lat": 55.500, "lng": 36.017 },
-      "nearby": ["ruza", "gagarin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.5,
+        "lng": 36.017
+      },
+      "nearby": [
+        "ruza",
+        "gagarin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "ruza",
       "name": "Руза",
       "name_prepositional": "Рузе",
       "name_genitive": "Рузы",
-      "distance_km": 110,
+      "distance_km": 71,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 15000,
-      "coordinates": { "lat": 55.700, "lng": 36.200 },
-      "nearby": ["mozhaysk", "istra"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.7,
+        "lng": 36.2
+      },
+      "nearby": [
+        "mozhaysk",
+        "istra"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "naro-fominsk",
       "name": "Наро-Фоминск",
       "name_prepositional": "Наро-Фоминске",
       "name_genitive": "Наро-Фоминска",
-      "distance_km": 70,
+      "distance_km": 52,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 68000,
-      "coordinates": { "lat": 55.383, "lng": 36.717 },
-      "nearby": ["obninsk", "podolsk"],
-      "districts": ["Центральный", "Таширово"]
+      "coordinates": {
+        "lat": 55.383,
+        "lng": 36.717
+      },
+      "nearby": [
+        "obninsk",
+        "podolsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Таширово"
+      ]
     },
     {
       "slug": "obninsk",
       "name": "Обнинск",
       "name_prepositional": "Обнинске",
       "name_genitive": "Обнинска",
-      "distance_km": 100,
+      "distance_km": 80,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 125000,
-      "coordinates": { "lat": 55.090, "lng": 36.600 },
-      "nearby": ["naro-fominsk", "maloyaroslavets"],
-      "districts": ["Центральный", "Белкино", "Заборье"]
+      "coordinates": {
+        "lat": 55.09,
+        "lng": 36.6
+      },
+      "nearby": [
+        "naro-fominsk",
+        "maloyaroslavets"
+      ],
+      "districts": [
+        "Центральный",
+        "Белкино",
+        "Заборье"
+      ]
     },
     {
       "slug": "podolsk",
       "name": "Подольск",
       "name_prepositional": "Подольске",
       "name_genitive": "Подольска",
-      "distance_km": 43,
+      "distance_km": 19,
       "direction": "юг",
       "highway": "Варшавское шоссе",
       "population": 309000,
-      "coordinates": { "lat": 55.430, "lng": 37.545 },
-      "nearby": ["shcherbinka", "klimovsk"],
-      "districts": ["Центральный", "Кузнечики", "Междуречье", "Кутузово", "Климовск"]
+      "coordinates": {
+        "lat": 55.43,
+        "lng": 37.545
+      },
+      "nearby": [
+        "shcherbinka",
+        "klimovsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Кузнечики",
+        "Междуречье",
+        "Кутузово",
+        "Климовск"
+      ]
     },
     {
       "slug": "klimovsk",
       "name": "Климовск",
       "name_prepositional": "Климовске",
       "name_genitive": "Климовска",
-      "distance_km": 45,
+      "distance_km": 26,
       "direction": "юг",
       "highway": "Варшавское шоссе",
       "population": 57000,
-      "coordinates": { "lat": 55.366, "lng": 37.533 },
-      "nearby": ["podolsk", "shcherbinka"],
-      "districts": ["Центральный", "Дубровицы"]
+      "coordinates": {
+        "lat": 55.366,
+        "lng": 37.533
+      },
+      "nearby": [
+        "podolsk",
+        "shcherbinka"
+      ],
+      "districts": [
+        "Центральный",
+        "Дубровицы"
+      ]
     },
     {
       "slug": "shcherbinka",
       "name": "Щербинка",
       "name_prepositional": "Щербинке",
       "name_genitive": "Щербинки",
-      "distance_km": 30,
+      "distance_km": 11,
       "direction": "юг",
       "highway": "Варшавское шоссе",
       "population": 56000,
-      "coordinates": { "lat": 55.500, "lng": 37.560 },
-      "nearby": ["podolsk", "vidnoe"],
-      "districts": ["Центральный", "Остафьево"]
+      "coordinates": {
+        "lat": 55.5,
+        "lng": 37.56
+      },
+      "nearby": [
+        "podolsk",
+        "vidnoe"
+      ],
+      "districts": [
+        "Центральный",
+        "Остафьево"
+      ]
     },
     {
       "slug": "vidnoe",
       "name": "Видное",
       "name_prepositional": "Видном",
       "name_genitive": "Видного",
-      "distance_km": 20,
+      "distance_km": 5,
       "direction": "юг",
       "highway": "Каширское шоссе",
       "population": 102000,
-      "coordinates": { "lat": 55.554, "lng": 37.708 },
-      "nearby": ["shcherbinka", "domodedovo"],
-      "districts": ["Центральный", "Северный", "Южный"]
+      "coordinates": {
+        "lat": 55.554,
+        "lng": 37.708
+      },
+      "nearby": [
+        "shcherbinka",
+        "domodedovo"
+      ],
+      "districts": [
+        "Центральный",
+        "Северный",
+        "Южный"
+      ]
     },
     {
       "slug": "domodedovo",
       "name": "Домодедово",
       "name_prepositional": "Домодедово",
       "name_genitive": "Домодедово",
-      "distance_km": 35,
+      "distance_km": 18,
       "direction": "юг",
       "highway": "Каширское шоссе",
       "population": 153000,
-      "coordinates": { "lat": 55.443, "lng": 37.767 },
-      "nearby": ["vidnoe", "podolsk"],
-      "districts": ["Центральный", "Заборье", "Авиационный"]
+      "coordinates": {
+        "lat": 55.443,
+        "lng": 37.767
+      },
+      "nearby": [
+        "vidnoe",
+        "podolsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Заборье",
+        "Авиационный"
+      ]
     },
     {
       "slug": "chekhov",
       "name": "Чехов",
       "name_prepositional": "Чехове",
       "name_genitive": "Чехова",
-      "distance_km": 60,
+      "distance_km": 51,
       "direction": "юг",
       "highway": "Симферопольское шоссе",
       "population": 87000,
-      "coordinates": { "lat": 55.146, "lng": 37.470 },
-      "nearby": ["serpukhov", "podolsk"],
-      "districts": ["Центральный", "Лопастня"]
+      "coordinates": {
+        "lat": 55.146,
+        "lng": 37.47
+      },
+      "nearby": [
+        "serpukhov",
+        "podolsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Лопастня"
+      ]
     },
     {
       "slug": "serpukhov",
       "name": "Серпухов",
       "name_prepositional": "Серпухове",
       "name_genitive": "Серпухова",
-      "distance_km": 95,
+      "distance_km": 76,
       "direction": "юг",
       "highway": "Симферопольское шоссе",
       "population": 127000,
-      "coordinates": { "lat": 54.917, "lng": 37.417 },
-      "nearby": ["chekhov", "protvino"],
-      "districts": ["Центральный", "Борисово"]
+      "coordinates": {
+        "lat": 54.917,
+        "lng": 37.417
+      },
+      "nearby": [
+        "chekhov",
+        "protvino"
+      ],
+      "districts": [
+        "Центральный",
+        "Борисово"
+      ]
     },
     {
       "slug": "protvino",
       "name": "Протвино",
       "name_prepositional": "Протвино",
       "name_genitive": "Протвино",
-      "distance_km": 115,
+      "distance_km": 84,
       "direction": "юг",
       "highway": "Симферопольское шоссе",
       "population": 37000,
-      "coordinates": { "lat": 54.867, "lng": 37.217 },
-      "nearby": ["serpukhov", "pushchino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.867,
+        "lng": 37.217
+      },
+      "nearby": [
+        "serpukhov",
+        "pushchino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "pushchino",
       "name": "Пущино",
       "name_prepositional": "Пущино",
       "name_genitive": "Пущино",
-      "distance_km": 120,
+      "distance_km": 85,
       "direction": "юг",
       "highway": "Симферопольское шоссе",
       "population": 19000,
-      "coordinates": { "lat": 54.833, "lng": 37.633 },
-      "nearby": ["serpukhov", "protvino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.833,
+        "lng": 37.633
+      },
+      "nearby": [
+        "serpukhov",
+        "protvino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "stupino",
       "name": "Ступино",
       "name_prepositional": "Ступино",
       "name_genitive": "Ступино",
-      "distance_km": 115,
+      "distance_km": 84,
       "direction": "юг",
       "highway": "Каширское шоссе",
       "population": 69000,
-      "coordinates": { "lat": 54.883, "lng": 38.083 },
-      "nearby": ["kashira", "kolomna"],
-      "districts": ["Центральный", "Жилёво"]
+      "coordinates": {
+        "lat": 54.883,
+        "lng": 38.083
+      },
+      "nearby": [
+        "kashira",
+        "kolomna"
+      ],
+      "districts": [
+        "Центральный",
+        "Жилёво"
+      ]
     },
     {
       "slug": "kashira",
       "name": "Кашира",
       "name_prepositional": "Кашире",
       "name_genitive": "Каширы",
-      "distance_km": 130,
+      "distance_km": 89,
       "direction": "юг",
       "highway": "Каширское шоссе",
       "population": 42000,
-      "coordinates": { "lat": 54.850, "lng": 38.167 },
-      "nearby": ["stupino", "ozherye"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.85,
+        "lng": 38.167
+      },
+      "nearby": [
+        "stupino",
+        "ozherye"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "solnechnogorsk",
@@ -588,100 +1007,170 @@
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 56000,
-      "coordinates": { "lat": 56.178, "lng": 36.978 },
-      "nearby": ["klin", "zelenograd"],
-      "districts": ["Центральный", "Радумля", "Смирновка"]
+      "coordinates": {
+        "lat": 56.178,
+        "lng": 36.978
+      },
+      "nearby": [
+        "klin",
+        "zelenograd"
+      ],
+      "districts": [
+        "Центральный",
+        "Радумля",
+        "Смирновка"
+      ]
     },
     {
       "slug": "klin",
       "name": "Клин",
       "name_prepositional": "Клину",
       "name_genitive": "Клина",
-      "distance_km": 85,
+      "distance_km": 67,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 82000,
-      "coordinates": { "lat": 56.333, "lng": 36.733 },
-      "nearby": ["solnechnogorsk", "volokolamsk"],
-      "districts": ["Центральный", "Решетниково"]
+      "coordinates": {
+        "lat": 56.333,
+        "lng": 36.733
+      },
+      "nearby": [
+        "solnechnogorsk",
+        "volokolamsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Решетниково"
+      ]
     },
     {
       "slug": "dmitrov",
       "name": "Дмитров",
       "name_prepositional": "Дмитрове",
       "name_genitive": "Дмитрова",
-      "distance_km": 65,
+      "distance_km": 49,
       "direction": "север",
       "highway": "Дмитровское шоссе",
       "population": 39000,
-      "coordinates": { "lat": 56.346, "lng": 37.520 },
-      "nearby": ["taldom", "dubna"],
-      "districts": ["Центральный", "Подлипецкое"]
+      "coordinates": {
+        "lat": 56.346,
+        "lng": 37.52
+      },
+      "nearby": [
+        "taldom",
+        "dubna"
+      ],
+      "districts": [
+        "Центральный",
+        "Подлипецкое"
+      ]
     },
     {
       "slug": "taldom",
       "name": "Талдом",
       "name_prepositional": "Талдоме",
       "name_genitive": "Талдома",
-      "distance_km": 110,
+      "distance_km": 92,
       "direction": "север",
       "highway": "Дмитровское шоссе",
       "population": 14000,
-      "coordinates": { "lat": 56.733, "lng": 37.533 },
-      "nearby": ["dmitrov", "dubna"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.733,
+        "lng": 37.533
+      },
+      "nearby": [
+        "dmitrov",
+        "dubna"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "dubna",
       "name": "Дубна",
       "name_prepositional": "Дубне",
       "name_genitive": "Дубны",
-      "distance_km": 125,
+      "distance_km": 97,
       "direction": "север",
       "highway": "Дмитровское шоссе",
       "population": 76000,
-      "coordinates": { "lat": 56.750, "lng": 37.167 },
-      "nearby": ["dmitrov", "taldom"],
-      "districts": ["Левый берег", "Правый берег", "Иваньково"]
+      "coordinates": {
+        "lat": 56.75,
+        "lng": 37.167
+      },
+      "nearby": [
+        "dmitrov",
+        "taldom"
+      ],
+      "districts": [
+        "Левый берег",
+        "Правый берег",
+        "Иваньково"
+      ]
     },
     {
       "slug": "elektrogorsk",
       "name": "Электрогорск",
       "name_prepositional": "Электрогорске",
       "name_genitive": "Электрогорска",
-      "distance_km": 50,
+      "distance_km": 39,
       "direction": "восток",
       "highway": "Носовихинское шоссе",
       "population": 24000,
-      "coordinates": { "lat": 55.883, "lng": 38.483 },
-      "nearby": ["noginsk", "pavlovsky-posad"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.883,
+        "lng": 38.483
+      },
+      "nearby": [
+        "noginsk",
+        "pavlovsky-posad"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
-        {
+    {
       "slug": "chernogolovka",
       "name": "Черноголовка",
       "name_prepositional": "Черноголовке",
       "name_genitive": "Черноголовки",
-      "distance_km": 50,
+      "distance_km": 39,
       "direction": "северо-восток",
       "highway": "Щёлковское шоссе",
       "population": 21000,
-      "coordinates": { "lat": 56.017, "lng": 38.383 },
-      "nearby": ["noginsk", "fryazino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.017,
+        "lng": 38.383
+      },
+      "nearby": [
+        "noginsk",
+        "fryazino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "losino-petrovsky",
       "name": "Лосино-Петровский",
       "name_prepositional": "Лосино-Петровском",
       "name_genitive": "Лосино-Петровского",
-      "distance_km": 35,
+      "distance_km": 21,
       "direction": "северо-восток",
       "highway": "Щёлковское шоссе",
       "population": 23000,
-      "coordinates": { "lat": 55.867, "lng": 38.200 },
-      "nearby": ["shchyolkovo", "fryazino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.867,
+        "lng": 38.2
+      },
+      "nearby": [
+        "shchyolkovo",
+        "fryazino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "staraya-kupavna",
@@ -692,22 +1181,38 @@
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 22000,
-      "coordinates": { "lat": 55.800, "lng": 38.350 },
-      "nearby": ["noginsk", "elektrostal"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.8,
+        "lng": 38.35
+      },
+      "nearby": [
+        "noginsk",
+        "elektrostal"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "elektrougli",
       "name": "Электроугли",
       "name_prepositional": "Электроуглях",
       "name_genitive": "Электроуглей",
-      "distance_km": 40,
+      "distance_km": 31,
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 20000,
-      "coordinates": { "lat": 55.733, "lng": 38.383 },
-      "nearby": ["noginsk", "elektrostal"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.733,
+        "lng": 38.383
+      },
+      "nearby": [
+        "noginsk",
+        "elektrostal"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "roshal",
@@ -718,74 +1223,122 @@
       "direction": "восток",
       "highway": "Горьковское шоссе",
       "population": 17000,
-      "coordinates": { "lat": 55.667, "lng": 39.867 },
-      "nearby": ["shatura", "orekhi-zuyevo"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.667,
+        "lng": 39.867
+      },
+      "nearby": [
+        "shatura",
+        "orekhi-zuyevo"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "shatura",
       "name": "Шатура",
       "name_prepositional": "Шатуре",
       "name_genitive": "Шатуры",
-      "distance_km": 140,
+      "distance_km": 105,
       "direction": "восток",
       "highway": "Егорьевское шоссе",
       "population": 32000,
-      "coordinates": { "lat": 55.583, "lng": 39.550 },
-      "nearby": ["roshal", "yegoryevsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.583,
+        "lng": 39.55
+      },
+      "nearby": [
+        "roshal",
+        "yegoryevsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "yegoryevsk",
       "name": "Егорьевск",
       "name_prepositional": "Егорьевске",
       "name_genitive": "Егорьевска",
-      "distance_km": 100,
+      "distance_km": 81,
       "direction": "юго-восток",
       "highway": "Егорьевское шоссе",
       "population": 72000,
-      "coordinates": { "lat": 55.383, "lng": 39.033 },
-      "nearby": ["shatura", "voskresensk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.383,
+        "lng": 39.033
+      },
+      "nearby": [
+        "shatura",
+        "voskresensk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "lukhovitsy",
       "name": "Луховицы",
       "name_prepositional": "Луховицах",
       "name_genitive": "Луховиц",
-      "distance_km": 140,
+      "distance_km": 107,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 31000,
-      "coordinates": { "lat": 54.967, "lng": 39.017 },
-      "nearby": ["kolomna", "zaraysk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.967,
+        "lng": 39.017
+      },
+      "nearby": [
+        "kolomna",
+        "zaraysk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zaraysk",
       "name": "Зарайск",
       "name_prepositional": "Зарайске",
       "name_genitive": "Зарайска",
-      "distance_km": 160,
+      "distance_km": 118,
       "direction": "юго-восток",
       "highway": "Новорязанское шоссе",
       "population": 24000,
-      "coordinates": { "lat": 54.767, "lng": 38.883 },
-      "nearby": ["lukhovitsy", "kolomna"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.767,
+        "lng": 38.883
+      },
+      "nearby": [
+        "lukhovitsy",
+        "kolomna"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "ozherye",
       "name": "Ожерелье",
       "name_prepositional": "Ожерелье",
       "name_genitive": "Ожерелья",
-      "distance_km": 120,
+      "distance_km": 94,
       "direction": "юг",
       "highway": "Павелецкое направление",
       "population": 10000,
-      "coordinates": { "lat": 54.833, "lng": 38.333 },
-      "nearby": ["kashira", "stupino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.833,
+        "lng": 38.333
+      },
+      "nearby": [
+        "kashira",
+        "stupino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "venyov",
@@ -796,9 +1349,17 @@
       "direction": "юг",
       "highway": "Каширское шоссе",
       "population": 6000,
-      "coordinates": { "lat": 54.350, "lng": 38.267 },
-      "nearby": ["kashira", "novomoskovsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.35,
+        "lng": 38.267
+      },
+      "nearby": [
+        "kashira",
+        "novomoskovsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "uzlovaya",
@@ -809,269 +1370,443 @@
       "direction": "юг",
       "highway": "Донское направление",
       "population": 55000,
-      "coordinates": { "lat": 53.967, "lng": 38.333 },
-      "nearby": ["novomoskovsk", "tula"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 53.967,
+        "lng": 38.333
+      },
+      "nearby": [
+        "novomoskovsk",
+        "tula"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "novomoskovsk",
       "name": "Новомосковск",
       "name_prepositional": "Новомосковске",
       "name_genitive": "Новомосковска",
-      "distance_km": 200,
+      "distance_km": 180,
       "direction": "юг",
       "highway": "Донское направление",
       "population": 122000,
-      "coordinates": { "lat": 54.017, "lng": 38.283 },
-      "nearby": ["uzlovaya", "tula"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.017,
+        "lng": 38.283
+      },
+      "nearby": [
+        "uzlovaya",
+        "tula"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "aleksin",
       "name": "Алексин",
       "name_prepositional": "Алексине",
       "name_genitive": "Алексина",
-      "distance_km": 140,
+      "distance_km": 126,
       "direction": "юго-запад",
       "highway": "Симферопольское шоссе",
       "population": 61000,
-      "coordinates": { "lat": 54.500, "lng": 37.067 },
-      "nearby": ["serpukhov", "tula"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.5,
+        "lng": 37.067
+      },
+      "nearby": [
+        "serpukhov",
+        "tula"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "tarusa",
       "name": "Таруса",
       "name_prepositional": "Тарусе",
       "name_genitive": "Тарусы",
-      "distance_km": 130,
+      "distance_km": 101,
       "direction": "юго-запад",
       "highway": "Симферопольское шоссе",
       "population": 10000,
-      "coordinates": { "lat": 54.717, "lng": 37.167 },
-      "nearby": ["serpukhov", "aleksin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.717,
+        "lng": 37.167
+      },
+      "nearby": [
+        "serpukhov",
+        "aleksin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zhukov",
       "name": "Жуков",
       "name_prepositional": "Жукове",
       "name_genitive": "Жукова",
-      "distance_km": 120,
+      "distance_km": 80,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 15000,
-      "coordinates": { "lat": 55.033, "lng": 36.733 },
-      "nearby": ["obninsk", "maloyaroslavets"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.033,
+        "lng": 36.733
+      },
+      "nearby": [
+        "obninsk",
+        "maloyaroslavets"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "maloyaroslavets",
       "name": "Малоярославец",
       "name_prepositional": "Малоярославце",
       "name_genitive": "Малоярославца",
-      "distance_km": 130,
+      "distance_km": 92,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 30000,
-      "coordinates": { "lat": 55.017, "lng": 36.467 },
-      "nearby": ["obninsk", "zhukov"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.017,
+        "lng": 36.467
+      },
+      "nearby": [
+        "obninsk",
+        "zhukov"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "medyn",
       "name": "Медынь",
       "name_prepositional": "Медыни",
       "name_genitive": "Медыни",
-      "distance_km": 140,
+      "distance_km": 103,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 8000,
-      "coordinates": { "lat": 54.967, "lng": 36.300 },
-      "nearby": ["maloyaroslavets", "kaluga"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.967,
+        "lng": 36.3
+      },
+      "nearby": [
+        "maloyaroslavets",
+        "kaluga"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kaluga",
       "name": "Калуга",
       "name_prepositional": "Калуге",
       "name_genitive": "Калуги",
-      "distance_km": 180,
+      "distance_km": 144,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 341000,
-      "coordinates": { "lat": 54.517, "lng": 36.267 },
-      "nearby": ["obninsk", "maloyaroslavets"],
-      "districts": ["Центральный", "Кировский", "Октябрьский"]
+      "coordinates": {
+        "lat": 54.517,
+        "lng": 36.267
+      },
+      "nearby": [
+        "obninsk",
+        "maloyaroslavets"
+      ],
+      "districts": [
+        "Центральный",
+        "Кировский",
+        "Октябрьский"
+      ]
     },
     {
       "slug": "borovsk",
       "name": "Боровск",
       "name_prepositional": "Боровске",
       "name_genitive": "Боровска",
-      "distance_km": 150,
+      "distance_km": 77,
       "direction": "юго-запад",
       "highway": "Киевское шоссе",
       "population": 12000,
-      "coordinates": { "lat": 55.200, "lng": 36.483 },
-      "nearby": ["naro-fominsk", "obninsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.2,
+        "lng": 36.483
+      },
+      "nearby": [
+        "naro-fominsk",
+        "obninsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "vereja",
       "name": "Верея",
       "name_prepositional": "Верее",
       "name_genitive": "Вереи",
-      "distance_km": 90,
+      "distance_km": 80,
       "direction": "юго-запад",
       "highway": "Минское шоссе",
       "population": 5000,
-      "coordinates": { "lat": 55.433, "lng": 36.167 },
-      "nearby": ["mozhaysk", "naro-fominsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.433,
+        "lng": 36.167
+      },
+      "nearby": [
+        "mozhaysk",
+        "naro-fominsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "urovarovka",
       "name": "Уваровка",
       "name_prepositional": "Уваровке",
       "name_genitive": "Уваровки",
-      "distance_km": 120,
+      "distance_km": 98,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 7000,
-      "coordinates": { "lat": 55.600, "lng": 35.800 },
-      "nearby": ["mozhaysk", "gagarin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.6,
+        "lng": 35.8
+      },
+      "nearby": [
+        "mozhaysk",
+        "gagarin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "gagarin",
       "name": "Гагарин",
       "name_prepositional": "Гагарине",
       "name_genitive": "Гагарина",
-      "distance_km": 180,
+      "distance_km": 148,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 30000,
-      "coordinates": { "lat": 55.550, "lng": 35.000 },
-      "nearby": ["mozhaysk", "vyazma"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.55,
+        "lng": 35
+      },
+      "nearby": [
+        "mozhaysk",
+        "vyazma"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "vyazma",
       "name": "Вязьма",
       "name_prepositional": "Вязьме",
       "name_genitive": "Вязьмы",
-      "distance_km": 220,
+      "distance_km": 200,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 55000,
-      "coordinates": { "lat": 55.217, "lng": 34.300 },
-      "nearby": ["gagarin", "safonovo"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.217,
+        "lng": 34.3
+      },
+      "nearby": [
+        "gagarin",
+        "safonovo"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "safonovo",
       "name": "Сафоново",
       "name_prepositional": "Сафоново",
       "name_genitive": "Сафоново",
-      "distance_km": 280,
+      "distance_km": 268,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 45000,
-      "coordinates": { "lat": 55.117, "lng": 33.233 },
-      "nearby": ["vyazma", "dorogobuzh"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.117,
+        "lng": 33.233
+      },
+      "nearby": [
+        "vyazma",
+        "dorogobuzh"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "dorogobuzh",
       "name": "Дорогобуж",
       "name_prepositional": "Дорогобуже",
       "name_genitive": "Дорогобужа",
-      "distance_km": 300,
+      "distance_km": 271,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 10000,
-      "coordinates": { "lat": 54.900, "lng": 33.300 },
-      "nearby": ["safonovo", "smolensk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 54.9,
+        "lng": 33.3
+      },
+      "nearby": [
+        "safonovo",
+        "smolensk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "smolensk",
       "name": "Смоленск",
       "name_prepositional": "Смоленске",
       "name_genitive": "Смоленска",
-      "distance_km": 380,
+      "distance_km": 351,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 320000,
-      "coordinates": { "lat": 54.783, "lng": 32.050 },
-      "nearby": ["dorogobuzh", "yarcevo"],
-      "districts": ["Центральный", "Промышленный", "Заднепровский"]
+      "coordinates": {
+        "lat": 54.783,
+        "lng": 32.05
+      },
+      "nearby": [
+        "dorogobuzh",
+        "yarcevo"
+      ],
+      "districts": [
+        "Центральный",
+        "Промышленный",
+        "Заднепровский"
+      ]
     },
     {
       "slug": "yarcevo",
       "name": "Ярцево",
       "name_prepositional": "Ярцево",
       "name_genitive": "Ярцево",
-      "distance_km": 320,
+      "distance_km": 303,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 47000,
-      "coordinates": { "lat": 55.067, "lng": 32.683 },
-      "nearby": ["smolensk", "dorogobuzh"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.067,
+        "lng": 32.683
+      },
+      "nearby": [
+        "smolensk",
+        "dorogobuzh"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "Rzhev",
       "name": "Ржев",
       "name_prepositional": "Ржеве",
       "name_genitive": "Ржева",
-      "distance_km": 220,
+      "distance_km": 195,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 61000,
-      "coordinates": { "lat": 56.267, "lng": 34.317 },
-      "nearby": ["torzhok", "zubtsov"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.267,
+        "lng": 34.317
+      },
+      "nearby": [
+        "torzhok",
+        "zubtsov"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zubtsov",
       "name": "Зубцов",
       "name_prepositional": "Зубцове",
       "name_genitive": "Зубцова",
-      "distance_km": 200,
+      "distance_km": 187,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 7000,
-      "coordinates": { "lat": 56.450, "lng": 34.567 },
-      "nearby": ["rzhev", "staritsa"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.45,
+        "lng": 34.567
+      },
+      "nearby": [
+        "rzhev",
+        "staritsa"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "staritsa",
       "name": "Старица",
       "name_prepositional": "Старице",
       "name_genitive": "Старицы",
-      "distance_km": 180,
+      "distance_km": 170,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 8000,
-      "coordinates": { "lat": 56.517, "lng": 34.917 },
-      "nearby": ["tver", "rzhev"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.517,
+        "lng": 34.917
+      },
+      "nearby": [
+        "tver",
+        "rzhev"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "tver",
       "name": "Тверь",
       "name_prepositional": "Твери",
       "name_genitive": "Твери",
-      "distance_km": 170,
+      "distance_km": 145,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 420000,
-      "coordinates": { "lat": 56.858, "lng": 35.900 },
-      "nearby": ["torzhok", "kalinin"],
-      "districts": ["Центральный", "Пролетарский", "Заволжский"]
+      "coordinates": {
+        "lat": 56.858,
+        "lng": 35.9
+      },
+      "nearby": [
+        "torzhok",
+        "kalinin"
+      ],
+      "districts": [
+        "Центральный",
+        "Пролетарский",
+        "Заволжский"
+      ]
     },
     {
       "slug": "torzhok",
@@ -1082,22 +1817,38 @@
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 47000,
-      "coordinates": { "lat": 57.033, "lng": 34.967 },
-      "nearby": ["tver", "vyshny-volochyok"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.033,
+        "lng": 34.967
+      },
+      "nearby": [
+        "tver",
+        "vyshny-volochyok"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "vyshny-volochyok",
       "name": "Вышний Волочёк",
       "name_prepositional": "Вышнем Волочке",
       "name_genitive": "Вышнего Волочка",
-      "distance_km": 250,
+      "distance_km": 260,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 50000,
-      "coordinates": { "lat": 57.583, "lng": 34.533 },
-      "nearby": ["torzhok", "bologoe"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.583,
+        "lng": 34.533
+      },
+      "nearby": [
+        "torzhok",
+        "bologoe"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "bologoe",
@@ -1108,9 +1859,17 @@
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 22000,
-      "coordinates": { "lat": 57.883, "lng": 34.050 },
-      "nearby": ["vyshny-volochyok", "valday"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.883,
+        "lng": 34.05
+      },
+      "nearby": [
+        "vyshny-volochyok",
+        "valday"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "valday",
@@ -1121,100 +1880,167 @@
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 16000,
-      "coordinates": { "lat": 57.983, "lng": 33.233 },
-      "nearby": ["bologoe", "staraya-russa"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.983,
+        "lng": 33.233
+      },
+      "nearby": [
+        "bologoe",
+        "staraya-russa"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "staraya-russa",
       "name": "Старая Русса",
       "name_prepositional": "Старой Руссе",
       "name_genitive": "Старой Руссы",
-      "distance_km": 400,
+      "distance_km": 437,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 31000,
-      "coordinates": { "lat": 57.983, "lng": 31.350 },
-      "nearby": ["valday", "novgorod"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.983,
+        "lng": 31.35
+      },
+      "nearby": [
+        "valday",
+        "novgorod"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "novgorod",
       "name": "Великий Новгород",
       "name_prepositional": "Великом Новгороде",
       "name_genitive": "Великого Новгорода",
-      "distance_km": 500,
+      "distance_km": 473,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 224000,
-      "coordinates": { "lat": 58.522, "lng": 31.275 },
-      "nearby": ["staraya-russa", "chudovo"],
-      "districts": ["Центральный", "Софийский"]
+      "coordinates": {
+        "lat": 58.522,
+        "lng": 31.275
+      },
+      "nearby": [
+        "staraya-russa",
+        "chudovo"
+      ],
+      "districts": [
+        "Центральный",
+        "Софийский"
+      ]
     },
     {
       "slug": "chudovo",
       "name": "Чудово",
       "name_prepositional": "Чудове",
       "name_genitive": "Чудова",
-      "distance_km": 450,
+      "distance_km": 498,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 15000,
-      "coordinates": { "lat": 59.117, "lng": 31.683 },
-      "nearby": ["novgorod", "toshno"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.117,
+        "lng": 31.683
+      },
+      "nearby": [
+        "novgorod",
+        "toshno"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "toshno",
       "name": "Тосно",
       "name_prepositional": "Тосно",
       "name_genitive": "Тосно",
-      "distance_km": 550,
+      "distance_km": 563,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 38000,
-      "coordinates": { "lat": 59.533, "lng": 30.867 },
-      "nearby": ["novgorod", "saint-petersburg"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.533,
+        "lng": 30.867
+      },
+      "nearby": [
+        "novgorod",
+        "saint-petersburg"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "saint-petersburg",
       "name": "Санкт-Петербург",
       "name_prepositional": "Санкт-Петербурге",
       "name_genitive": "Санкт-Петербурга",
-      "distance_km": 650,
+      "distance_km": 616,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 5600000,
-      "coordinates": { "lat": 59.934, "lng": 30.335 },
-      "nearby": ["toshno", "pushkin"],
-      "districts": ["Центральный", "Адмиралтейский", "Василеостровский"]
+      "coordinates": {
+        "lat": 59.934,
+        "lng": 30.335
+      },
+      "nearby": [
+        "toshno",
+        "pushkin"
+      ],
+      "districts": [
+        "Центральный",
+        "Адмиралтейский",
+        "Василеостровский"
+      ]
     },
     {
       "slug": "pushkin",
       "name": "Пушкин",
       "name_prepositional": "Пушкине",
       "name_genitive": "Пушкина",
-      "distance_km": 670,
+      "distance_km": 596,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 103000,
-      "coordinates": { "lat": 59.714, "lng": 30.396 },
-      "nearby": ["saint-petersburg", "pavlovsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.714,
+        "lng": 30.396
+      },
+      "nearby": [
+        "saint-petersburg",
+        "pavlovsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "pavlovsk",
       "name": "Павловск",
       "name_prepositional": "Павловске",
       "name_genitive": "Павловска",
-      "distance_km": 680,
+      "distance_km": 593,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 17000,
-      "coordinates": { "lat": 59.683, "lng": 30.433 },
-      "nearby": ["pushkin", "saint-petersburg"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.683,
+        "lng": 30.433
+      },
+      "nearby": [
+        "pushkin",
+        "saint-petersburg"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "gatchina",
@@ -1225,100 +2051,164 @@
       "direction": "северо-запад",
       "highway": "Киевское шоссе",
       "population": 93000,
-      "coordinates": { "lat": 59.567, "lng": 30.117 },
-      "nearby": ["saint-petersburg", "luga"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.567,
+        "lng": 30.117
+      },
+      "nearby": [
+        "saint-petersburg",
+        "luga"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "luga",
       "name": "Луга",
       "name_prepositional": "Луге",
       "name_genitive": "Луги",
-      "distance_km": 700,
+      "distance_km": 555,
       "direction": "северо-запад",
       "highway": "Киевское шоссе",
       "population": 36000,
-      "coordinates": { "lat": 58.733, "lng": 29.850 },
-      "nearby": ["gatchina", "pskov"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.733,
+        "lng": 29.85
+      },
+      "nearby": [
+        "gatchina",
+        "pskov"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "pskov",
       "name": "Псков",
       "name_prepositional": "Пскове",
       "name_genitive": "Пскова",
-      "distance_km": 750,
+      "distance_km": 592,
       "direction": "северо-запад",
       "highway": "Киевское шоссе",
       "population": 210000,
-      "coordinates": { "lat": 57.817, "lng": 28.333 },
-      "nearby": ["luga", "velikie-luki"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.817,
+        "lng": 28.333
+      },
+      "nearby": [
+        "luga",
+        "velikie-luki"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "velikie-luki",
       "name": "Великие Луки",
       "name_prepositional": "Великих Луках",
       "name_genitive": "Великих Лук",
-      "distance_km": 600,
+      "distance_km": 427,
       "direction": "запад",
       "highway": "Новорижское шоссе",
       "population": 95000,
-      "coordinates": { "lat": 56.350, "lng": 30.533 },
-      "nearby": ["pskov", "toropets"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.35,
+        "lng": 30.533
+      },
+      "nearby": [
+        "pskov",
+        "toropets"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "toropets",
       "name": "Торопец",
       "name_prepositional": "Торопце",
       "name_genitive": "Торопца",
-      "distance_km": 400,
+      "distance_km": 378,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 13000,
-      "coordinates": { "lat": 57.067, "lng": 31.633 },
-      "nearby": ["velikie-luki", "andreapol"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.067,
+        "lng": 31.633
+      },
+      "nearby": [
+        "velikie-luki",
+        "andreapol"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "andreapol",
       "name": "Андреаполь",
       "name_prepositional": "Андреаполе",
       "name_genitive": "Андреаполя",
-      "distance_km": 350,
+      "distance_km": 327,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 8000,
-      "coordinates": { "lat": 56.633, "lng": 32.267 },
-      "nearby": ["toropets", "nelidovo"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.633,
+        "lng": 32.267
+      },
+      "nearby": [
+        "toropets",
+        "nelidovo"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "nelidovo",
       "name": "Нелидово",
       "name_prepositional": "Нелидово",
       "name_genitive": "Нелидово",
-      "distance_km": 320,
+      "distance_km": 288,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 21000,
-      "coordinates": { "lat": 56.217, "lng": 32.767 },
-      "nearby": ["andreapol", "bely"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.217,
+        "lng": 32.767
+      },
+      "nearby": [
+        "andreapol",
+        "bely"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "bely",
       "name": "Белый",
       "name_prepositional": "Белом",
       "name_genitive": "Белого",
-      "distance_km": 300,
+      "distance_km": 276,
       "direction": "северо-запад",
       "highway": "Новорижское шоссе",
       "population": 4000,
-      "coordinates": { "lat": 55.833, "lng": 32.917 },
-      "nearby": ["nelidovo", "rzhev"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.833,
+        "lng": 32.917
+      },
+      "nearby": [
+        "nelidovo",
+        "rzhev"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "aprelovka",
@@ -1329,9 +2219,17 @@
       "direction": "запад",
       "highway": "Киевское шоссе",
       "population": 25000,
-      "coordinates": { "lat": 55.533, "lng": 37.067 },
-      "nearby": ["naro-fominsk", "odintsovo"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.533,
+        "lng": 37.067
+      },
+      "nearby": [
+        "naro-fominsk",
+        "odintsovo"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kubinka",
@@ -1342,22 +2240,38 @@
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 20000,
-      "coordinates": { "lat": 55.567, "lng": 36.717 },
-      "nearby": ["odintsovo", "naro-fominsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.567,
+        "lng": 36.717
+      },
+      "nearby": [
+        "odintsovo",
+        "naro-fominsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "goitsyno",
       "name": "Голицыно",
       "name_prepositional": "Голицыно",
       "name_genitive": "Голицыно",
-      "distance_km": 35,
+      "distance_km": 25,
       "direction": "запад",
       "highway": "Минское шоссе",
       "population": 18000,
-      "coordinates": { "lat": 55.617, "lng": 36.983 },
-      "nearby": ["odintsovo", "zvenigorod"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 55.617,
+        "lng": 36.983
+      },
+      "nearby": [
+        "odintsovo",
+        "zvenigorod"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "lesnoy-gorodok",
@@ -1368,9 +2282,17 @@
       "direction": "север",
       "highway": "Ленинградское шоссе",
       "population": 15000,
-      "coordinates": { "lat": 56.067, "lng": 37.300 },
-      "nearby": ["zelenograd", "solnechnogorsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.067,
+        "lng": 37.3
+      },
+      "nearby": [
+        "zelenograd",
+        "solnechnogorsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zelenograd",
@@ -1381,9 +2303,19 @@
       "direction": "север",
       "highway": "Ленинградское шоссе",
       "population": 250000,
-      "coordinates": { "lat": 55.983, "lng": 37.183 },
-      "nearby": ["khimki", "solnechnogorsk"],
-      "districts": ["Центральный", "Крюково", "Малино"]
+      "coordinates": {
+        "lat": 55.983,
+        "lng": 37.183
+      },
+      "nearby": [
+        "khimki",
+        "solnechnogorsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Крюково",
+        "Малино"
+      ]
     },
     {
       "slug": "mendeevo",
@@ -1394,113 +2326,188 @@
       "direction": "север",
       "highway": "Ленинградское шоссе",
       "population": 12000,
-      "coordinates": { "lat": 56.150, "lng": 37.050 },
-      "nearby": ["zelenograd", "solnechnogorsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.15,
+        "lng": 37.05
+      },
+      "nearby": [
+        "zelenograd",
+        "solnechnogorsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "povarovo",
       "name": "Поварово",
       "name_prepositional": "Поварово",
       "name_genitive": "Поварово",
-      "distance_km": 50,
+      "distance_km": 42,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 18000,
-      "coordinates": { "lat": 56.100, "lng": 36.900 },
-      "nearby": ["solnechnogorsk", "klin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.1,
+        "lng": 36.9
+      },
+      "nearby": [
+        "solnechnogorsk",
+        "klin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "reshetnikovo",
       "name": "Решетниково",
       "name_prepositional": "Решетниково",
       "name_genitive": "Решетниково",
-      "distance_km": 90,
+      "distance_km": 69,
       "direction": "северо-запад",
       "highway": "Ленинградское шоссе",
       "population": 10000,
-      "coordinates": { "lat": 56.367, "lng": 36.767 },
-      "nearby": ["klin", "zavolzhsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.367,
+        "lng": 36.767
+      },
+      "nearby": [
+        "klin",
+        "zavolzhsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "zavolzhsk",
       "name": "Заволжск",
       "name_prepositional": "Заволжске",
       "name_genitive": "Заволжска",
-      "distance_km": 300,
+      "distance_km": 319,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 12000,
-      "coordinates": { "lat": 57.483, "lng": 42.133 },
-      "nearby": ["kostroma", "navoloki"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.483,
+        "lng": 42.133
+      },
+      "nearby": [
+        "kostroma",
+        "navoloki"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "navoloki",
       "name": "Наволоки",
       "name_prepositional": "Наволоках",
       "name_genitive": "Наволоков",
-      "distance_km": 320,
+      "distance_km": 309,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 10000,
-      "coordinates": { "lat": 57.467, "lng": 41.950 },
-      "nearby": ["zavolzhsk", "kostroma"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.467,
+        "lng": 41.95
+      },
+      "nearby": [
+        "zavolzhsk",
+        "kostroma"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kostroma",
       "name": "Кострома",
       "name_prepositional": "Костроме",
       "name_genitive": "Костромы",
-      "distance_km": 350,
+      "distance_km": 284,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 277000,
-      "coordinates": { "lat": 57.767, "lng": 40.927 },
-      "nearby": ["zavolzhsk", "yaroslavl"],
-      "districts": ["Центральный", "Заволжский"]
+      "coordinates": {
+        "lat": 57.767,
+        "lng": 40.927
+      },
+      "nearby": [
+        "zavolzhsk",
+        "yaroslavl"
+      ],
+      "districts": [
+        "Центральный",
+        "Заволжский"
+      ]
     },
     {
       "slug": "yaroslavl",
       "name": "Ярославль",
       "name_prepositional": "Ярославле",
       "name_genitive": "Ярославля",
-      "distance_km": 280,
+      "distance_km": 233,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 608000,
-      "coordinates": { "lat": 57.626, "lng": 39.884 },
-      "nearby": ["kostroma", "pereslavl-zalessky"],
-      "districts": ["Центральный", "Заволжский", "Кировский"]
+      "coordinates": {
+        "lat": 57.626,
+        "lng": 39.884
+      },
+      "nearby": [
+        "kostroma",
+        "pereslavl-zalessky"
+      ],
+      "districts": [
+        "Центральный",
+        "Заволжский",
+        "Кировский"
+      ]
     },
     {
       "slug": "pereslavl-zalessky",
       "name": "Переславль-Залесский",
       "name_prepositional": "Переславле-Залесском",
       "name_genitive": "Переславля-Залесского",
-      "distance_km": 150,
+      "distance_km": 116,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 40000,
-      "coordinates": { "lat": 56.733, "lng": 38.850 },
-      "nearby": ["yaroslavl", "aleksandrov"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.733,
+        "lng": 38.85
+      },
+      "nearby": [
+        "yaroslavl",
+        "aleksandrov"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "aleksandrov",
       "name": "Александров",
       "name_prepositional": "Александрове",
       "name_genitive": "Александрова",
-      "distance_km": 120,
+      "distance_km": 80,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 61000,
-      "coordinates": { "lat": 56.383, "lng": 38.717 },
-      "nearby": ["pereslavl-zalessky", "kolchugino"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.383,
+        "lng": 38.717
+      },
+      "nearby": [
+        "pereslavl-zalessky",
+        "kolchugino"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kolchugino",
@@ -1511,425 +2518,693 @@
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 16000,
-      "coordinates": { "lat": 56.333, "lng": 39.400 },
-      "nearby": ["aleksandrov", "yuryev-polsky"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.333,
+        "lng": 39.4
+      },
+      "nearby": [
+        "aleksandrov",
+        "yuryev-polsky"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "yuryev-polsky",
       "name": "Юрьев-Польский",
       "name_prepositional": "Юрьеве-Польском",
       "name_genitive": "Юрьева-Польского",
-      "distance_km": 180,
+      "distance_km": 134,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 10000,
-      "coordinates": { "lat": 56.500, "lng": 39.667 },
-      "nearby": ["kolchugino", "gavrilov-yam"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 56.5,
+        "lng": 39.667
+      },
+      "nearby": [
+        "kolchugino",
+        "gavrilov-yam"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "gavrilov-yam",
       "name": "Гаврилов-Ям",
       "name_prepositional": "Гаврилов-Яме",
       "name_genitive": "Гаврилова-Яма",
-      "distance_km": 250,
+      "distance_km": 202,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 17000,
-      "coordinates": { "lat": 57.300, "lng": 39.850 },
-      "nearby": ["yaroslavl", "rostopov-veliky"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.3,
+        "lng": 39.85
+      },
+      "nearby": [
+        "yaroslavl",
+        "rostopov-veliky"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "rostopov-veliky",
       "name": "Ростов Великий",
       "name_prepositional": "Ростове Великом",
       "name_genitive": "Ростова Великого",
-      "distance_km": 220,
+      "distance_km": 176,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 31000,
-      "coordinates": { "lat": 57.183, "lng": 39.417 },
-      "nearby": ["yaroslavl", "pereslavl-zalessky"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.183,
+        "lng": 39.417
+      },
+      "nearby": [
+        "yaroslavl",
+        "pereslavl-zalessky"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "uglich",
       "name": "Углич",
       "name_prepositional": "Угличе",
       "name_genitive": "Углича",
-      "distance_km": 200,
+      "distance_km": 185,
       "direction": "север",
       "highway": "Угличское направление",
       "population": 33000,
-      "coordinates": { "lat": 57.528, "lng": 38.317 },
-      "nearby": ["rostopov-veliky", "myshkin"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.528,
+        "lng": 38.317
+      },
+      "nearby": [
+        "rostopov-veliky",
+        "myshkin"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "myshkin",
       "name": "Мышкин",
       "name_prepositional": "Мышкине",
       "name_genitive": "Мышкина",
-      "distance_km": 230,
+      "distance_km": 214,
       "direction": "север",
       "highway": "Угличское направление",
       "population": 6000,
-      "coordinates": { "lat": 57.783, "lng": 38.450 },
-      "nearby": ["uglich", "rybinsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.783,
+        "lng": 38.45
+      },
+      "nearby": [
+        "uglich",
+        "rybinsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "rybinsk",
       "name": "Рыбинск",
       "name_prepositional": "Рыбинске",
       "name_genitive": "Рыбинска",
-      "distance_km": 270,
+      "distance_km": 249,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 190000,
-      "coordinates": { "lat": 58.050, "lng": 38.850 },
-      "nearby": ["yaroslavl", "tutaev"],
-      "districts": ["Центральный", "Скоморохова гора"]
+      "coordinates": {
+        "lat": 58.05,
+        "lng": 38.85
+      },
+      "nearby": [
+        "yaroslavl",
+        "tutaev"
+      ],
+      "districts": [
+        "Центральный",
+        "Скоморохова гора"
+      ]
     },
     {
       "slug": "tutaev",
       "name": "Тутаев",
       "name_prepositional": "Тутаеве",
       "name_genitive": "Тутаева",
-      "distance_km": 260,
+      "distance_km": 245,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 40000,
-      "coordinates": { "lat": 57.867, "lng": 39.533 },
-      "nearby": ["rybinsk", "yaroslavl"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.867,
+        "lng": 39.533
+      },
+      "nearby": [
+        "rybinsk",
+        "yaroslavl"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "danilov",
       "name": "Данилов",
       "name_prepositional": "Данилове",
       "name_genitive": "Данилова",
-      "distance_km": 320,
+      "distance_km": 294,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 16000,
-      "coordinates": { "lat": 58.183, "lng": 40.183 },
-      "nearby": ["yaroslavl", "lyubim"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.183,
+        "lng": 40.183
+      },
+      "nearby": [
+        "yaroslavl",
+        "lyubim"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "lyubim",
       "name": "Любим",
       "name_prepositional": "Любиме",
       "name_genitive": "Любима",
-      "distance_km": 350,
+      "distance_km": 327,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 6000,
-      "coordinates": { "lat": 58.367, "lng": 40.683 },
-      "nearby": ["danilov", "buy"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.367,
+        "lng": 40.683
+      },
+      "nearby": [
+        "danilov",
+        "buy"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "buy",
       "name": "Буй",
       "name_prepositional": "Буе",
       "name_genitive": "Буя",
-      "distance_km": 400,
+      "distance_km": 365,
       "direction": "северо-восток",
       "highway": "Ярославское шоссе",
       "population": 25000,
-      "coordinates": { "lat": 58.467, "lng": 41.517 },
-      "nearby": ["lyubim", "kostroma"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.467,
+        "lng": 41.517
+      },
+      "nearby": [
+        "lyubim",
+        "kostroma"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "makaryev",
       "name": "Макарьев",
       "name_prepositional": "Макарьеве",
       "name_genitive": "Макарьева",
-      "distance_km": 450,
+      "distance_km": 427,
       "direction": "северо-восток",
       "highway": "Костромское направление",
       "population": 7000,
-      "coordinates": { "lat": 57.883, "lng": 43.800 },
-      "nearby": ["kostroma", "unzha"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 57.883,
+        "lng": 43.8
+      },
+      "nearby": [
+        "kostroma",
+        "unzha"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "unzha",
       "name": "Унжа",
       "name_prepositional": "Унже",
       "name_genitive": "Унжи",
-      "distance_km": 500,
+      "distance_km": 475,
       "direction": "северо-восток",
       "highway": "Костромское направление",
       "population": 5000,
-      "coordinates": { "lat": 58.217, "lng": 44.383 },
-      "nearby": ["makaryev", "manturovo"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.217,
+        "lng": 44.383
+      },
+      "nearby": [
+        "makaryev",
+        "manturovo"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "manturovo",
       "name": "Мантурово",
       "name_prepositional": "Мантурово",
       "name_genitive": "Мантурово",
-      "distance_km": 550,
+      "distance_km": 499,
       "direction": "северо-восток",
       "highway": "Костромское направление",
       "population": 17000,
-      "coordinates": { "lat": 58.317, "lng": 44.750 },
-      "nearby": ["unzha", "sharya"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.317,
+        "lng": 44.75
+      },
+      "nearby": [
+        "unzha",
+        "sharya"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "sharya",
       "name": "Шарья",
       "name_prepositional": "Шарье",
       "name_genitive": "Шарьи",
-      "distance_km": 600,
+      "distance_km": 541,
       "direction": "северо-восток",
       "highway": "Транссибирская магистраль",
       "population": 25000,
-      "coordinates": { "lat": 58.367, "lng": 45.517 },
-      "nearby": ["manturovo", "pyshchug"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.367,
+        "lng": 45.517
+      },
+      "nearby": [
+        "manturovo",
+        "pyshchug"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "pyshchug",
       "name": "Пыщуг",
       "name_prepositional": "Пыщуге",
       "name_genitive": "Пыщуга",
-      "distance_km": 650,
+      "distance_km": 573,
       "direction": "северо-восток",
       "highway": "Костромское направление",
       "population": 4000,
-      "coordinates": { "lat": 58.600, "lng": 45.900 },
-      "nearby": ["sharya", "nikolsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 58.6,
+        "lng": 45.9
+      },
+      "nearby": [
+        "sharya",
+        "nikolsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "nikolsk",
       "name": "Никольск",
       "name_prepositional": "Никольске",
       "name_genitive": "Никольска",
-      "distance_km": 700,
+      "distance_km": 610,
       "direction": "северо-восток",
       "highway": "Вологодское направление",
       "population": 8000,
-      "coordinates": { "lat": 59.533, "lng": 45.450 },
-      "nearby": ["pyshchug", "veliky-ustyug"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.533,
+        "lng": 45.45
+      },
+      "nearby": [
+        "pyshchug",
+        "veliky-ustyug"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "veliky-ustyug",
       "name": "Великий Устюг",
       "name_prepositional": "Великом Устюге",
       "name_genitive": "Великого Устюга",
-      "distance_km": 750,
+      "distance_km": 736,
       "direction": "северо-восток",
       "highway": "Вологодское направление",
       "population": 32000,
-      "coordinates": { "lat": 60.767, "lng": 46.300 },
-      "nearby": ["nikolsk", "kotlas"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 60.767,
+        "lng": 46.3
+      },
+      "nearby": [
+        "nikolsk",
+        "kotlas"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kotlas",
       "name": "Котлас",
       "name_prepositional": "Котласе",
       "name_genitive": "Котласа",
-      "distance_km": 800,
+      "distance_km": 786,
       "direction": "северо-восток",
       "highway": "Вологодское направление",
       "population": 62000,
-      "coordinates": { "lat": 61.250, "lng": 46.633 },
-      "nearby": ["veliky-ustyug", "koryazhma"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 61.25,
+        "lng": 46.633
+      },
+      "nearby": [
+        "veliky-ustyug",
+        "koryazhma"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "koryazhma",
       "name": "Коряжма",
       "name_prepositional": "Коряжме",
       "name_genitive": "Коряжмы",
-      "distance_km": 820,
+      "distance_km": 808,
       "direction": "северо-восток",
       "highway": "Вологодское направление",
       "population": 40000,
-      "coordinates": { "lat": 61.300, "lng": 47.100 },
-      "nearby": ["kotlas", "arkhangelsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 61.3,
+        "lng": 47.1
+      },
+      "nearby": [
+        "kotlas",
+        "arkhangelsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "arkhangelsk",
       "name": "Архангельск",
       "name_prepositional": "Архангельске",
       "name_genitive": "Архангельска",
-      "distance_km": 1000,
+      "distance_km": 973,
       "direction": "север",
       "highway": "Архангельское направление",
       "population": 350000,
-      "coordinates": { "lat": 64.540, "lng": 40.543 },
-      "nearby": ["koryazhma", "severodvinsk"],
-      "districts": ["Центральный", "Майская Горка"]
+      "coordinates": {
+        "lat": 64.54,
+        "lng": 40.543
+      },
+      "nearby": [
+        "koryazhma",
+        "severodvinsk"
+      ],
+      "districts": [
+        "Центральный",
+        "Майская Горка"
+      ]
     },
     {
       "slug": "severodvinsk",
       "name": "Северодвинск",
       "name_prepositional": "Северодвинске",
       "name_genitive": "Северодвинска",
-      "distance_km": 1050,
+      "distance_km": 970,
       "direction": "север",
       "highway": "Архангельское направление",
       "population": 180000,
-      "coordinates": { "lat": 64.567, "lng": 39.833 },
-      "nearby": ["arkhangelsk", "novodvinsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 64.567,
+        "lng": 39.833
+      },
+      "nearby": [
+        "arkhangelsk",
+        "novodvinsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "novodvinsk",
       "name": "Новодвинск",
       "name_prepositional": "Новодвинске",
       "name_genitive": "Новодвинска",
-      "distance_km": 1020,
+      "distance_km": 962,
       "direction": "север",
       "highway": "Архангельское направление",
       "population": 40000,
-      "coordinates": { "lat": 64.417, "lng": 40.817 },
-      "nearby": ["arkhangelsk", "severodvinsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 64.417,
+        "lng": 40.817
+      },
+      "nearby": [
+        "arkhangelsk",
+        "severodvinsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "vologda",
       "name": "Вологда",
       "name_prepositional": "Вологде",
       "name_genitive": "Вологды",
-      "distance_km": 450,
+      "distance_km": 392,
       "direction": "север",
       "highway": "Вологодское направление",
       "population": 314000,
-      "coordinates": { "lat": 59.224, "lng": 39.892 },
-      "nearby": ["sokolskoe", "gryazovets"],
-      "districts": ["Центральный", "Заречный"]
+      "coordinates": {
+        "lat": 59.224,
+        "lng": 39.892
+      },
+      "nearby": [
+        "sokolskoe",
+        "gryazovets"
+      ],
+      "districts": [
+        "Центральный",
+        "Заречный"
+      ]
     },
     {
       "slug": "sokolskoe",
       "name": "Сокол",
       "name_prepositional": "Соколе",
       "name_genitive": "Сокола",
-      "distance_km": 480,
+      "distance_km": 422,
       "direction": "север",
       "highway": "Вологодское направление",
       "population": 39000,
-      "coordinates": { "lat": 59.467, "lng": 40.117 },
-      "nearby": ["vologda", "cherepovets"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 59.467,
+        "lng": 40.117
+      },
+      "nearby": [
+        "vologda",
+        "cherepovets"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "cherepovets",
       "name": "Череповец",
       "name_prepositional": "Череповце",
       "name_genitive": "Череповца",
-      "distance_km": 550,
+      "distance_km": 359,
       "direction": "север",
       "highway": "Вологодское направление",
       "population": 318000,
-      "coordinates": { "lat": 59.133, "lng": 37.900 },
-      "nearby": ["vologda", "belozersk"],
-      "districts": ["Центральный", "Заягорбский"]
+      "coordinates": {
+        "lat": 59.133,
+        "lng": 37.9
+      },
+      "nearby": [
+        "vologda",
+        "belozersk"
+      ],
+      "districts": [
+        "Центральный",
+        "Заягорбский"
+      ]
     },
     {
       "slug": "belozersk",
       "name": "Белозерск",
       "name_prepositional": "Белозерске",
       "name_genitive": "Белозерска",
-      "distance_km": 600,
+      "distance_km": 470,
       "direction": "север",
       "highway": "Вологодское направление",
       "population": 10000,
-      "coordinates": { "lat": 60.133, "lng": 37.783 },
-      "nearby": ["cherepovets", "vytegra"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 60.133,
+        "lng": 37.783
+      },
+      "nearby": [
+        "cherepovets",
+        "vytegra"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "vytegra",
       "name": "Вытегра",
       "name_prepositional": "Вытегре",
       "name_genitive": "Вытегры",
-      "distance_km": 650,
+      "distance_km": 570,
       "direction": "север",
       "highway": "Вологодское направление",
       "population": 11000,
-      "coordinates": { "lat": 61.000, "lng": 36.450 },
-      "nearby": ["belozersk", "pudozh"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 61,
+        "lng": 36.45
+      },
+      "nearby": [
+        "belozersk",
+        "pudozh"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "pudozh",
       "name": "Пудож",
       "name_prepositional": "Пудоже",
       "name_genitive": "Пудожа",
-      "distance_km": 750,
+      "distance_km": 658,
       "direction": "север",
       "highway": "Карельское направление",
       "population": 10000,
-      "coordinates": { "lat": 61.800, "lng": 36.533 },
-      "nearby": ["vytegra", "medvezhyegorsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 61.8,
+        "lng": 36.533
+      },
+      "nearby": [
+        "vytegra",
+        "medvezhyegorsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "medvezhyegorsk",
       "name": "Медвежьегорск",
       "name_prepositional": "Медвежьегорске",
       "name_genitive": "Медвежьегорска",
-      "distance_km": 850,
+      "distance_km": 799,
       "direction": "север",
       "highway": "Карельское направление",
       "population": 15000,
-      "coordinates": { "lat": 62.917, "lng": 34.450 },
-      "nearby": ["pudozh", "segezha"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 62.917,
+        "lng": 34.45
+      },
+      "nearby": [
+        "pudozh",
+        "segezha"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "segezha",
       "name": "Сегежа",
       "name_prepositional": "Сегеже",
       "name_genitive": "Сегежи",
-      "distance_km": 900,
+      "distance_km": 889,
       "direction": "север",
       "highway": "Карельское направление",
       "population": 30000,
-      "coordinates": { "lat": 63.733, "lng": 34.317 },
-      "nearby": ["medvezhyegorsk", "kem"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 63.733,
+        "lng": 34.317
+      },
+      "nearby": [
+        "medvezhyegorsk",
+        "kem"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "kem",
       "name": "Кемь",
       "name_prepositional": "Кеми",
       "name_genitive": "Кеми",
-      "distance_km": 950,
+      "distance_km": 1018,
       "direction": "север",
       "highway": "Карельское направление",
       "population": 12000,
-      "coordinates": { "lat": 64.950, "lng": 34.600 },
-      "nearby": ["segezha", "belomorsk"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 64.95,
+        "lng": 34.6
+      },
+      "nearby": [
+        "segezha",
+        "belomorsk"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     },
     {
       "slug": "belomorsk",
       "name": "Беломорск",
       "name_prepositional": "Беломорске",
       "name_genitive": "Беломорска",
-      "distance_km": 1000,
+      "distance_km": 971,
       "direction": "север",
       "highway": "Карельское направление",
       "population": 11000,
-      "coordinates": { "lat": 64.533, "lng": 34.767 },
-      "nearby": ["kem", "segezha"],
-      "districts": ["Центральный"]
+      "coordinates": {
+        "lat": 64.533,
+        "lng": 34.767
+      },
+      "nearby": [
+        "kem",
+        "segezha"
+      ],
+      "districts": [
+        "Центральный"
+      ]
     }
   ]
 }

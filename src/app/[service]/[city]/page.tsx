@@ -13,7 +13,7 @@ import wavesData from '@/data/pseo-waves.json';
 import { calculatePrice, formatPrice } from '@/lib/pricing';
 import { roundUpToHundreds } from '@/lib/constants';
 import { getPageMetadata } from '@/lib/indexing';
-import { generateSeoContent, SeoService, SeoCity } from '@/lib/seo-generator';
+import { generateSeoContent, highwayDative, SeoService, SeoCity } from '@/lib/seo-generator';
 import { getDeterministic } from '@/lib/content-variations';
 import { getEquipment } from '@/lib/data';
 import { CONTACTS } from '@/lib/contacts';
@@ -21,6 +21,8 @@ import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
 import PriceCalculator from '@/components/PriceCalculator';
 import AliceFAQBlock from '@/components/AliceFAQBlock';
 import ContactLink from '@/components/ContactLink';
+import Image from 'next/image';
+import InfiniteCardsCarousel from '@/components/InfiniteCardsCarousel';
 
 interface PageProps {
   params: Promise<{ service: string; city: string }>;
@@ -71,6 +73,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Страница не найдена' };
   }
 
+  const hw = highwayDative(city.highway);
   const price = minCashPrice(service, city.distance_km);
   const priceStr = price ? price.toLocaleString('ru-RU') : '';
   const seed = `${serviceSlug}-${citySlug}`;
@@ -79,10 +82,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const titles = [
     `Аренда ${service.name_genitive} в ${city.name_prepositional} от ${priceStr}₽ | АТР-СЕРВИС`,
     `${service.name_singular} в ${city.name_prepositional} — аренда от ${priceStr}₽/смена`,
-    `Заказать ${service.name_singular} в ${city.name}: подача за 2 часа | АТР-СЕРВИС`,
+    `Заказать ${service.name_singular} в ${city.name_prepositional}: подача за 2 часа | АТР-СЕРВИС`,
   ];
 
-  const description = `Аренда ${service.name_genitive} в ${city.name_prepositional}: подача за 2 часа, ${city.distance_km} км от МКАД по ${city.highway}. Цена от ${priceStr} ₽/смена, расчёт с НДС и УСН. Телефон ${CONTACTS.phone.formatted}.`;
+  const description = `Аренда ${service.name_genitive} в ${city.name_prepositional}: подача за 2 часа, ${city.distance_km} км от МКАД по ${hw}. Цена от ${priceStr} ₽/смена, расчёт с НДС и УСН. Телефон ${CONTACTS.phone.formatted}.`;
 
   return {
     title: getDeterministic(titles, seed),
@@ -109,6 +112,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
   const { service, city } = findData(serviceSlug, citySlug);
   if (!service || !city || !enabledCities.has(citySlug)) notFound();
 
+  const hw = highwayDative(city.highway);
   const minPrice = minCashPrice(service, city.distance_km);
     // 🔹 Честное обещание по радиусу (задел на wave2)
   const deliveryClaim =
@@ -168,15 +172,16 @@ export default async function ServiceCityPage({ params }: PageProps) {
             Аренда {service.name_genitive} в {city.name_prepositional}
           </h1>
           <p className="text-lg text-gray-300 mb-6">
-            {deliveryClaim} • {city.distance_km} км от МКАД по {city.highway} • с 2009 года
+            {deliveryClaim} • {city.distance_km} км от МКАД по {hw} • с 2009 года
           </p>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="bg-white/10 rounded-xl p-3">
               <div className="text-xs opacity-80 mb-1">Цена от</div>
               <div className="text-xl font-extrabold">{minPrice ? `${formatPrice(minPrice)} ₽` : '—'}</div>
             </div>
             <div className="bg-white/10 rounded-xl p-3">
-              <div className="text-xs opacity-80 mb-1">Подача</div>
+              <div className="text-xs opacity-80 mb-1">От МКАД</div>
               <div className="text-xl font-extrabold">{deliveryMinutes ? `~${deliveryMinutes} мин` : 'от 1 дня'}</div>
             </div>
             <div className="bg-white/10 rounded-xl p-3">
@@ -188,8 +193,60 @@ export default async function ServiceCityPage({ params }: PageProps) {
               <div className="text-xl font-extrabold">08:00–22:00</div>
             </div>
           </div>
+
+          {/* 🔹 Кнопки действий: мобильный + десктоп, 50/50 */}
+          <div className="flex gap-3 mt-6">
+            <a
+              href="#calculator"
+              className="btn border-2 border-white/40 text-white hover:bg-white/10 flex-1 justify-center text-base md:text-lg"
+            >
+              🧮 Калькулятор
+            </a>
+            <a
+              href={`tel:${CONTACTS.phone.raw}`}
+              className="btn btn-accent flex-1 justify-center text-base md:text-lg shadow-glow"
+            >
+              📞 Заказать
+            </a>
+          </div>
         </div>
       </section>
+
+                  {/* 🔹 Мини-карусель техники: 3 видимых на мобильном, 5 на десктопе */}
+      {equipment.length > 0 && (
+        <section className="py-8 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-lg font-bold mb-4 text-gray-900">Техника в наличии</h2>
+            <InfiniteCardsCarousel perCopy={equipment.length} ariaLabel="Техника в наличии">
+              {[...equipment, ...equipment, ...equipment].map((item, i) => (
+                <div key={`slot-${i}`} className="flex-shrink-0 w-[calc((100%-48px)/3)] md:w-[calc((100%-96px)/5)]">
+                  <Link
+                    href={`/tekhnika/${item.slug}`}
+                    className="block bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg hover:border-primary-300 transition-all h-full"
+                  >
+                    <div className="relative w-full aspect-[4/3] bg-gray-100">
+                      <Image
+                        src={item.mainImage || '/images/logo-small.webp'}
+                        alt={item.name}
+                        fill
+                        sizes="(max-width: 768px) 33vw, 20vw"
+                        loading="lazy"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="p-2 text-center">
+                      <div className="text-[11px] leading-4 text-gray-600 line-clamp-2">{item.name}</div>
+                      <div className="text-sm font-extrabold text-primary-600 whitespace-nowrap">
+                        от {formatPrice(item.basePrice ?? 0)} ₽
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </InfiniteCardsCarousel>
+          </div>
+        </section>
+      )}
 
       {/* Уникальный SEO-текст */}
       <section className="py-12 bg-white">
@@ -217,33 +274,11 @@ export default async function ServiceCityPage({ params }: PageProps) {
       </section>
 
       {/* Калькулятор с предустановленным городом */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section id="calculator" className="py-12 bg-gradient-to-br from-gray-50 to-gray-100 scroll-mt-24">
         <div className="container mx-auto px-4">
           <PriceCalculator defaultService={serviceSlug} defaultCity={citySlug} />
         </div>
       </section>
-
-      {/* Техника категории */}
-      {equipment.length > 0 && (
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">
-              Доступная техника для {city.name_genitive}
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {equipment.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/tekhnika/${item.slug}`}
-                  className="bg-gray-100 hover:bg-primary-50 hover:text-primary-700 text-gray-700 px-4 py-2 rounded-lg text-sm transition-colors"
-                >
-                  {item.name} — от {formatPrice(item.basePrice ?? 0)} ₽
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* FAQ */}
       <section className="py-12 bg-gradient-to-br from-gray-50 to-gray-100">
@@ -264,7 +299,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
         <section className="py-8 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-lg font-bold mb-3 text-gray-900">
-              Также работаем рядом с {city.name_prepositional}:
+              Также работаем рядом с г. {city.name}:
             </h2>
             <div className="flex flex-wrap gap-2">
               {nearby.map((c: AnyCity) => (
@@ -286,7 +321,7 @@ export default async function ServiceCityPage({ params }: PageProps) {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4 text-gradient">{content.cta}</h2>
           <p className="text-gray-300 mb-6">
-            Подберём {service.name_singular} под задачу и назовём цену до выезда
+            Подберём технику под задачу и назовём цену до выезда
           </p>
           <ContactLink type="phone" variant="button" className="btn btn-accent text-lg shadow-glow hover:shadow-glow-lg" iconSize={24} />
         </div>

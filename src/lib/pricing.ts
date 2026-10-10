@@ -20,6 +20,7 @@ export interface PriceCalculation {
   distance: number;
   pricePerKm: number;
   freeZoneKm: number;
+  roundTripDistance: number;  // Полный пробег (туда + обратно) или 0 если в бесплатной зоне
   deliveryCost: number;
   totalPrice: number;
   isWithinFreeZone: boolean;
@@ -92,12 +93,15 @@ export function calculatePrice(
   const freeZoneKm = pricingData.meta.free_zone_km;
   const pricePerKm = service.price_per_km;
 
-  // Расчёт стоимости доставки
-  const billableDistance = Math.max(0, distanceKm - freeZoneKm);
-  const deliveryCost = billableDistance * pricePerKm;
+  // 🔹 БИЗНЕС-ЛОГИКА: Бесплатная зона = порог
+  // Если расстояние <= freeZoneKm (10 км) — доставка бесплатная (roundTrip = 0)
+  // Если расстояние > freeZoneKm — оплачивается ПОЛНЫЙ пробег туда и обратно
+  const isWithinFreeZone = distanceKm <= freeZoneKm;
+  const roundTripDistance = isWithinFreeZone ? 0 : distanceKm * 2;
+  const deliveryCost = roundTripDistance * pricePerKm;
   const totalPrice = basePrice + deliveryCost;
 
-  // Расчёт цен для разных типов клиентов
+  // 🔹 Расчёт цен для разных типов клиентов
   const pricesByType = {
     cash: totalPrice,
     with_vat: calculatePriceWithTax(totalPrice, 'with_vat'),
@@ -109,16 +113,17 @@ export function calculatePrice(
     distance: distanceKm,
     pricePerKm,
     freeZoneKm,
+    roundTripDistance,
     deliveryCost,
     totalPrice,
-    isWithinFreeZone: distanceKm <= freeZoneKm,
+    isWithinFreeZone,
     modelName: model.name,
     serviceName: service.name,
     pricesByType,
   };
 }
 
-//  Получить минимальную цену для города (самая дешёвая модель)
+// 🔹 Получить минимальную цену для города (самая дешёвая модель)
 export function getMinPriceForCity(serviceSlug: string, distanceKm: number): number {
   const service = getServiceBySlug(serviceSlug);
   if (!service) return 0;
