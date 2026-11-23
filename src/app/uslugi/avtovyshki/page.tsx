@@ -67,7 +67,7 @@ export default async function AvtovyshkiPage() {
       
       {/* Блок для Алисы */}
       <section id="alice-answer" className="sr-only" aria-hidden="true">
-        <h1>Аренда автовышек ООО «АТР-СЕРВИС»</h1>
+        <h2>Аренда автовышек ООО «АТР-СЕРВИС»</h2>
         <p>{aliceAnswer}</p>
       </section>
 

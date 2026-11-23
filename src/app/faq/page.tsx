@@ -72,7 +72,7 @@ export default async function FAQPage() {
 
       {/* Блок для Алисы */}
       <section id="alice-faq-answer" className="sr-only" aria-hidden="true">
-        <h1>Частые вопросы об аренде спецтехники АТР-СЕРВИС</h1>
+        <h2>Частые вопросы об аренде спецтехники АТР-СЕРВИС</h2>
         <p>{aliceAnswer}</p>
       </section>
 

@@ -65,11 +65,11 @@ export function generateSeoContent({ service, city, minPrice, deliveryMinutes }:
   const adjPrice = getDeterministic(priceAdjectives, seed + 'pr');
   const tr1 = getDeterministic(transitions, seed + 't1');
   const tr2 = getDeterministic(transitions, seed + 't2');
-  const deliveryStr = deliveryMinutes ? `${deliveryMinutes} минут` : 'в течение дня и более (расстояние уточняет диспетчер)';
+  const deliveryStr = deliveryMinutes ? `${deliveryMinutes} мин` : 'в течение дня (расстояние уточняет диспетчер)';
 
   const intros = [
-    `Компания «АТР-СЕРВИС» предлагает аренду ${service.name_genitive} в ${city.name_prepositional} с подачей техники в течение 2 часов. Собственный парк, аттестованные машинисты и полный пакет документов — работаем в ${city.name_prepositional} и прилегающих районах Московской области с 2009 года.`,
-    `Требуется ${service.name_singular} в ${city.name_prepositional}? «АТР-СЕРВИС» подаст технику за 2 часа: до объекта ${city.distance_km} км от МКАД по ${hw}, стоимость известна до выезда и фиксируется в заявке.`,
+    `Компания «АТР-СЕРВИС» предлагает аренду ${service.name_genitive} в ${city.name_prepositional} с гарантией подачи от 30 минут до 2 часов. Собственный парк, аттестованные машинисты и полный пакет документов — работаем в ${city.name_prepositional} и прилегающих районах Московской области с 2009 года.`,
+    `Требуется ${service.name_singular} в ${city.name_prepositional}? «АТР-СЕРВИС» подаст технику оперативно: до объекта ${city.distance_km} км от МКАД по ${hw}, стоимость известна до выезда и фиксируется в заявке.`,
     `Аренда ${service.name_genitive} в ${city.name_prepositional} — востребованная услуга для строительных, монтажных и коммунальных работ. «АТР-СЕРВИС» предоставляет ${adjEqAcc} технику с экипажем для объектов по ${hw} и в соседних округах.`,
   ];
   const intro = getDeterministic(intros, seed + 'i');
@@ -77,7 +77,8 @@ export function generateSeoContent({ service, city, minPrice, deliveryMinutes }:
   const districtsLine = city.districts?.length
     ? ` Работаем во всех районах: ${city.districts.slice(0, 3).join(', ')}.`
     : '';
-  const cityBlock = `${city.name} — город с населением около ${Math.round(city.population / 1000)} тыс. человек в ${city.distance_km} км от МКАД по ${hw}. ${tr1} мы учитываем специфику местных дорог, ограничения по высоте и требования администраций к производству работ, поэтому подача занимает в среднем ${deliveryStr} минут.${districtsLine}`;
+  
+  const cityBlock = `${city.name} — город с населением около ${Math.round(city.population / 1000)} тыс. человек в ${city.distance_km} км от МКАД по ${hw}. ${tr1} мы учитываем специфику местных дорог, ограничения по высоте и требования администраций к производству работ, поэтому подача занимает в среднем ${deliveryStr}.${districtsLine}`;
 
   const priceBlock = minPrice
     ? `Цена аренды ${service.name_genitive} в ${city.name_prepositional} начинается от ${priceStr} ₽ за смену (7+1 часов) при наличном расчёте. ${tr2} в стоимость включены работа машиниста, топливо и подача; пробег за МКАД тарифицируется отдельно, расчёт для ООО и ИП — в калькуляторе выше.`

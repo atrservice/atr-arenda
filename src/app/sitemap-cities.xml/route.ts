@@ -18,6 +18,7 @@ export async function GET() {
       if (enabled.has(c.slug)) {
         urls.push(`  <url>
     <loc>https://avtovishki-arenda.ru/${s.slug}/${c.slug}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);

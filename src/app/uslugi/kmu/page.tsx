@@ -56,7 +56,7 @@ export default async function KmuPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       <section id="alice-answer" className="sr-only" aria-hidden="true">
-        <h1>Аренда КМУ ООО «АТР-СЕРВИС»</h1>
+        <h2>Аренда КМУ ООО «АТР-СЕРВИС»</h2>
         <p>{aliceAnswer}</p>
       </section>
 

@@ -4,23 +4,23 @@
   "rules": [
     {
       "path": "/uslugi",
-      "index": false,
-      "reason": "Страница-заглушка, дорабатывается"
+      "index": true,
+      "reason": "Хаб услуг открыт для индексации (D-027): nofollow блокировал обход /uslugi/*"
     },
     {
       "path": "/policy",
       "index": false,
-      "reason": "Юридическая страница ещё не готова"
+      "reason": "Юридическая страница"
     },
     {
       "path": "/terms",
       "index": false,
-      "reason": "Юридическая страница ещё не готова"
+      "reason": "Юридическая страница"
     },
     {
       "path": "/rekvizity",
       "index": false,
-      "reason": "Страница в разработке"
+      "reason": "Юридическая страница"
     }
   ]
 }

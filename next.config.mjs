@@ -41,6 +41,13 @@ const nextConfig = {
         destination: 'https://avtovishki-arenda.ru/:path*',
         permanent: true,
       },
+            // Старый Joomla-сайт на домене 14 лет — сохраняем ссылочную массу
+      { source: '/arenda-avtovyshki-dlia-kommunalnykh-rabot', destination: '/uslugi/avtovyshki', permanent: true },
+      { source: '/arenda-avtovyshki-dlia-reklamnykh-agenstv', destination: '/uslugi/avtovyshki', permanent: true },
+      { source: '/arenda-avtovyshki-i-perechen-vypolniaemykh-rabot', destination: '/uslugi/avtovyshki', permanent: true },
+      { source: '/arendovannye-avtovyshki-pokoriaiut-liubuiu-vysotu', destination: '/uslugi/avtovyshki', permanent: true },
+      { source: '/avtovishki/contacts', destination: '/kontakty', permanent: true },
+      { source: '/index.php', destination: '/', permanent: true },
     ];
   },
 };

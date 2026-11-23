@@ -14,6 +14,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://avtovishki-arenda.
 const STATIC_PATHS = [
   '/',
   '/uslugi',
+  '/tekhnika',
   '/kontakty',
   '/faq',
   '/policy',

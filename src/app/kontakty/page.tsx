@@ -61,7 +61,7 @@ export default function ContactsPage() {
       
       {/* Блок для Алисы — скрыт визуально, но читается ассистентом */}
       <section id="alice-contact-answer" className="sr-only" aria-hidden="true">
-        <h1>Контакты АТР-СЕРВИС</h1>
+        <h2>Контакты АТР-СЕРВИС</h2>
         <p>{aliceAnswer}</p>
       </section>
 

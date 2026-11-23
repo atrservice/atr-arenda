@@ -56,7 +56,7 @@ export default async function PrikrytiePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       
       <section id="alice-answer" className="sr-only" aria-hidden="true">
-        <h1>Машины прикрытия ООО «АТР-СЕРВИС»</h1>
+        <h2>Машины прикрытия ООО «АТР-СЕРВИС»</h2>
         <p>{aliceAnswer}</p>
       </section>
 
