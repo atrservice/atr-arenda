@@ -14,7 +14,7 @@ import ContactForm from '@/components/ContactForm';
 import ContactLink from '@/components/ContactLink';
 import SocialIcons from '@/components/SocialIcons'; // ✅ Новый клиентский компонент
 import { CONTACTS } from '@/lib/contacts';
-import { generateOrganizationSchema, generateSpeakableSchema } from '@/lib/schema-org';
+import { generateOrganizationSchema, generateSpeakableSchema, generateBreadcrumbSchema } from '@/lib/schema-org';
 import Link from 'next/link';
 import { getPageMetadata } from '@/lib/indexing';
 
@@ -44,6 +44,10 @@ export default function ContactsPage() {
     url: 'https://avtovishki-arenda.ru/kontakty',
     selectors: ['#alice-contact-answer']
   });
+    const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Главная', url: 'https://avtovishki-arenda.ru' },
+    { name: 'Контакты', url: 'https://avtovishki-arenda.ru/kontakty' },
+  ]);
 
   // 🔹 Текст для Алисы — с динамическими контактами из .env
   const aliceAnswer = `
@@ -58,6 +62,7 @@ export default function ContactsPage() {
       {/* Микроразметка для поисковиков */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       
       {/* Блок для Алисы — скрыт визуально, но читается ассистентом */}
       <section id="alice-contact-answer" className="sr-only" aria-hidden="true">
@@ -223,31 +228,24 @@ export default function ContactsPage() {
               
               {/* 🗺️ Яндекс.Карта — с иконкой (fill + правильный контейнер) */}
               <div className="card overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <div className="text-center p-4">
-                    {/* Иконка карты: fill + контейнер с размерами */}
-                    <div className="relative w-16 h-16 mx-auto mb-3">
-                      <Image 
-                        src="/images/icons/icon_map.svg" 
-                        alt="Карта"
-                        fill
-                        className="object-contain opacity-70"
-                        sizes="64px"
-                      />
-                    </div>
-                    <p className="font-medium text-gray-700 mb-2">Интерактивная карта</p>
-                    <a 
-                      href={`https://yandex.ru/maps/?text=${encodeURIComponent(CONTACTS.address)}`}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 hover:underline transition-colors"
-                    >
-                      Открыть карту в новом окне →
-                    </a>
-                    <p className="text-xs text-gray-500 mt-2">
-                      Координаты: 55.8833, 37.5167
-                    </p>
-                  </div>
+                <div className="aspect-video relative bg-gray-100">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/?ll=37.505875%2C55.885221&z=16&pt=37.505875,55.885221,pm2rdm"
+                    title={`Карта: ${CONTACTS.address}`}
+                    loading="lazy"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full border-0"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <a
+                    href="https://yandex.ru/maps/org/1042134544/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 hover:underline text-sm"
+                  >
+                    Открыть в Яндекс.Картах →
+                  </a>
                 </div>
               </div>
 

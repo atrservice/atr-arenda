@@ -2,9 +2,8 @@
 
 // ========================================
 // Файл: src/components/ContactForm.tsx
-// Описание: Форма заявки с валидацией и Яндекс.Метрикой
+// Описание: Форма заявки с валидацией, Яндекс.Метрикой и отправкой в Telegram
 // Проект: АТР-СЕРВИС
-// Контакты: берутся из .env.local через @/lib/contacts
 // ========================================
 
 import { useState, FormEvent } from 'react';
@@ -18,6 +17,7 @@ interface FormData {
   equipment: string;
   message: string;
   consent: boolean;
+  honeypot: string; // 🔹 Добавлено для защиты от ботов
 }
 
 interface FormErrors {
@@ -32,14 +32,15 @@ export default function ContactForm() {
     phone: '',
     equipment: 'avtovyshka',
     message: '',
-    consent: false
+    consent: false,
+    honeypot: '', // 🔹 Инициализация
   });
   
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null); // 🔹 Состояние ошибки
 
-  // 🔹 Форматирование телефона: +7 (___) ___-__-__
   const formatPhone = (value: string): string => {
     const digits = value.replace(/\D/g, '').slice(0, 11);
     if (!digits) return '';
@@ -50,62 +51,75 @@ export default function ContactForm() {
     return `+7 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9)}`;
   };
 
-  // 🔹 Валидация формы
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Введите ваше имя';
-    }
-    
-    // ✅ ИСПРАВЛЕННАЯ РЕГУЛЯРКА: \+ вместо +
+    if (!formData.name.trim()) newErrors.name = 'Введите ваше имя';
     if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(formData.phone)) {
       newErrors.phone = 'Введите телефон в формате +7 (___) ___-__-__';
     }
-    
-    if (!formData.consent) {
-      newErrors.consent = 'Необходимо согласие на обработку данных';
-    }
+    if (!formData.consent) newErrors.consent = 'Необходимо согласие на обработку данных';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
+8  };
 
-  // 🔹 Обработчик отправки
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitError(null); // Сброс предыдущих ошибок
     
     if (!validate()) return;
     
     setIsSubmitting(true);
     
-    // 🔹 ЗАГЛУШКА: здесь будет fetch('/api/submit', ...)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    
-    // 🔹 Отправка цели в Яндекс.Метрику
-    trackMetricaGoal('form_submit', {
-      equipment_selected: formData.equipment,
-      phone_digits: formData.phone.replace(/\D/g, '').slice(2),
-      timestamp: new Date().toISOString(),
-    });
-    
-    // Сброс формы
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        phone: '',
-        equipment: 'avtovyshka',
-        message: '',
-        consent: false
+    try {
+      // 🔹 РЕАЛЬНЫЙ ВЫЗОВ API
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          service: formData.equipment, // Маппим equipment на service для API
+          message: formData.message,
+          honeypot: formData.honeypot, // 🔹 Отправляем honeypot
+        }),
       });
-      setIsSuccess(false);
-    }, 3000);
+
+      const result = await response.json();
+
+      if (result.ok) {
+        setIsSuccess(true);
+        
+        trackMetricaGoal('form_submit', {
+          equipment_selected: formData.equipment,
+          phone_digits: formData.phone.replace(/\D/g, '').slice(2),
+          timestamp: new Date().toISOString(),
+        });
+        
+        // Сброс формы через 5 секунд (увеличил время, чтобы пользователь успел прочитать)
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            phone: '',
+            equipment: 'avtovyshka',
+            message: '',
+            consent: false,
+            honeypot: '',
+          });
+          setIsSuccess(false);
+        }, 5000);
+      } else {
+        setSubmitError('Ошибка отправки. Пожалуйста, позвоните нам напрямую.');
+        console.error('API Lead Error:', result.error);
+      }
+    } catch (error) {
+      setSubmitError('Ошибка сети. Пожалуйста, позвоните нам напрямую.');
+      console.error('Fetch Lead Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  // 🔹 Обработчик изменений
   const handleChange = (field: keyof FormData, value: string | boolean) => {
     setFormData(prev => ({
       ...prev,
@@ -116,10 +130,9 @@ export default function ContactForm() {
     }
   };
 
-  // ✅ Экран успеха
   if (isSuccess) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+      <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center animate-fade-in">
         <div className="text-4xl mb-3">✅</div>
         <h3 className="text-xl font-bold text-green-800 mb-2">Заявка отправлена!</h3>
         <p className="text-green-700">
@@ -133,53 +146,33 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       {/* Имя */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-          Ваше имя *
-        </label>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Ваше имя *</label>
         <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
+          type="text" id="name" name="name" value={formData.name}
           onChange={(e) => handleChange('name', e.target.value)}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'
-          } focus:outline-none focus:ring-2 transition`}
-          placeholder="Иван Иванов"
-          required
+          className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition`}
+          placeholder="Иван Иванов" required
         />
         {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
       </div>
 
       {/* Телефон */}
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-          Телефон *
-        </label>
+        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Телефон *</label>
         <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
+          type="tel" id="phone" name="phone" value={formData.phone}
           onChange={(e) => handleChange('phone', e.target.value)}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'
-          } focus:outline-none focus:ring-2 transition`}
-          placeholder="+7 (___) ___-__-__"
-          required
+          className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'} focus:outline-none focus:ring-2 transition`}
+          placeholder="+7 (___) ___-__-__" required
         />
         {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
       </div>
 
       {/* Тип техники */}
       <div>
-        <label htmlFor="equipment" className="block text-sm font-medium text-gray-700 mb-1">
-          Какая техника нужна?
-        </label>
+        <label htmlFor="equipment" className="block text-sm font-medium text-gray-700 mb-1">Какая техника нужна?</label>
         <select
-          id="equipment"
-          name="equipment"
-          value={formData.equipment}
+          id="equipment" name="equipment" value={formData.equipment}
           onChange={(e) => handleChange('equipment', e.target.value)}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         >
@@ -193,17 +186,24 @@ export default function ContactForm() {
 
       {/* Сообщение */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Комментарий к заказу
-        </label>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Комментарий к заказу</label>
         <textarea
-          id="message"
-          name="message"
-          value={formData.message}
+          id="message" name="message" value={formData.message}
           onChange={(e) => handleChange('message', e.target.value)}
           rows={3}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
           placeholder="Адрес объекта, даты, особенности работ..."
+        />
+        {/* 🔹 HONEYPOT: Скрытое поле для ботов. Люди его не видят и не заполняют. */}
+        <input
+          type="text"
+          name="honeypot"
+          value={formData.honeypot}
+          onChange={(e) => handleChange('honeypot', e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          className="absolute opacity-0 pointer-events-none h-0 w-0"
+          aria-hidden="true"
         />
       </div>
 
@@ -211,9 +211,7 @@ export default function ContactForm() {
       <div>
         <label className="flex items-start gap-3 cursor-pointer">
           <input
-            type="checkbox"
-            name="consent"
-            checked={formData.consent}
+            type="checkbox" name="consent" checked={formData.consent}
             onChange={(e) => handleChange('consent', e.target.checked)}
             className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
             required
@@ -225,23 +223,28 @@ export default function ContactForm() {
         {errors.consent && <p className="mt-1 text-sm text-red-600">{errors.consent}</p>}
       </div>
 
+      {/* 🔹 Блок ошибки отправки */}
+      {submitError && (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+          <p className="text-red-700 font-medium">{submitError}</p>
+          <p className="text-sm text-red-600 mt-1">
+            Или позвоните нам: <ContactLink type="phone" className="font-bold underline" showIcon={false} />
+          </p>
+        </div>
+        )}
+
       {/* Кнопка */}
       <button
-        type="submit"
-        disabled={isSubmitting}
+        type="submit" disabled={isSubmitting}
         className="w-full btn btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
-          <>
-            <span className="animate-spin">⏳</span>
-            Отправка...
-          </>
+          <><span className="animate-spin">⏳</span> Отправка...</>
         ) : (
           '📞 Заказать звонок'
         )}
       </button>
 
-      {/* Подсказка с контактами — теперь шаблонизировано! */}
       <p className="text-xs text-gray-500 text-center space-x-2">
         <span>Или свяжитесь напрямую:</span>
         <ContactLink type="phone" className="font-medium" showIcon={false} />

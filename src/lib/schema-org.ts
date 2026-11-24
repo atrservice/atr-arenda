@@ -22,13 +22,13 @@ export const generateOrganizationSchema = () => ({
     "@type": "PostalAddress",
     "streetAddress": CONTACTS.address,
     "addressLocality": "Москва",
-    "postalCode": "125445",
+    "postalCode": "125599",
     "addressCountry": "RU"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 55.8833,
-    "longitude": 37.5167
+    "latitude": 55.885221,
+    "longitude": 37.505875
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
